@@ -1,10 +1,11 @@
-import './App.css';
+import "./App.css";
+import Main from "./components/Main/Header.js";
 
 function App() {
   return (
-   <div>
-		<h1>Hello</h1>
-	 </div>
+    <div>
+      <Main />
+    </div>
   );
 }
 
