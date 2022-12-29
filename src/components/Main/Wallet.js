@@ -1,10 +1,20 @@
 import React from "react";
-import { Name } from "./Style";
+import { Name, Container, LinkRight, ArrowContainer } from "./Style";
+import { Link } from "../Buttons/Style";
+import ArrowBox from "../../components/icons/ArrowBox";
 
 export default function Wallet() {
   return (
-    <div>
-      <Name>Ваш кошелёк</Name>
-    </div>
+    <Container>
+      <Name>
+        Ваш кошелёк<Link>см. отчёт</Link>
+      </Name>
+      <LinkRight>
+        Все балансы
+        <ArrowContainer>
+          <ArrowBox />
+        </ArrowContainer>
+      </LinkRight>
+    </Container>
   );
 }

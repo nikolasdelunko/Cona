@@ -6,7 +6,7 @@ import Question from "../icons/Question";
 import { LinkBox, Header } from "./Style";
 import {BtnOutline} from '../Buttons/Style'
 
-export default function Main() {
+export default function Head() {
   return (
     <div>
       <Header>
