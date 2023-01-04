@@ -33,6 +33,7 @@ export const BtnText = styled.p`
 
 export const BtnIn = styled.div`
   display: flex;
+  align-items: center;
   gap: 4px;
 `;
 
