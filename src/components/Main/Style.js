@@ -103,3 +103,18 @@ export const SumOpen = styled.p`
   color: #ed2e7e;
   margin: 0 3px;
 `;
+
+export const FootLink = styled.p`
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 150%;
+  color: rgba(34, 44, 219, 0.62);
+  cursor: pointer;
+`;
+
+export const FootBox = styled.div`
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 12px;
+`;
