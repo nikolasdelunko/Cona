@@ -9,8 +9,7 @@ export const BtnOutline = styled.button`
   cursor: pointer;
 `;
 export const BtnPrimary = styled.button`
-  width: 111px;
-  height: 34px;
+  width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;

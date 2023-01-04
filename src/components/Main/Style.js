@@ -45,6 +45,10 @@ export const Content = styled.div`
   ${"" /* margin-top: 18px; */}
 `;
 
+export const MainContainer = styled.div`
+  margin-top: 44px;
+`;
+
 export const ContentBlock = styled.div`
   display: flex;
   flex-direction: column;
@@ -87,4 +91,15 @@ export const SumProc = styled.p`
   text-align: right;
   color: #ed2e7e;
   margin: 0 0 0 3px;
+`;
+
+export const SumOpen = styled.p`
+  font-family: "Source Sans Pro";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 150%;
+  text-align: right;
+  color: #ed2e7e;
+  margin: 0 3px;
 `;
