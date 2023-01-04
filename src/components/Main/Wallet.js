@@ -15,8 +15,12 @@ import {
 import { Link, BtnPrimary, BtnText, BtnIn } from "../Buttons/Style";
 import ArrowBox from "../../components/icons/ArrowBox";
 import Deposit from "../../components/icons/Deposit";
+import { useDispatch } from "react-redux";
+import { openModal } from "../../store/helpers/helpersSlice";
 
 export default function Wallet() {
+  const dispatch = useDispatch();
+
   const data = {
     Balance: "98.5 USDT",
     USDT: "32 USDT",
@@ -43,7 +47,14 @@ export default function Wallet() {
           <ContentName>Общий баланс</ContentName>
           <ContentName>Баланс USDT</ContentName>
           <ContentName>
-            Баланс KLK<Link>купить индекс</Link>
+            Баланс KLK
+            <Link
+              onClick={() => {
+                dispatch(openModal(true));
+              }}
+            >
+              купить индекс
+            </Link>
           </ContentName>
           <ContentName>
             Баланс KLD<Link>купить индекс</Link>
@@ -76,7 +87,12 @@ export default function Wallet() {
           </ContentBlock>
         </ContentCont>
         <Content>
-          <BtnPrimary><BtnIn><BtnText>Пополнить</BtnText><Deposit/></BtnIn></BtnPrimary>
+          <BtnPrimary>
+            <BtnIn>
+              <BtnText>Пополнить</BtnText>
+              <Deposit />
+            </BtnIn>
+          </BtnPrimary>
         </Content>
       </Container>
     </Content>
