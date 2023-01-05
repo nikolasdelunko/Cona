@@ -10,7 +10,7 @@ import {
   ContentCont,
   CenterBlock,
 } from "./Style";
-import { Link, BtnPrimary, BtnText, BtnIn } from "../Buttons/Style";
+import { Link, BtnPrimary, BtnText, BtnIn } from "../Style/Buttons";
 import LinkIco from "../../components/icons/Link";
 
 export default function Wallet() {
@@ -53,10 +53,10 @@ export default function Wallet() {
         </ContentCont>
         <Content>
           <BtnPrimary>
-              <BtnIn>
-                <BtnText>Пригласить партнёра</BtnText>
-                <LinkIco />
-              </BtnIn>
+            <BtnIn>
+              <BtnText>Пригласить партнёра</BtnText>
+              <LinkIco />
+            </BtnIn>
           </BtnPrimary>
         </Content>
       </Container>

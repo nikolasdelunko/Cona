@@ -12,7 +12,7 @@ import {
   ContentBlock,
   ContentCont,
 } from "./Style";
-import { Link, BtnPrimary, BtnText, BtnIn } from "../Buttons/Style";
+import { Link, BtnPrimary, BtnText, BtnIn } from "../Style/Buttons";
 import Rocket from "../../components/icons/Rocket";
 
 export default function Wallet() {

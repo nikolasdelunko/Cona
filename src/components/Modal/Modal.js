@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Cross from "../icons/Cross";
 import { useDispatch } from "react-redux";
 import { openModal } from "../../store/helpers/helpersSlice";
-import { BtnPrimary, BtnText } from "../Buttons/Style";
+import { BtnPrimary, BtnText } from "../Style/Buttons";
 
 const ModalDiv = styled.div`
   display: block;
@@ -59,7 +59,7 @@ const FooterBtn = styled.div`
 export default function Modal({ name, children, btnName }) {
   const dispatch = useDispatch();
 
-	const balance = false
+  const balance = false;
   return (
     <ModalDiv
       onClick={(e) => {
@@ -79,13 +79,15 @@ export default function Modal({ name, children, btnName }) {
           </div>
         </HeaderDiv>
         {children}
-        {!balance && <Footer>
-          <FooterBtn>
-            <BtnPrimary>
-              <BtnText>{btnName}</BtnText>
-            </BtnPrimary>
-          </FooterBtn>
-        </Footer>}
+        {!balance && (
+          <Footer>
+            <FooterBtn>
+              <BtnPrimary>
+                <BtnText>{btnName}</BtnText>
+              </BtnPrimary>
+            </FooterBtn>
+          </Footer>
+        )}
       </ContentDiv>
     </ModalDiv>
   );

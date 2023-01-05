@@ -12,7 +12,7 @@ import {
   ContentBlock,
   ContentCont,
 } from "./Style";
-import { Link, BtnPrimary, BtnText, BtnIn } from "../Buttons/Style";
+import { Link, BtnPrimary, BtnText, BtnIn } from "../Style/Buttons";
 import ArrowBox from "../../components/icons/ArrowBox";
 import Deposit from "../../components/icons/Deposit";
 import { useDispatch } from "react-redux";
@@ -50,7 +50,15 @@ export default function Wallet() {
             Баланс KLK
             <Link
               onClick={() => {
-                dispatch(openModal(true));
+                dispatch(
+                  openModal({
+                    open: true,
+                    page: "AssetExchange",
+                    name: "Обмен активов",
+                    btnName: "Подтвердить",
+                    placeHolder: "Поиск актива",
+                  })
+                );
               }}
             >
               купить индекс

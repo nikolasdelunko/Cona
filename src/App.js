@@ -2,6 +2,7 @@ import "./App.css";
 import Main from "./pages/Main";
 import Modal from "./components/Modal/Modal";
 import { useSelector } from "react-redux";
+import Faq from "./components/Faq/Faq"
 
 function App() {
   const modal = useSelector((state) => state.helpers.modal);
@@ -9,10 +10,8 @@ function App() {
     <div>
       <Main />
       {modal && (
-        <Modal name={"Все балансы"} btnName={"Смотреть по порядку"}>
-          <div>
-            <p>asdadsds</p>
-          </div>
+        <Modal name={modal.name} btnName={modal.btnName}>
+          {modal.page === "FAQ" && <Faq placeHolder={modal.placeHolder} />}
         </Modal>
       )}
     </div>
