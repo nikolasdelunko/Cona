@@ -1,12 +1,15 @@
 import "./App.css";
 import Main from "./pages/Main";
 import Modal from "./components/Modal/Modal";
+import Message from "./components/Modal/Message";
 import { useSelector } from "react-redux";
 import Faq from "./components/Faq/Faq";
 import Balance from "./components/Balance/Balance";
 
 function App() {
   const modal = useSelector((state) => state.helpers.modal);
+	const message = useSelector((state) => state.helpers.message);
+
   return (
     <div>
       <Main />
@@ -18,6 +21,8 @@ function App() {
           )}
         </Modal>
       )}
+
+			{message && <Message error={message.error} text={message.text} />}
     </div>
   );
 }

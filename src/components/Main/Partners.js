@@ -12,8 +12,10 @@ import {
 } from "./Style";
 import { Link, BtnPrimary, BtnText, BtnIn } from "../Style/Buttons";
 import LinkIco from "../../components/icons/Link";
+import useMessage from "../../utils/CustomHooks/useMessage";
 
 export default function Wallet() {
+	const { showMessage } = useMessage();
   const data = {
     All: "12412 USDT",
     Current: "5321 USDT",
@@ -54,7 +56,7 @@ export default function Wallet() {
         <Content>
           <BtnPrimary>
             <BtnIn>
-              <BtnText>Пригласить партнёра</BtnText>
+              <BtnText onClick={()=>showMessage(true, "Ссылка успешно скопирована", "chevron-up-small")}>Пригласить партнёра</BtnText>
               <LinkIco />
             </BtnIn>
           </BtnPrimary>

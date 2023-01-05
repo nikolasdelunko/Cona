@@ -18,8 +18,10 @@ import Deposit from "../../components/icons/Deposit";
 import { useDispatch } from "react-redux";
 import { openModal } from "../../store/helpers/helpersSlice";
 
+
 export default function Wallet() {
   const dispatch = useDispatch();
+
 
   const data = {
     Balance: "98.5 USDT",
