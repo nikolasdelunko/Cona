@@ -26,7 +26,8 @@ export default function Head() {
                 page: "FAQ",
                 name: "База знаний",
                 btnName: "Смотреть по порядку",
-								placeHolder: "Поиск интересующего вопроса"
+								placeHolder: "Поиск интересующего вопроса",
+								link: "https://www.youtube.com/watch?v=eOnHUqqQH8o&list=PLRzHyAWREOrP6nBq0Bfwvcn0qi9nPmZBo"
               })
             );
           }}

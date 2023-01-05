@@ -57,6 +57,7 @@ export default function Wallet() {
                     name: "Обмен активов",
                     btnName: "Подтвердить",
                     placeHolder: "Поиск актива",
+                    link: "",
                   })
                 );
               }}
