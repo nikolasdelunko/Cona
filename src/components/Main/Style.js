@@ -109,7 +109,7 @@ export const FootLink = styled.p`
   font-weight: 400;
   font-size: 10px;
   line-height: 150%;
-  color: rgba(34, 44, 219, 0.62);
+  color: rgba(255, 110, 0, 0.62);
   cursor: pointer;
 `;
 

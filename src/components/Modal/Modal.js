@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Cross from "../icons/Cross";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { openModal } from "../../store/helpers/helpersSlice";
 import { BtnPrimary, BtnText } from "../Style/Buttons";
 
@@ -24,6 +24,9 @@ const ContentDiv = styled.div`
   max-height: 80%;
   transform: translate(-50%, -50%);
   background: white;
+	overflow: scroll;
+  overflow-x: hidden;
+  overflow-y: auto;
 `;
 
 const HeaderDiv = styled.div`
@@ -58,8 +61,8 @@ const FooterBtn = styled.div`
 
 export default function Modal({ name, children, btnName }) {
   const dispatch = useDispatch();
+  const modal = useSelector((state) => state.helpers.modal);
 
-  const balance = false;
   return (
     <ModalDiv
       onClick={(e) => {
@@ -79,7 +82,7 @@ export default function Modal({ name, children, btnName }) {
           </div>
         </HeaderDiv>
         {children}
-        {!balance && (
+        {modal.btnName && (
           <Footer>
             <FooterBtn>
               <BtnPrimary>

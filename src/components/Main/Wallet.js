@@ -35,7 +35,20 @@ export default function Wallet() {
         <Name>
           Ваш кошелёк<Link>см. отчёт</Link>
         </Name>
-        <LinkRight>
+        <LinkRight
+          onClick={() => {
+            dispatch(
+              openModal({
+                open: true,
+                page: "AllBalance",
+                name: "Все балансы",
+                btnName: null,
+                placeHolder: "Поиск актива",
+                link: null,
+              })
+            );
+          }}
+        >
           Все балансы
           <ArrowContainer>
             <ArrowBox />
@@ -99,7 +112,7 @@ export default function Wallet() {
           <BtnPrimary>
             <BtnIn>
               <BtnText>Пополнить</BtnText>
-              <Deposit />
+              <Deposit color={'white'} style={{padding: "0 0 2px 0"}} />
             </BtnIn>
           </BtnPrimary>
         </Content>
