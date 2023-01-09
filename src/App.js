@@ -4,11 +4,12 @@ import Modal from "./components/Modal/Modal";
 import Message from "./components/Modal/Message";
 import { useSelector } from "react-redux";
 import Faq from "./components/Faq/Faq";
+import Exchange from "./components/Exchannge/Exchange";
 import Balance from "./components/Balance/Balance";
 
 function App() {
   const modal = useSelector((state) => state.helpers.modal);
-	const message = useSelector((state) => state.helpers.message);
+  const message = useSelector((state) => state.helpers.message);
 
   return (
     <div>
@@ -19,10 +20,16 @@ function App() {
           {modal.page === "AllBalance" && (
             <Balance placeHolder={modal.placeHolder} />
           )}
+          {modal.page === "AssetExchange" && (
+            <Exchange
+              placeHolder={modal.placeHolder}
+              sellCurrency={modal.link}
+            />
+          )}
         </Modal>
       )}
 
-			{message && <Message error={message.error} text={message.text} />}
+      {message && <Message error={message.error} text={message.text} />}
     </div>
   );
 }

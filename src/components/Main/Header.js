@@ -5,11 +5,10 @@ import Instagram from "../icons/Instagram";
 import Question from "../icons/Question";
 import { LinkBox, Header } from "./Style";
 import { BtnOutline } from "../Style/Buttons";
-import { useDispatch } from "react-redux";
-import { openModal } from "../../store/helpers/helpersSlice";
+import useModal from "../../utils/CustomHooks/useModal";
 
 export default function Head() {
-  const dispatch = useDispatch();
+  const { showModal } = useModal();
   return (
     <div>
       <Header>
@@ -20,15 +19,13 @@ export default function Head() {
         </LinkBox>
         <BtnOutline
           onClick={() => {
-            dispatch(
-              openModal({
-                open: true,
-                page: "FAQ",
-                name: "База знаний",
-                btnName: "Смотреть по порядку",
-								placeHolder: "Поиск интересующего вопроса",
-								link: "https://www.youtube.com/watch?v=eOnHUqqQH8o&list=PLRzHyAWREOrP6nBq0Bfwvcn0qi9nPmZBo"
-              })
+            showModal(
+              true,
+              "FAQ",
+              "База знаний",
+              "Смотреть по порядку",
+              "Поиск интересующего вопроса",
+              "https://www.youtube.com/watch?v=eOnHUqqQH8o&list=PLRzHyAWREOrP6nBq0Bfwvcn0qi9nPmZBo"
             );
           }}
         >

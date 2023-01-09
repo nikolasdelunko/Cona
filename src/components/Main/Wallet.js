@@ -15,13 +15,10 @@ import {
 import { Link, BtnPrimary, BtnText, BtnIn } from "../Style/Buttons";
 import ArrowBox from "../../components/icons/ArrowBox";
 import Deposit from "../../components/icons/Deposit";
-import { useDispatch } from "react-redux";
-import { openModal } from "../../store/helpers/helpersSlice";
-
+import useModal from "../../utils/CustomHooks/useModal";
 
 export default function Wallet() {
-  const dispatch = useDispatch();
-
+  const { showModal } = useModal();
 
   const data = {
     Balance: "98.5 USDT",
@@ -39,15 +36,13 @@ export default function Wallet() {
         </Name>
         <LinkRight
           onClick={() => {
-            dispatch(
-              openModal({
-                open: true,
-                page: "AllBalance",
-                name: "Все балансы",
-                btnName: null,
-                placeHolder: "Поиск актива",
-                link: null,
-              })
+            showModal(
+              true,
+              "AllBalance",
+              "Все балансы",
+              null,
+              "Поиск актива",
+              null
             );
           }}
         >
@@ -65,15 +60,13 @@ export default function Wallet() {
             Баланс KLK
             <Link
               onClick={() => {
-                dispatch(
-                  openModal({
-                    open: true,
-                    page: "AssetExchange",
-                    name: "Обмен активов",
-                    btnName: "Подтвердить",
-                    placeHolder: "Поиск актива",
-                    link: "",
-                  })
+                showModal(
+                  true,
+                  "AssetExchange",
+                  "Обмен активов",
+                  "Подтвердить",
+                  "Поиск актива",
+                  "KLK"
                 );
               }}
             >
@@ -81,7 +74,18 @@ export default function Wallet() {
             </Link>
           </ContentName>
           <ContentName>
-            Баланс KLD<Link>купить индекс</Link>
+            Баланс KLD<Link
+						 onClick={() => {
+                showModal(
+                  true,
+                  "AssetExchange",
+                  "Обмен активов",
+                  "Подтвердить",
+                  "Поиск актива",
+                  "KLD"
+                );
+              }}
+						>купить индекс</Link>
           </ContentName>
           <ContentName>Пополнено/выведено</ContentName>
         </Content>
@@ -114,7 +118,7 @@ export default function Wallet() {
           <BtnPrimary>
             <BtnIn>
               <BtnText>Пополнить</BtnText>
-              <Deposit color={'white'} style={{padding: "0 0 2px 0"}} />
+              <Deposit color={"white"} style={{ padding: "0 0 2px 0" }} />
             </BtnIn>
           </BtnPrimary>
         </Content>
