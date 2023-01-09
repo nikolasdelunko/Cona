@@ -7,9 +7,10 @@ export const BtnOutline = styled.button`
   color: #ff6e00;
   padding: 0.25em 1em;
   cursor: pointer;
+  height: ${(props) => (props.primary ? "25px" : "none")};
 `;
 export const BtnPrimary = styled.button`
-  ${'' /* width: 100%; */}
+  ${"" /* width: 100%; */}
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -22,6 +23,7 @@ export const BtnPrimary = styled.button`
   border-radius: 3px;
   border: none;
   cursor: pointer;
+  height: ${(props) => (props.primary ? "25px" : "none")};
 `;
 
 export const BtnText = styled.p`

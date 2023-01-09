@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import Faq from "./components/Faq/Faq";
 import Exchange from "./components/Exchannge/Exchange";
 import Balance from "./components/Balance/Balance";
+import Report from "./components/Report/Report";
 
 function App() {
   const modal = useSelector((state) => state.helpers.modal);
@@ -25,6 +26,9 @@ function App() {
               placeHolder={modal.placeHolder}
               sellCurrency={modal.link}
             />
+          )}
+          {modal.page === "Report" && (
+            <Report placeHolder={modal.placeHolder} />
           )}
         </Modal>
       )}

@@ -10,6 +10,7 @@ import SearchIco from "../icons/Search";
 import Upload from "../icons/Deposit";
 import Exchange from "../icons/Exchange";
 import SendIco from "../icons/Send";
+import useModal from "../../utils/CustomHooks/useModal";
 
 const data = [
   {
@@ -51,6 +52,7 @@ const data = [
 ];
 
 export default function Balance({ placeHolder }) {
+  const { showModal } = useModal();
   return (
     <div>
       <SearchBox>
@@ -63,7 +65,18 @@ export default function Balance({ placeHolder }) {
             <SearchP>{i.currency}</SearchP>
             <SearchDivRight>
               <SearchP>{i.balance}</SearchP>
-              <Exchange />
+							<div onClick={() => {
+                  showModal(
+                    true,
+                    "AssetExchange",
+                    "Обмен активов",
+                    "Подтвердить",
+                    "Поиск актива",
+                    i.currency
+                  );
+                }}>
+              <Exchange/>
+							</div>
               <SendIco style={{ width: "14px", height: "14px" }} />
               <Upload
                 color={"#ED2E7E"}

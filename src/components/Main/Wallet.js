@@ -32,7 +32,21 @@ export default function Wallet() {
     <Content>
       <Container>
         <Name>
-          Ваш кошелёк<Link>см. отчёт</Link>
+          Ваш кошелёк
+          <Link
+            onClick={() => {
+              showModal(
+                true,
+                "Report",
+                "Выписка по балансу",
+                "Скачать PDF",
+                "Фильтровать по названию актива",
+                null
+              );
+            }}
+          >
+            см. отчёт
+          </Link>
         </Name>
         <LinkRight
           onClick={() => {
@@ -74,8 +88,9 @@ export default function Wallet() {
             </Link>
           </ContentName>
           <ContentName>
-            Баланс KLD<Link
-						 onClick={() => {
+            Баланс KLD
+            <Link
+              onClick={() => {
                 showModal(
                   true,
                   "AssetExchange",
@@ -85,7 +100,9 @@ export default function Wallet() {
                   "KLD"
                 );
               }}
-						>купить индекс</Link>
+            >
+              купить индекс
+            </Link>
           </ContentName>
           <ContentName>Пополнено/выведено</ContentName>
         </Content>
