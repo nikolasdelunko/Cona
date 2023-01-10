@@ -9,7 +9,7 @@ import {
   Tbody,
   Week,
   Day,
-	DayName
+  DayName,
 } from "./Style";
 
 export default function DataPicker() {
@@ -33,6 +33,7 @@ export default function DataPicker() {
   ];
   const weekDayNames = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"];
   const date = new Date();
+  const toDay = date.getDate();
 
   const year = date.getFullYear();
   const currentMounth = date.getMonth();
@@ -128,6 +129,8 @@ export default function DataPicker() {
     console.log(selectedDate);
   };
 
+  const  hendledData = selectedDate?.date?.getDate()
+
   return (
     <MainDiv>
       <Header>
@@ -170,6 +173,12 @@ export default function DataPicker() {
                     date ? (
                       <Day
                         key={index}
+                        open={
+                          date?.getDate() == toDay ||
+                          date?.getDate() == hendledData
+                            ? "linear-gradient( 271.68deg, #ff6e00 0.42%, rgba(255,110,0,0.62) 94.87% )"
+                            : null
+                        }
                         onClick={(e) => {
                           handleDayClick(date);
                         }}

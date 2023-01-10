@@ -37,13 +37,7 @@ export const Day = styled.td`
   padding: 7.11905px 10.6786px;
   width: 35.6px;
   height: 38.24px;
-  background: ${(props) =>
-    props.primary
-      ? "linear-gradient( 271.68deg, #ff6e00 0.42%, rgba(255,110,0,0.62) 94.87% )"
-      : null};
-  ${
-    "" /* background: linear-gradient( 271.68deg, #ff6e00 0.42%, rgba(255,110,0,0.62) 94.87% ); */
-  }
+  background: ${(props) => props.open};
   border-radius: 7.11905px;
   font-family: "Poppins";
   font-style: normal;
@@ -51,7 +45,7 @@ export const Day = styled.td`
   font-size: 14px;
   line-height: 24px;
   align-items: center;
-  color: #ff750d;
+	color: ${(props) => props.open ?" #FFFFFF" : '#ff750d'};
 `;
 
 export const DayName = styled.th`
