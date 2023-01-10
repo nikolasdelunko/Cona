@@ -7,6 +7,7 @@ import Faq from "./components/Faq/Faq";
 import Exchange from "./components/Exchannge/Exchange";
 import Balance from "./components/Balance/Balance";
 import Report from "./components/Report/Report";
+import DataPicker from "./components/DatePicker/DataPicker";
 
 function App() {
   const modal = useSelector((state) => state.helpers.modal);
@@ -30,6 +31,8 @@ function App() {
           {modal.page === "Report" && (
             <Report placeHolder={modal.placeHolder} />
           )}
+
+          {modal.page === "DataPicker" && <DataPicker />}
         </Modal>
       )}
 

@@ -16,6 +16,7 @@ import DateIco from "../icons/Date";
 import { Search, SearchBox } from "../Style/Search";
 import SearchIco from "../icons/Search";
 import WinnerCup from "../icons/WinnerCup";
+import useModal from "../../utils/CustomHooks/useModal";
 
 const data = [
   {
@@ -49,6 +50,8 @@ const dataHistory = [
 
 export default function Report({ placeHolder }) {
   const [activeP, setActiveP] = useState(7);
+  const { showModal } = useModal();
+
   return (
     <ContentBox>
       <DayBox>
@@ -79,7 +82,11 @@ export default function Report({ placeHolder }) {
             90д
           </BtnOutline>
         )}
-        <BtnOutline>
+        <BtnOutline
+          onClick={() => {
+            showModal(true, "DataPicker", null, "Применить", null, null);
+          }}
+        >
           Выбрать дату <DateIco />
         </BtnOutline>
       </DayBox>
