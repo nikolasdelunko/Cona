@@ -33,7 +33,7 @@ export default function DataPicker() {
   ];
   const weekDayNames = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"];
   const date = new Date();
-  const toDay = date.getDate();
+  const toDay = date
 
   const year = date.getFullYear();
   const currentMounth = date.getMonth();
@@ -119,19 +119,21 @@ export default function DataPicker() {
       yearSelected?.current.value,
       monthSelected?.current.value
     );
-    setSelectedDate({ dateT });
+    setSelectedDate( dateT );
   };
 
   const handleDayClick = (date) => {
-    setSelectedDate({ date });
-    console.log(selectedDate);
+    setSelectedDate(date);
   };
 
-  // monthsData.map((week, index) =>
-  //   week.map((date, index) => (date ? console.log(date) : console.log("empty")))
-  // );
-
-  const hendledData = selectedDate?.date?.getDate();
+  const areEqual = (a, b) => {
+    if (!a || !b) return false;
+    return (
+      a.getFullYear() === b.getFullYear() &&
+      a.getMonth() === b.getMonth() &&
+      a.getDate() === b.getDate()
+    );
+  };
 
   return (
     <MainDiv>
@@ -176,10 +178,8 @@ export default function DataPicker() {
                       <Day
                         key={index}
                         open={
-                          date?.getDate() == toDay ||
-                          date?.getDate() == hendledData
-                            ? "linear-gradient( 271.68deg, #ff6e00 0.42%, rgba(255,110,0,0.62) 94.87% )"
-                            : null
+													areEqual(date, toDay) 
+                            && "linear-gradient( 271.68deg, #ff6e00 0.42%, rgba(255,110,0,0.62) 94.87% )"
                         }
                         onClick={(e) => {
                           handleDayClick(date);
@@ -199,6 +199,10 @@ export default function DataPicker() {
                     date ? (
                       <Day
                         key={index}
+												open={
+													areEqual(date, toDay) || areEqual(date, selectedDate)
+                            && true 
+                        }
                         onClick={(e) => {
                           handleDayClick(date);
                         }}
