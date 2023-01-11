@@ -80,7 +80,7 @@ export default function DataPicker() {
     }
   };
 
-  const getDayOfWeek = (dateA) => {
+  const getDayOfWeek = (date) => {
     const dayOfWeek = date.getDay();
 
     return WEEK_DAYS_FROM_MONDAY[dayOfWeek];
@@ -104,7 +104,6 @@ export default function DataPicker() {
         }
       }
     }
-
     return result;
   };
 
@@ -121,7 +120,6 @@ export default function DataPicker() {
       monthSelected?.current.value
     );
     setSelectedDate({ dateT });
-    console.log(selectedDate);
   };
 
   const handleDayClick = (date) => {
@@ -129,7 +127,11 @@ export default function DataPicker() {
     console.log(selectedDate);
   };
 
-  const  hendledData = selectedDate?.date?.getDate()
+  // monthsData.map((week, index) =>
+  //   week.map((date, index) => (date ? console.log(date) : console.log("empty")))
+  // );
+
+  const hendledData = selectedDate?.date?.getDate();
 
   return (
     <MainDiv>
@@ -204,7 +206,7 @@ export default function DataPicker() {
                         {date.getDate()}
                       </Day>
                     ) : (
-                      <td key={index} />
+                      <Day key={index} />
                     )
                   )}
                 </Week>
