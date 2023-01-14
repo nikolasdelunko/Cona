@@ -123,18 +123,57 @@ export default function Wallet() {
       <Container>
         <ContentCont>
           <ContentBlock>
-            <Link>Обменять</Link>
+            <Link
+              onClick={() => {
+                showModal(
+                  true,
+                  "AssetExchange",
+                  "Обмен активов",
+                  "Подтвердить",
+                  "Поиск актива",
+                  "BTC"
+                );
+              }}
+            >
+              Обменять
+            </Link>
             <Link>Ордер</Link>
           </ContentBlock>
           <ContentBlock>
             <Link>Перевести</Link>
-            <Link>Вывести</Link>
+            <Link
+              onClick={() => {
+                showModal(
+                  true,
+                  "Withdraw",
+                  "Вывод средств",
+                  "Подтвердить",
+                  "Поиск",
+                  "USDT"
+                );
+              }}
+            >
+              Вывести
+            </Link>
           </ContentBlock>
         </ContentCont>
         <Content>
           <BtnPrimary>
             <BtnIn>
-              <BtnText>Пополнить</BtnText>
+              <BtnText
+                onClick={() => {
+                  showModal(
+                    true,
+                    "Deposit",
+                    "Пополнение баланса",
+                    "Подтвердить",
+                    null,
+                    "BTC"
+                  );
+                }}
+              >
+                Пополнить
+              </BtnText>
               <Deposit color={"white"} style={{ padding: "0 0 2px 0" }} />
             </BtnIn>
           </BtnPrimary>

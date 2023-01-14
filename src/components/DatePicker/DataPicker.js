@@ -33,7 +33,7 @@ export default function DataPicker() {
   ];
   const weekDayNames = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"];
   const date = new Date();
-  const toDay = date
+  const toDay = date;
 
   const year = date.getFullYear();
   const currentMounth = date.getMonth();
@@ -119,7 +119,7 @@ export default function DataPicker() {
       yearSelected?.current.value,
       monthSelected?.current.value
     );
-    setSelectedDate( dateT );
+    setSelectedDate(dateT);
   };
 
   const handleDayClick = (date) => {
@@ -133,6 +133,17 @@ export default function DataPicker() {
       a.getMonth() === b.getMonth() &&
       a.getDate() === b.getDate()
     );
+  };
+
+  //! Check this
+  const areRange = (a, b) => {
+    if (!a || !b) return false;
+		// else if (a.getDate() < rangeDate[rangeDate.length - 1] &&  b.getDate() - 1 === rangeDate[rangeDate.length - 1]) return true
+		// const rangeDate = []
+		// for(let i = a.getDate(); i < b.getDate(); i++){
+		// 	rangeDate.push(i);
+		// }
+    else if (a.getDate() != b.getDate() && a.getDate() < b.getDate()) return true;
   };
 
   return (
@@ -178,8 +189,8 @@ export default function DataPicker() {
                       <Day
                         key={index}
                         open={
-													areEqual(date, toDay) 
-                            && "linear-gradient( 271.68deg, #ff6e00 0.42%, rgba(255,110,0,0.62) 94.87% )"
+                          areEqual(date, toDay) &&
+                          "linear-gradient( 271.68deg, #ff6e00 0.42%, rgba(255,110,0,0.62) 94.87% )"
                         }
                         onClick={(e) => {
                           handleDayClick(date);
@@ -199,12 +210,14 @@ export default function DataPicker() {
                     date ? (
                       <Day
                         key={index}
-												open={
-													areEqual(date, toDay) || areEqual(date, selectedDate)
-                            && true 
+                        open={
+                          areEqual(date, toDay) ||
+                          (areEqual(date, selectedDate))
                         }
+                        range={areRange(toDay, selectedDate)}
                         onClick={(e) => {
                           handleDayClick(date);
+                          console.log(date);
                         }}
                       >
                         {date.getDate()}

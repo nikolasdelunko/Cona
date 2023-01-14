@@ -8,6 +8,8 @@ import Exchange from "./components/Exchannge/Exchange";
 import Balance from "./components/Balance/Balance";
 import Report from "./components/Report/Report";
 import DataPicker from "./components/DatePicker/DataPicker";
+import Deposit from "./components/Deposit/Deposit";
+import Withdraw from "./components/Withdraw/Withdraw"
 
 function App() {
   const modal = useSelector((state) => state.helpers.modal);
@@ -33,6 +35,8 @@ function App() {
           )}
 
           {modal.page === "DataPicker" && <DataPicker />}
+          {modal.page === "Deposit" && <Deposit sellCurrency={modal.link} />}
+          {modal.page === "Withdraw" && <Withdraw sellCurrency={modal.link} placeHolder={modal.placeHolder} />}
         </Modal>
       )}
 

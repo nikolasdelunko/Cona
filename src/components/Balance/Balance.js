@@ -65,7 +65,8 @@ export default function Balance({ placeHolder }) {
             <SearchP>{i.currency}</SearchP>
             <SearchDivRight>
               <SearchP>{i.balance}</SearchP>
-							<div onClick={() => {
+              <div
+                onClick={() => {
                   showModal(
                     true,
                     "AssetExchange",
@@ -74,14 +75,41 @@ export default function Balance({ placeHolder }) {
                     "Поиск актива",
                     i.currency
                   );
-                }}>
-              <Exchange/>
-							</div>
-              <SendIco style={{ width: "14px", height: "14px" }} />
-              <Upload
-                color={"#ED2E7E"}
-                style={{ width: "16px", height: "16px" }}
-              />
+                }}
+              >
+                <Exchange />
+              </div>
+              <div
+                onClick={() => {
+                  showModal(
+                    true,
+                    "Withdraw",
+                    "Вывод средств",
+                    "Подтвердить",
+                    "Поиск",
+                    i.currency
+                  );
+                }}
+              >
+                <SendIco style={{ width: "14px", height: "14px" }} />
+              </div>
+              <div
+                onClick={() => {
+                  showModal(
+                    true,
+                    "Deposit",
+                    "Пополнение баланса",
+                    "Подтвердить",
+                    null,
+                    i.currency
+                  );
+                }}
+              >
+                <Upload
+                  color={"#ED2E7E"}
+                  style={{ width: "16px", height: "16px" }}
+                />
+              </div>
             </SearchDivRight>
           </SearchElement>
         ))}

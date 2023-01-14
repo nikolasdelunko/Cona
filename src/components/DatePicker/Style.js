@@ -37,7 +37,10 @@ export const Day = styled.td`
   padding: 7.11905px 10.6786px;
   width: 35.6px;
   height: 38.24px;
-  background: ${(props) => props.open && "linear-gradient( 271.68deg, #ff6e00 0.42%, rgba(255,110,0,0.62) 94.87% )"};
+  background: ${(props) =>
+    props.open &&
+    "linear-gradient( 271.68deg, #ff6e00 0.42%, rgba(255,110,0,0.62) 94.87% )"};
+  background-color: ${(props) => props.range && "wheat"};
   border-radius: 7.11905px;
   font-family: "Poppins";
   font-style: normal;
@@ -47,6 +50,8 @@ export const Day = styled.td`
   align-items: center;
   color: ${(props) => (props.open ? "#FFFFFF" : "#ff750d")};
 `;
+
+//! background fro date:  background: rgb(255 128 32 / 22%)
 
 export const DayName = styled.th`
   width: 18px;
