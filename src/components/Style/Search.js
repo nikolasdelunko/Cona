@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Search = styled.input`
   display: block;
-  width: 90%;
+  width: ${(props) => (props.primary ? "100%" : "90%")};
   height: 34px;
   left: 26px;
   top: 191px;
@@ -30,4 +30,5 @@ export const SearchBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
 `;

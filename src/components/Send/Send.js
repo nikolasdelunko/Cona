@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   SearchElements,
   SearchCurrencyDiv,
   ExchangeP,
-  ExchangeBox,
   ExchangeInp,
   CurrencyDiv,
   SummaryDiv,
@@ -14,13 +13,13 @@ import {
   SearchP,
   SearchCurrency,
   MainBox,
-  Input,
-  InputDiv,
   Line,
   SearchDiv,
-} from "./Style";
+} from "../Withdraw/Style";
 import { Search, SearchBox } from "../Style/Search";
 import SearchIco from "../icons/Search";
+import { SearchUserSection } from "./Style";
+import Invite from "../Invite/Invite";
 
 const data = [
   {
@@ -61,21 +60,9 @@ const data = [
   },
 ];
 
-const LinkExchange = "TRC-20";
-const WalletAddr = "TJt2N93GYsjZoffp3aDdjQJ6nPuVvXLtjF";
-
-export default function Withdraw({ sellCurrency, placeHolder }) {
+export default function Send({ sellCurrency, placeHolder }) {
   const [openFor, setOpenFor] = useState(false);
-  const [cc, setCc] = useState(false);
   const [sel, setSel] = useState(sellCurrency);
-
-  useEffect(() => {
-    if (sel === "UAH" || sel === "KZT" || sel === "EUR" || sel === "USD") {
-      setCc(true);
-    } else {
-      setCc(false);
-    }
-  }, [sel]);
 
   return (
     <MainBox>
@@ -101,7 +88,7 @@ export default function Withdraw({ sellCurrency, placeHolder }) {
                 <Line />
               </SearchDiv>
               <SearchBox>
-                <Search primary placeholder={placeHolder} />
+                <Search placeholder={"поиск"} />
                 <SearchIco left={"80%"} />
               </SearchBox>
               <SearchCurrency>
@@ -121,29 +108,7 @@ export default function Withdraw({ sellCurrency, placeHolder }) {
           )}
         </CurrencyDiv>
       </SummaryDiv>
-      {cc ? (
-        <ExchangeBox>
-          <InputDiv>
-            <ExchangeP>Номер карти</ExchangeP>
-            <Input />
-          </InputDiv>
-        </ExchangeBox>
-      ) : (
-        <div>
-          <ExchangeBox>
-            <InputDiv>
-              <ExchangeP>Адрес кошелька</ExchangeP>
-              <Input defaultValue={WalletAddr} />
-            </InputDiv>
-          </ExchangeBox>
-          <ExchangeBox>
-            <InputDiv>
-              <ExchangeP>Сеть</ExchangeP>
-              <Input defaultValue={LinkExchange} />
-            </InputDiv>
-          </ExchangeBox>
-        </div>
-      )}
+			<Invite />
     </MainBox>
   );
 }

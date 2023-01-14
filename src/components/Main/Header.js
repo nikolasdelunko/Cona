@@ -14,7 +14,20 @@ export default function Head() {
       <Header>
         <LinkBox>
           <Youtube />
-          <Telegram />
+          <div
+            onClick={() => {
+              showModal(
+                true,
+                "Invite",
+                "Пригласить",
+                "Пригласить",
+                "Поиск пользователя",
+                null
+              );
+            }}
+          >
+            <Telegram />
+          </div>
           <Instagram />
         </LinkBox>
         <BtnOutline

@@ -140,7 +140,20 @@ export default function Wallet() {
             <Link>Ордер</Link>
           </ContentBlock>
           <ContentBlock>
-            <Link>Перевести</Link>
+            <div
+              onClick={() => {
+                showModal(
+                  true,
+                  "Send",
+                  "Отправить средства",
+                  "Отправить",
+                  "Поиск пользователя",
+                  "BTC"
+                );
+              }}
+            >
+              <Link>Перевести</Link>
+            </div>
             <Link
               onClick={() => {
                 showModal(
