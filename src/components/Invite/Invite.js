@@ -27,9 +27,9 @@ const data = [
   },
 ];
 
-export default function Invite() {
+export default function Invite({ link }) {
   return (
-    <MainBox>
+    <MainBox link={link === "Invite" && "0 2rem;"}>
       <SearchBox>
         <Search primary placeholder={"поиск"} />
         <SearchIco />

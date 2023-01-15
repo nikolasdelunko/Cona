@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const MainBox = styled.div`
+  padding: ${(props) => props.link};
   ${"" /* padding: 0 2rem; */}
 `;
 

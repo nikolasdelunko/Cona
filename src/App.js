@@ -47,9 +47,7 @@ function App() {
           {modal.page === "Send" && (
             <Send sellCurrency={modal.link} placeHolder={modal.placeHolder} />
           )}
-          {modal.page === "Invite" && (
-            <Invite placeHolder={modal.placeHolder} />
-          )}
+          {modal.page === "Invite" && <Invite link={modal.page} />}
         </Modal>
       )}
 
