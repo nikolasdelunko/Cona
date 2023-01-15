@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { MainBox } from "./Style";
 import { Search, SearchBox } from "../Style/Search";
 import SearchIco from "../icons/Search";
@@ -35,7 +35,7 @@ export default function Invite({ link }) {
         <SearchIco />
       </SearchBox>
       {data.map((el, index) => (
-        <Person el={el} />
+        <Person el={el} key={index} />
       ))}
     </MainBox>
   );
