@@ -16,6 +16,7 @@ import Days from "./Day";
 
 export default function DataPicker() {
   const [selectedDate, setSelectedDate] = useState(false);
+  const [selectedDT, setSelectedDT] = useState(new Date());
   const { getMonthData } = useCalendar();
 
   const years = [];
@@ -35,7 +36,6 @@ export default function DataPicker() {
   ];
   const weekDayNames = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"];
   const date = new Date();
-
   const year = date.getFullYear();
   const currentMounth = date.getMonth();
   const lastYear = year - 10;
@@ -60,7 +60,12 @@ export default function DataPicker() {
     setSelectedDate(dateT);
   };
 
-  console.log("what this" ,selectedDate);
+  const toDay = new Date();
+  console.log("Selected Mounth", selectedDate);
+
+  const testDt = (data) => {
+    setSelectedDT(data);
+  };
 
   return (
     <MainDiv>
@@ -102,7 +107,17 @@ export default function DataPicker() {
                 <Week key={index}>
                   {week.map((date, index) =>
                     date ? (
-                      <Days date={date} index={index} currentM={selectedDate} />
+                      <Days
+                        date={date}
+                        index={index}
+                        test={
+                          date.getDate() > toDay.getDate() &&
+                          date.getDate() < selectedDT.getDate()
+                            ? true
+                            : false
+                        }
+                        testDt={testDt}
+                      />
                     ) : (
                       <Day key={index} />
                     )
@@ -113,7 +128,17 @@ export default function DataPicker() {
                 <Week key={index}>
                   {week.map((date, index) =>
                     date ? (
-                      <Days date={date} index={index} />
+                      <Days
+                        date={date}
+                        index={index}
+                        test={
+                          date.getDate() > toDay.getDate() &&
+                          date.getDate() < selectedDT.getDate()
+                            ? true
+                            : false
+                        }
+                        testDt={testDt}
+                      />
                     ) : (
                       <Day key={index} />
                     )
@@ -125,3 +150,5 @@ export default function DataPicker() {
     </MainDiv>
   );
 }
+
+///! Look 116 & 105 line pls

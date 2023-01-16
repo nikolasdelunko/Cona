@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Day } from "./Style";
 import useCalendar from "../../utils/CustomHooks/useCalendar";
 
-export default function Days({ date, index, currentM }) {
+export default function Days({ date, index, test, testDt }) {
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedDay, setSelectedDay] = useState(false);
   const { areEqual, areRange } = useCalendar();
@@ -11,17 +11,23 @@ export default function Days({ date, index, currentM }) {
     setSelectedDate(date);
     setSelectedDay(!selectedDay);
   };
-  const dateT = new Date();
-  const toDay = dateT;
+  const toDay = new Date();
 
+
+	useEffect(()=>{
+	},[testDt])
+
+	console.log("today" , test)
+	// areRange(toDay, selectedDate) ||
   return (
     <Day
       key={index}
-      open={areEqual(date, toDay) || selectedDay || areEqual(date, currentM)}
-      range={areRange(toDay, selectedDate)}
+      open={areEqual(date, toDay) || selectedDay }
+      range={ test}
       onClick={(e) => {
         handleDayClick(date);
-        console.log(date);
+				testDt(date)
+        console.log("Click Date", date);
       }}
     >
       {date.getDate()}
