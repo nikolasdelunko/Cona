@@ -49,6 +49,7 @@ export const Day = styled.td`
   line-height: 24px;
   align-items: center;
   color: ${(props) => (props.open ? "#FFFFFF" : "#ff750d")};
+	border: ${(props) => (props.border ? "1px solid" : "none")};
 `;
 
 //! background fro date:  background: rgb(255 128 32 / 22%)
