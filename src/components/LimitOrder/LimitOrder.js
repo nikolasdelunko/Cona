@@ -16,8 +16,7 @@ import {
   SearchP,
   SearchCurrency,
 } from "../Exchannge/Style";
-import { ExchangeInp, InpTextDiv, SummaryDiv } from "../Deposit/Style";
-import ExchangeIcon from "../icons/Exchange";
+import { ExchangeInp, InpTextDiv } from "../Deposit/Style";
 import SearchIco from "../icons/Search";
 
 const data = [

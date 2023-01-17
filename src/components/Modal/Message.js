@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useDispatch } from "react-redux";
 import { openMessage } from "../../store/helpers/helpersSlice";
@@ -31,23 +31,25 @@ const ContentDiv = styled.div`
 `;
 
 const ErrorLine = styled.div`
-  width: 70%;
+  width: ${(props) => props.line};
   left: 10px;
   height: 2px;
   background: #ed2e7e;
   border-radius: 1px;
   position: absolute;
   bottom: 0;
+  transition: width 0.5s;
 `;
 
 const SuccessLine = styled.div`
-  width: 70%;
+  width: ${(props) => props.line};
   left: 10px;
   height: 2px;
   background: #ff6e00;
   border-radius: 1px;
   position: absolute;
   bottom: 0;
+  transition: width 0.5s;
 `;
 
 const IconBox = styled.div`
@@ -63,12 +65,21 @@ const TextError = styled.p`
 
 export default function Message({ text, error }) {
   const dispatch = useDispatch();
+  const [lineTime, setLineTime] = useState(55);
+
   useEffect(() => {
     const timer = setTimeout(() => {
       dispatch(openMessage(false));
-    }, 1500);
+    }, 6000);
     return () => clearTimeout(timer);
   }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setLineTime(lineTime - 1);
+    }, 100);
+    return () => clearInterval(interval);
+  }, [lineTime]);
 
   return (
     <ModalDiv>
@@ -77,7 +88,11 @@ export default function Message({ text, error }) {
         <IconBox>
           <ChevronUp />
         </IconBox>
-        {error ? <ErrorLine /> : <SuccessLine />}
+        {error ? (
+          <ErrorLine line={`${lineTime}%`} />
+        ) : (
+          <SuccessLine line={`${lineTime}%`} />
+        )}
       </ContentDiv>
     </ModalDiv>
   );
