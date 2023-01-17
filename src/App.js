@@ -12,6 +12,7 @@ import Deposit from "./components/Deposit/Deposit";
 import Withdraw from "./components/Withdraw/Withdraw";
 import Send from "./components/Send/Send";
 import Invite from "./components/Invite/Invite";
+import LimitOrder from "./components/LimitOrder/LimitOrder";
 
 function App() {
   const modal = useSelector((state) => state.helpers.modal);
@@ -48,6 +49,12 @@ function App() {
             <Send sellCurrency={modal.link} placeHolder={modal.placeHolder} />
           )}
           {modal.page === "Invite" && <Invite link={modal.page} />}
+          {modal.page === "LimitOrder" && (
+            <LimitOrder
+              placeHolder={modal.placeHolder}
+              sellCurrency={modal.link}
+            />
+          )}
         </Modal>
       )}
 

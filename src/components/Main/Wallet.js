@@ -137,7 +137,20 @@ export default function Wallet() {
             >
               Обменять
             </Link>
-            <Link>Ордер</Link>
+            <Link
+              onClick={() => {
+                showModal(
+                  true,
+                  "LimitOrder",
+                  "Лимитный ордер",
+                  "Подтвердить",
+                  "Поиск актива",
+                  "BTC"
+                );
+              }}
+            >
+              Ордер
+            </Link>
           </ContentBlock>
           <ContentBlock>
             <div

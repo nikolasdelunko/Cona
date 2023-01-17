@@ -5,12 +5,9 @@ import {
   SearchCurrencyDiv,
   ExchangeP,
   ExchangeBox,
-  ExchangeInp,
   ExchangeTimeText,
   CurrencyDiv,
-  SummaryDiv,
   ExchangeInpText,
-  InpTextDiv,
   SearchElementsT,
   ArrowD,
   Line,
@@ -18,7 +15,8 @@ import {
   SearchElement,
   SearchP,
   SearchCurrency,
-} from "./Style";
+} from "../Exchannge/Style";
+import { ExchangeInp, InpTextDiv, SummaryDiv } from "../Deposit/Style";
 import ExchangeIcon from "../icons/Exchange";
 import SearchIco from "../icons/Search";
 
@@ -61,10 +59,8 @@ const data = [
   },
 ];
 
-export default function Exchange({ placeHolder, sellCurrency }) {
-  const [buy, setBuy] = useState("USDT");
+export default function LimitOrder({ placeHolder, sellCurrency }) {
   const [openFor, setOpenFor] = useState(false);
-  const [openWhat, setOpenWhat] = useState(false);
   const [sel, setSel] = useState(sellCurrency);
 
   const [timeLeft, setTimeLeft] = useState(15);
@@ -86,7 +82,7 @@ export default function Exchange({ placeHolder, sellCurrency }) {
   return (
     <ExchangeBox>
       <CurrencyDiv>
-        <ExchangeP>Актив обмена</ExchangeP>
+        <ExchangeP>Актив покупки</ExchangeP>
         <SearchElements
           onClick={() => {
             setOpenFor(!openFor);
@@ -122,61 +118,18 @@ export default function Exchange({ placeHolder, sellCurrency }) {
         )}
       </CurrencyDiv>
       <CurrencyDiv>
-        <ExchangeP>Обменять на</ExchangeP>
-        <SearchElements
-          onClick={() => {
-            setOpenWhat(!openWhat);
-          }}
-          open={openWhat ? "6px 6px 0 0" : "6px"}
-        >
-          <SearchElementsT>{buy}</SearchElementsT>
-          <ArrowD open={openWhat ? "rotate(225deg)" : "rotate(45deg)"} />
-        </SearchElements>
-        {openWhat && (
-          <SearchCurrencyDiv>
-            <SearchDiv>
-              <Line />
-            </SearchDiv>
-            <SearchBox>
-              <Search placeholder={placeHolder} />
-              <SearchIco />
-            </SearchBox>
-            <SearchCurrency>
-              {data.map((i) => (
-                <SearchElement
-                  onClick={() => {
-                    setBuy(i.currency);
-                    setOpenWhat(!openWhat);
-                  }}
-                >
-                  <SearchP>{i.currency}</SearchP>
-                  <SearchP>{i.balance}</SearchP>
-                </SearchElement>
-              ))}
-            </SearchCurrency>
-          </SearchCurrencyDiv>
-        )}
+        <ExchangeP>Необходимая цена</ExchangeP>
+        <InpTextDiv>
+          <ExchangeInp placeholder="0" />
+        </InpTextDiv>
       </CurrencyDiv>
-      <ExchangeP>Сумма</ExchangeP>
-      <SummaryDiv>
+      <CurrencyDiv>
+        <ExchangeP>Сумма</ExchangeP>
         <InpTextDiv>
           <ExchangeInpText>{sel}</ExchangeInpText>
           <ExchangeInp placeholder="0" />
         </InpTextDiv>
-        <div
-          onClick={() => {
-            const ex = buy;
-            setBuy(sel);
-            setSel(ex);
-          }}
-        >
-          <ExchangeIcon color={"#ff6e00"} />
-        </div>
-        <InpTextDiv>
-          <ExchangeInpText>{buy}</ExchangeInpText>
-          <ExchangeInp placeholder="0" />
-        </InpTextDiv>
-      </SummaryDiv>
+      </CurrencyDiv>
       <ExchangeTimeText>До обновления осталось {timeLeft} сек</ExchangeTimeText>
     </ExchangeBox>
   );
