@@ -14,8 +14,10 @@ import {
 } from "./Style";
 import { Link, BtnPrimary, BtnText, BtnIn } from "../Style/Buttons";
 import Rocket from "../../components/icons/Rocket";
+import useModal from "../../utils/CustomHooks/useModal";
 
 export default function Wallet() {
+  const { showModal } = useModal();
   const data = {
     General: "12412 USDT",
     Profit: "4113212 USDT",
@@ -29,7 +31,21 @@ export default function Wallet() {
     <MainContainer>
       <Container>
         <Name>
-          Инвестиции<Link>см. отчёт</Link>
+          Инвестиции
+          <Link
+            onClick={() => {
+              showModal(
+                true,
+                "Investment",
+                "Отчет по инвестициям",
+                "Инвестировать",
+                null,
+                null
+              );
+            }}
+          >
+            см. отчёт
+          </Link>
         </Name>
       </Container>
       <Container>
@@ -58,7 +74,18 @@ export default function Wallet() {
           </ContentBlock>
         </ContentCont>
         <Content>
-          <BtnPrimary>
+          <BtnPrimary
+            onClick={() => {
+              showModal(
+                true,
+                "Invest",
+                "Инвестиции",
+                null,
+                null,
+                null
+              );
+            }}
+          >
             <BtnIn>
               <BtnText>Инвестировать</BtnText>
               <Rocket />

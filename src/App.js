@@ -13,6 +13,9 @@ import Withdraw from "./components/Withdraw/Withdraw";
 import Send from "./components/Send/Send";
 import Invite from "./components/Invite/Invite";
 import LimitOrder from "./components/LimitOrder/LimitOrder";
+import InvestReport from "./components/Report/InvestReport";
+import Invest from "./components/Invest/Invest";
+import OpenInvest from "./components/Invest/OpenInvest"
 
 function App() {
   const modal = useSelector((state) => state.helpers.modal);
@@ -54,6 +57,15 @@ function App() {
               placeHolder={modal.placeHolder}
               sellCurrency={modal.link}
             />
+          )}
+          {modal.page === "Investment" && (
+            <InvestReport placeHolder={modal.placeHolder} />
+          )}
+          {modal.page === "Invest" && (
+            <Invest placeHolder={modal.placeHolder} />
+          )}
+					{modal.page === "OpenInvest" && (
+            <OpenInvest placeHolder={modal.placeHolder} link={modal.link}/>
           )}
         </Modal>
       )}

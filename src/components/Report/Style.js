@@ -4,6 +4,7 @@ export const DayBox = styled.div`
   display: flex;
   justify-content: space-between;
   width: 90%;
+  margin-bottom: 17px;
 `;
 
 export const ContentBox = styled.div`
