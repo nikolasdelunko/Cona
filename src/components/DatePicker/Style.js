@@ -23,7 +23,9 @@ export const Header = styled.header`
   left: 7%;
 `;
 
-export const Table = styled.table``;
+export const Table = styled.table`
+  border-spacing: 0px 2px;
+`;
 
 export const Thead = styled.thead``;
 
@@ -41,7 +43,8 @@ export const Day = styled.td`
     props.open &&
     "linear-gradient( 271.68deg, #ff6e00 0.42%, rgba(255,110,0,0.62) 94.87% )"};
   background-color: ${(props) => props.range && "wheat"};
-  border-radius: 7.11905px;
+  //? check
+  border-radius: ${(props) => (props.open ? "7.11905px" : "none")};
   font-family: "Poppins";
   font-style: normal;
   font-weight: 400;
@@ -49,7 +52,7 @@ export const Day = styled.td`
   line-height: 24px;
   align-items: center;
   color: ${(props) => (props.open ? "#FFFFFF" : "#ff750d")};
-	border: ${(props) => (props.border ? "1px solid" : "none")};
+  border: ${(props) => (props.border ? "1px solid" : "none")};
 `;
 
 //! background fro date:  background: rgb(255 128 32 / 22%)
