@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import { useSelector } from "react-redux";
 import {
   MainDiv,
   Select,
@@ -16,10 +17,9 @@ import Days from "./Day";
 
 export default function DataPicker() {
   const [selectedDate, setSelectedDate] = useState(false);
-  const [selected, setSelected] = useState(null);
-  const [selectedSecond, setSelectedSecond] = useState(null);
-  const [selectedFirst, setSelectedFirst] = useState(0);
-  const { getMonthData } = useCalendar();
+  const { getMonthData, togleDays, clearRange } = useCalendar();
+  const startDate = useSelector((state) => state.calendar.startDate);
+  const endDate = useSelector((state) => state.calendar.endDate);
 
   const years = [];
   const monthNames = [
@@ -60,26 +60,11 @@ export default function DataPicker() {
       monthSelected?.current.value
     );
     setSelectedDate(dateT);
+    clearRange();
   };
-
-  const toDay = new Date();
-  // console.log("Selected Mounth", selectedDate);
 
   const testDt = (data) => {
-    setSelectedSecond(data);
-  };
-
-  const testDt2 = (data) => {
-    setSelected(data);
-  };
-
-  const togleDays = () => {
-    if (selectedFirst >= 1) {
-      setSelectedFirst(0);
-    } else {
-      setSelectedFirst(selectedFirst + 1);
-    }
-    console.log("asdadsasd", selectedFirst);
+    togleDays(data);
   };
 
   return (
@@ -123,18 +108,15 @@ export default function DataPicker() {
                   {week.map((date, index) =>
                     date ? (
                       <Days
-                        togleDays={togleDays}
                         date={date}
                         index={index}
-                        selectedFirst={selectedFirst}
                         test={
-													date.getDate() >= selected?.getDate() &&
-                          date.getDate() <= selectedSecond?.getDate()
+                          date.getDate() >= startDate?.getDate() &&
+                          date.getDate() <= endDate?.getDate()
                             ? true
                             : false
                         }
                         testDt={testDt}
-                        testDt2={testDt2}
                       />
                     ) : (
                       <Day key={index} />
@@ -147,18 +129,15 @@ export default function DataPicker() {
                   {week.map((date, index) =>
                     date ? (
                       <Days
-                        togleDays={togleDays}
                         date={date}
                         index={index}
-                        selectedFirst={selectedFirst}
                         test={
-                          date.getDate() >= selected?.getDate() &&
-                          date.getDate() <= selectedSecond?.getDate()
+                          date.getDate() >= startDate?.getDate() &&
+                          date.getDate() <= endDate?.getDate()
                             ? true
                             : false
                         }
                         testDt={testDt}
-                        testDt2={testDt2}
                       />
                     ) : (
                       <Day key={index} />
@@ -171,4 +150,3 @@ export default function DataPicker() {
     </MainDiv>
   );
 }
-

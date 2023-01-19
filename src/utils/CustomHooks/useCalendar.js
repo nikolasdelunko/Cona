@@ -1,4 +1,14 @@
+import { useDispatch, useSelector } from "react-redux";
+import {
+  toggleD,
+  setStartData,
+  setEndData,
+	clearToggle,
+} from "../../store/calendar/calendarSlice";
+
 const useCalendar = () => {
+  const selectedFirst = useSelector((state) => state.calendar.toggle);
+  const dispatch = useDispatch();
   const DAYS_IN_WEEK = 7;
 
   const DAYS_IN_MONTH = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
@@ -55,14 +65,25 @@ const useCalendar = () => {
   //! Check this
   function areRange(a, b) {
     if (!a || !b) return false;
-    // else if (a.getDate() < rangeDate[rangeDate.length - 1] &&  b.getDate() - 1 === rangeDate[rangeDate.length - 1]) return true
-    // const rangeDate = []
-    // for(let i = a.getDate(); i < b.getDate(); i++){
-    // 	rangeDate.push(i);
-    // }
     else if (a.getDate() !== b.getDate() && a.getDate() < b.getDate())
       return true;
   }
+
+  const togleDays = (data) => {
+    if (selectedFirst === 2) {
+      dispatch(setStartData(data));
+    } else if (selectedFirst === 0) {
+      dispatch(setEndData(data));
+    } else if (selectedFirst === 1) {
+      dispatch(setEndData(null));
+      dispatch(setStartData(null));
+    }
+    return dispatch(toggleD(selectedFirst));
+  };
+
+  const clearRange = () => {
+    dispatch(clearToggle());
+  };
 
   function getMonthData(year, month) {
     const result = [];
@@ -93,6 +114,8 @@ const useCalendar = () => {
     getDayOfWeek,
     getMonthData,
     areRange,
+    togleDays,
+		clearRange
   };
 };
 

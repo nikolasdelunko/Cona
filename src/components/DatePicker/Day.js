@@ -1,41 +1,24 @@
 import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import { Day } from "./Style";
 import useCalendar from "../../utils/CustomHooks/useCalendar";
 
-export default function Days({
-  date,
-  index,
-  test,
-  testDt,
-  togleDays,
-  testDt2,
-  selectedFirst,
-}) {
-  const [selectedDate, setSelectedDate] = useState(null);
+export default function Days({ date, index, test, testDt }) {
   const [selectedDay, setSelectedDay] = useState(false);
-  const { areEqual, areRange } = useCalendar();
+  const { areEqual } = useCalendar();
+  const selectedFirst = useSelector((state) => state.calendar.toggle);
 
   const handleDayClick = (date) => {
-    setSelectedDate(date);
-    setSelectedDay(!selectedDay)
+    setSelectedDay(!selectedDay);
   };
   const toDay = new Date();
 
-  useEffect(() => {}, [testDt, selectedDay, selectedFirst]);
-
-  const checkClick = (date) => {
-    if (!selectedDay) {
-      if (selectedFirst === 0) {
-        testDt2(date);
-      } else {
-        testDt(date);
-      }
-    } else {
-      testDt(date);
+  useEffect(() => {
+    if (selectedFirst > 1) {
+      setSelectedDay(false);
     }
-  };
-  console.log("todayAAA", toDay);
-  // areRange(toDay, selectedDate) || areEqual(date, toDay) ||
+  }, [selectedDay, selectedFirst]);
+
   return (
     <Day
       key={index}
@@ -44,9 +27,7 @@ export default function Days({
       border={areEqual(date, toDay)}
       onClick={(e) => {
         handleDayClick(date);
-        checkClick(date);
-        togleDays();
-        // console.log("Click Date", date);
+        testDt(date);
       }}
     >
       {date.getDate()}
