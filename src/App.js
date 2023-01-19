@@ -15,7 +15,16 @@ import Invite from "./components/Invite/Invite";
 import LimitOrder from "./components/LimitOrder/LimitOrder";
 import InvestReport from "./components/Report/InvestReport";
 import Invest from "./components/Invest/Invest";
-import OpenInvest from "./components/Invest/OpenInvest"
+import OpenInvest from "./components/Invest/OpenInvest";
+import UserInvest from "./components/Invest/UserInvest";
+import PartnersReport from "../src/components/Report/PartnersReport";
+import PartnersTree from "../src/components/Partners/PartnersTree";
+import {
+  MessageDiv,
+  TextError,
+  IconBox,
+} from "./components/Style/MessageStyle";
+import ChevronUp from "./components/icons/ChevronUp";
 
 function App() {
   const modal = useSelector((state) => state.helpers.modal);
@@ -64,13 +73,30 @@ function App() {
           {modal.page === "Invest" && (
             <Invest placeHolder={modal.placeHolder} />
           )}
-					{modal.page === "OpenInvest" && (
-            <OpenInvest placeHolder={modal.placeHolder} link={modal.link}/>
+          {modal.page === "OpenInvest" && (
+            <OpenInvest placeHolder={modal.placeHolder} link={modal.link} />
+          )}
+          {modal.page === "UserInvest" && <UserInvest />}
+
+          {modal.page === "ReportPartners" && (
+            <PartnersReport placeHolder={modal.placeHolder} />
+          )}
+          {modal.page === "PartnersTree" && (
+            <PartnersTree placeHolder={modal.placeHolder} />
           )}
         </Modal>
       )}
 
-      {message && <Message error={message.error} text={message.text} />}
+      {message.element === "SuccesCopy" && (
+        <Message error={message.error}>
+          <MessageDiv>
+            <TextError>{message.text}</TextError>
+            <IconBox>
+              <ChevronUp />
+            </IconBox>
+          </MessageDiv>
+        </Message>
+      )}
     </div>
   );
 }

@@ -63,6 +63,8 @@ export default function DataPicker() {
     clearRange();
   };
 
+
+	
   const testDt = (data) => {
     togleDays(data);
   };

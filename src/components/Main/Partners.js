@@ -13,9 +13,11 @@ import {
 import { Link, BtnPrimary, BtnText, BtnIn } from "../Style/Buttons";
 import LinkIco from "../../components/icons/Link";
 import useMessage from "../../utils/CustomHooks/useMessage";
+import useModal from "../../utils/CustomHooks/useModal";
 
 export default function Wallet() {
-	const { showMessage } = useMessage();
+  const { showMessage } = useMessage();
+  const { showModal } = useModal();
   const data = {
     All: "12412 USDT",
     Current: "5321 USDT",
@@ -23,12 +25,27 @@ export default function Wallet() {
     ProfitToday: " 511121 USDT",
     Open: "5",
   };
+  const linkPart = "t.me/kriptoliq_bot?start=211204123123";
 
   return (
     <MainContainer>
       <Container>
         <Name>
-          Партнерская програма<Link>см. отчёт</Link>
+          Партнерская програма
+          <Link
+            onClick={() => {
+              showModal(
+                true,
+                "ReportPartners",
+                "Отчет по партнёрской програм...",
+                "Пригласить партнёра",
+                linkPart,
+                null
+              );
+            }}
+          >
+            см. отчёт
+          </Link>
         </Name>
       </Container>
       <Container>
@@ -50,13 +67,37 @@ export default function Wallet() {
       <Container>
         <ContentCont>
           <ContentBlock>
-            <Link>Мои партнёры</Link>
+            <Link
+              onClick={() => {
+                showModal(
+                  true,
+                  "PartnersTree",
+                  "Реферальное дерево",
+                  "Пригласить партнёра",
+                  null,
+                  null
+                );
+              }}
+            >
+              Мои партнёры
+            </Link>
           </ContentBlock>
         </ContentCont>
         <Content>
           <BtnPrimary>
             <BtnIn>
-              <BtnText onClick={()=>showMessage(true, "Ссылка успешно скопирована", "chevron-up-small")}>Пригласить партнёра</BtnText>
+              <BtnText
+                onClick={() =>
+                  showMessage(
+                    "true",
+                    "Ссылка успешно скопирована",
+                    "chevron-up-small",
+                    "SuccesCopy"
+                  )
+                }
+              >
+                Пригласить партнёра
+              </BtnText>
               <LinkIco />
             </BtnIn>
           </BtnPrimary>

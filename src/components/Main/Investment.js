@@ -70,20 +70,26 @@ export default function Wallet() {
       <Container>
         <ContentCont>
           <ContentBlock>
-            <Link>Смотреть тарифы</Link>
+            <Link
+              onClick={() => {
+                showModal(
+                  true,
+                  "UserInvest",
+                  "Ваши инвестиции",
+                  null,
+                  null,
+                  null
+                );
+              }}
+            >
+              Смотреть тарифы
+            </Link>
           </ContentBlock>
         </ContentCont>
         <Content>
           <BtnPrimary
             onClick={() => {
-              showModal(
-                true,
-                "Invest",
-                "Инвестиции",
-                null,
-                null,
-                null
-              );
+              showModal(true, "Invest", "Инвестиции", null, null, null);
             }}
           >
             <BtnIn>
