@@ -1,5 +1,15 @@
 import styled from "styled-components";
 
+export const MainBox = styled.div`
+  width: 100%;
+`;
+
+export const LeftBox = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 7px;
+`;
+
 export const SearchElements = styled.div`
   justify-content: center;
   display: flex;

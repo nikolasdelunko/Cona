@@ -1,7 +1,13 @@
 import React from "react";
 import { Search, SearchBox } from "../Style/Search";
 import SearchIco from "../icons/Search";
-import { SearchElements, SearchText, SearchElement } from "./Style";
+import {
+  SearchElements,
+  SearchText,
+  SearchElement,
+  MainBox,
+  LeftBox,
+} from "./Style";
 import Play from "../icons/Play";
 import LinkFaq from "../icons/LinkFaq";
 import { BtnPrimary } from "../Style/Buttons";
@@ -46,7 +52,7 @@ const data = [
 
 export default function Faq({ placeHolder }) {
   return (
-    <div>
+    <MainBox>
       <SearchBox>
         <Search placeholder={placeHolder} />
         <SearchIco />
@@ -54,14 +60,16 @@ export default function Faq({ placeHolder }) {
       <SearchElements>
         {data.map((i) => (
           <SearchElement onClick={() => window.open(i.link)}>
-            <LinkFaq />
-            <SearchText>{i.name}</SearchText>
+            <LeftBox>
+              <LinkFaq />
+              <SearchText>{i.name}</SearchText>
+            </LeftBox>
             <BtnPrimary>
               <Play />
             </BtnPrimary>
           </SearchElement>
         ))}
       </SearchElements>
-    </div>
+    </MainBox>
   );
 }

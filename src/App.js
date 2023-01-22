@@ -31,17 +31,6 @@ function App() {
   const modal = useSelector((state) => state.helpers.modal);
   const message = useSelector((state) => state.helpers.message);
 
-	// onClick={() => {
-	// 	showModal(
-	// 		true,
-	// 		"Invite",
-	// 		"Пригласить",
-	// 		"Пригласить",
-	// 		"Поиск пользователя",
-	// 		null
-	// 	);
-	// }}
-
   return (
     <div>
       <Main />

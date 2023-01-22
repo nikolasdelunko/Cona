@@ -17,17 +17,6 @@ import useModal from "../../utils/CustomHooks/useModal";
 export default function Person({ el }) {
   const { showModal } = useModal();
 
-  const openUser = (user) => {
-    showModal(
-      true,
-      "PartnerStatistic",
-      "Статистика партнёра",
-      "Написать партнёру",
-      null,
-      user
-    );
-  };
-
   return (
     <MainBox>
       <PersonBorder>
