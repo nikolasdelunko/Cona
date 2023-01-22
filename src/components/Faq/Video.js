@@ -1,11 +1,15 @@
 import React from "react";
 
+
 export default function Video({ link }) {
+
+	const lastNumbers = "https://www.youtube.com/watch?v=-gkEOJGYER0"
+
   return (
     <div>
       <iframe
-        width="900"
-        height="506"
+        width="300"
+        height="200"
         src={link}
         title="KONA. Презентация партнёрской программы"
         frameborder="0"
@@ -15,3 +19,4 @@ export default function Video({ link }) {
     </div>
   );
 }
+

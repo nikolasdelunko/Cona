@@ -20,6 +20,7 @@ import UserInvest from "./components/Invest/UserInvest";
 import PartnersReport from "../src/components/Report/PartnersReport";
 import PartnersTree from "../src/components/Partners/PartnersTree";
 import PartnersStatistic from "./components/Partners/PartnersStatistic";
+import Video from "./components/Faq/Video";
 import {
   MessageDiv,
   TextError,
@@ -35,7 +36,7 @@ function App() {
     <div>
       <Main />
       {modal && (
-        <Modal name={modal.name} btnName={modal.btnName}> 
+        <Modal name={modal.name} btnName={modal.btnName}>
           {modal.page === "FAQ" && <Faq placeHolder={modal.placeHolder} />}
           {modal.page === "AllBalance" && (
             <Balance placeHolder={modal.placeHolder} />
@@ -88,6 +89,7 @@ function App() {
           {modal.page === "PartnerStatistic" && (
             <PartnersStatistic partner={modal.link} />
           )}
+          {modal.page === "Video" && <Video link={modal.link} />}
         </Modal>
       )}
 
