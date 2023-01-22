@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { openMessage } from "../../store/helpers/helpersSlice";
 import {
   SuccessLine,
@@ -8,8 +8,9 @@ import {
   ErrorLine,
 } from "../Style/MessageStyle";
 
-export default function Message({ error, children }) {
+export default function Message({ error, children, info }) {
   const dispatch = useDispatch();
+  const message = useSelector((state) => state.helpers.message);
   const [lineTime, setLineTime] = useState(55);
 
   useEffect(() => {
@@ -25,10 +26,9 @@ export default function Message({ error, children }) {
     }, 100);
     return () => clearInterval(interval);
   }, [lineTime]);
-
   return (
     <ModalDiv>
-      <ContentDiv>
+      <ContentDiv info={message.icon}>
         {children}
         {error ? (
           <ErrorLine line={`${lineTime}%`} />

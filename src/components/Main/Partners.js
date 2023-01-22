@@ -91,7 +91,7 @@ export default function Wallet() {
                   showMessage(
                     "true",
                     "Ссылка успешно скопирована",
-                    "chevron-up-small",
+                    false,
                     "SuccesCopy"
                   )
                 }

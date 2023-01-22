@@ -79,7 +79,8 @@ export const ContentSumm = styled.p`
 `;
 export const SummBox = styled.div`
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
+  float: right;
 `;
 
 export const SumProc = styled.p`

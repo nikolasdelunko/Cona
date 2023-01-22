@@ -70,7 +70,7 @@ export const ExchangeInp = styled.input`
   background: #ff6e002e;
   border-radius: 6px;
   border: none;
-  font-family: "Poppins";
+  font-family: auto;
   font-style: normal;
   font-weight: 600;
   font-size: 12px;
@@ -130,7 +130,6 @@ export const SummaryDiv = styled.div`
   padding-bottom: 23px;
 `;
 
-
 export const SearchElement = styled.div`
   display: flex;
   align-items: center;
@@ -144,7 +143,6 @@ export const SearchP = styled.p`
   color: #ff6e00;
   margin-right: 5px;
 `;
-
 
 export const SearchCurrency = styled.div`
   justify-content: center;

@@ -20,7 +20,7 @@ import OkLine from "../icons/OkLine";
 
 const data = [
   {
-    name: "Партнёров всего (5 лин.)",
+    name: "Партнёров всего",
     balance: "123",
   },
   {
@@ -28,7 +28,7 @@ const data = [
     balance: "45",
   },
   {
-    name: "Оборот всего (5 лин.)",
+    name: "Оборот всего",
     balance: "51213 USDT",
   },
   {
@@ -36,11 +36,7 @@ const data = [
     balance: "4601 USDT",
   },
   {
-    name: "Прибыль по матчингу",
-    balance: "1223 USDT",
-  },
-  {
-    name: "Прибыль от оборота (1 лин.)",
+    name: "Прибыль от оборота",
     balance: "300 USDT",
   },
 ];

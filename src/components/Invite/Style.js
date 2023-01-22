@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const MainBox = styled.div`
   padding: ${(props) => props.link};
+  width: 100%;
   ${"" /* padding: 0 2rem; */}
 `;
 
@@ -16,6 +17,12 @@ export const LeftDiv = styled.div`
   display: flex;
   align-items: center;
   gap: 7px;
+`;
+
+export const RightDiv = styled.div`
+  display: flex;
+  align-items: center;
+  margin: 15px 15px 0 0;
 `;
 
 export const LogoImg = styled.img`
@@ -55,4 +62,23 @@ export const Label = styled.label`
   cursor: pointer;
   text-align: center;
   transition: all 250ms ease;
+`;
+
+export const AddrP = styled.p`
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 150%;
+  letter-spacing: -0.022em;
+  color: rgba(20, 20, 43, 0.5);
+`;
+
+export const PersonDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const PersonBorder = styled.div`
+  border-right: 1px solid rgba(34, 44, 219, 0.06);
+  border-bottom: 1px solid rgba(34, 44, 219, 0.06);
 `;

@@ -36,12 +36,13 @@ export const DataP = styled.p`
 `;
 
 export const DataSum = styled.p`
-  font-family: "Poppins";
+  ${"" /* font-family: "Poppins"; */}
   font-style: normal;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 17px;
   line-height: 150%;
   text-align: right;
+  font-weight: bold;
   letter-spacing: -0.011em;
   color: #ff6e00;
 `;
@@ -71,11 +72,12 @@ export const DataInfoDate = styled.p`
 `;
 
 export const DataInfoText = styled.p`
-  font-family: "Poppins";
+  ${"" /* font-family: "Poppins"; */}
   font-style: normal;
   font-weight: 400;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 119%;
+  font-weight: bold;
   letter-spacing: -0.022em;
   color: #14142b;
 `;

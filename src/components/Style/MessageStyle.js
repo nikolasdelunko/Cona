@@ -14,7 +14,7 @@ export const ContentDiv = styled.div`
   border-radius: 6px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   position: fixed;
-  top: 90%;
+  top: ${(props) => (props.info ? "74%" : "90%")};
   left: 50%;
   width: 60%;
   min-height: 34px;
@@ -65,5 +65,3 @@ export const TextError = styled.p`
   line-height: 150%;
   color: #ff6e00;
 `;
-
-

@@ -109,13 +109,15 @@ export default function Wallet() {
         <Content>
           <ContentSumm>~{data.Balance}</ContentSumm>
           <ContentSumm>{data.USDT}</ContentSumm>
+          <div>
+            <SummBox>
+              <ContentSumm>{data.KLK}</ContentSumm>
+              <SumProc>+7%</SumProc>
+            </SummBox>
+          </div>
           <SummBox>
-            <SumProc>+7%</SumProc>
-            <ContentSumm>{data.KLK}</ContentSumm>
-          </SummBox>
-          <SummBox>
-            <SumProc>+0.2%</SumProc>
             <ContentSumm>{data.KLD}</ContentSumm>
+            <SumProc>+0.2%</SumProc>
           </SummBox>
           <ContentSumm>~{data.DepositWithdrawal}</ContentSumm>
         </Content>

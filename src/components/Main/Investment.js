@@ -31,7 +31,7 @@ export default function Wallet() {
     <MainContainer>
       <Container>
         <Name>
-          Инвестиции
+          Облигации
           <Link
             onClick={() => {
               showModal(
@@ -50,19 +50,17 @@ export default function Wallet() {
       </Container>
       <Container>
         <Content>
-          <ContentName>Общий вклад</ContentName>
-          <ContentName>Прибыль по вкладам</ContentName>
-          <ContentName>
+          <ContentName>Общие облигации</ContentName>
+          <ContentName>Прибыль по облигациям</ContentName>
             <SummBox>
-              Открыто <SumOpen>{data.Open}</SumOpen> тарифов на
+              открыто <SumOpen>{data.Open}</SumOpen> тарифов на
             </SummBox>
-          </ContentName>
         </Content>
         <Content>
           <ContentSumm>{data.General}</ContentSumm>
           <SummBox>
-            <SumProc>+1.2%</SumProc>
             <ContentSumm>{data.Profit}</ContentSumm>
+            <SumProc>+1.2%</SumProc>
           </SummBox>
           <ContentSumm>{data.Rate}</ContentSumm>
         </Content>

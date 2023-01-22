@@ -13,6 +13,7 @@ export const Search = styled.input`
   font-weight: 400;
   font-size: 12px;
   line-height: 150%;
+  font-family: auto;
   letter-spacing: -0.011em;
   color: rgb(255 123 23 / 67%);
   &::placeholder {
