@@ -61,6 +61,7 @@ export const ExchangeP = styled.p`
 
 export const ExchangeBox = styled.div`
   padding: 0 2rem;
+	width:100%;
 `;
 
 export const ExchangeInp = styled.input`

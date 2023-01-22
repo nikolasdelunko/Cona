@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const MainBox = styled.div`
   padding: 0 2rem;
+	width: 100%;
 `;
 
 export const ExchangeInp = styled.input`

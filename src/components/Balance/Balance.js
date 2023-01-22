@@ -5,6 +5,7 @@ import {
   SearchElement,
   SearchP,
   SearchDivRight,
+  MainBox,
 } from "./Style";
 import SearchIco from "../icons/Search";
 import Upload from "../icons/Deposit";
@@ -54,7 +55,7 @@ const data = [
 export default function Balance({ placeHolder }) {
   const { showModal } = useModal();
   return (
-    <div>
+    <MainBox>
       <SearchBox>
         <Search placeholder={placeHolder} />
         <SearchIco />
@@ -114,6 +115,6 @@ export default function Balance({ placeHolder }) {
           </SearchElement>
         ))}
       </SearchElements>
-    </div>
+    </MainBox>
   );
 }

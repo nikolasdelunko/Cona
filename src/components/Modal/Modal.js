@@ -23,12 +23,9 @@ const ContentDiv = styled.div`
   left: 50%;
   width: 90%;
   max-height: 80%;
-  ${
-    "" /* width: 300px;
-  height: 380px; */
-  }
   transform: translate(-50%, -50%);
   background: white;
+  padding-bottom: ${(props) => props.bottom};
 `;
 
 const HeaderDiv = styled.div`
@@ -41,7 +38,6 @@ const HeaderDiv = styled.div`
 
 const ChildrenDiv = styled.div`
   display: flex;
-  ${"" /* align-items: center; */}
   justify-content: center;
   width: 100%;
   height: 250px;
@@ -61,11 +57,6 @@ const HeaderName = styled.p`
 const Footer = styled.div`
   width: 100%;
   height: 66px;
-  ${
-    "" /* position: fixed;
-  bottom: 0;
-  position: absolute; */
-  }
   background: #ffffff;
   box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 0px 0px 16px 16px;
@@ -89,7 +80,10 @@ export default function Modal({ name, children, btnName }) {
         dispatch(openModal(false));
       }}
     >
-      <ContentDiv onClick={(e) => e.stopPropagation()}>
+      <ContentDiv
+        onClick={(e) => e.stopPropagation()}
+        bottom={modal.btnName ? "0px" : "66px"}
+      >
         <HeaderDiv>
           <HeaderName>{name}</HeaderName>
           <div

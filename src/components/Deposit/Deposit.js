@@ -54,7 +54,7 @@ const data = [
   },
 ];
 
-export default function Deposit({sellCurrency}) {
+export default function Deposit({ sellCurrency }) {
   const [openFor, setOpenFor] = useState(false);
   const [sel, setSel] = useState(sellCurrency);
   return (

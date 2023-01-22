@@ -25,7 +25,7 @@ export const Text = styled.p`
 export const BoxInvest = styled.div`
   margin: 23px 15px;
   width: 268px;
-  height: 240px;
+  min-height: 240px;
   left: 26px;
   top: 245px;
   background: #ff6e002e;
@@ -46,4 +46,5 @@ export const HeadText = styled.h2`
 
 export const BtnBox = styled.div`
   margin-left: 35%;
+  padding-bottom: 16px;
 `;
