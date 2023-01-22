@@ -19,6 +19,7 @@ import OpenInvest from "./components/Invest/OpenInvest";
 import UserInvest from "./components/Invest/UserInvest";
 import PartnersReport from "../src/components/Report/PartnersReport";
 import PartnersTree from "../src/components/Partners/PartnersTree";
+import PartnersStatistic from "./components/Partners/PartnersStatistic";
 import {
   MessageDiv,
   TextError,
@@ -30,11 +31,22 @@ function App() {
   const modal = useSelector((state) => state.helpers.modal);
   const message = useSelector((state) => state.helpers.message);
 
+	// onClick={() => {
+	// 	showModal(
+	// 		true,
+	// 		"Invite",
+	// 		"Пригласить",
+	// 		"Пригласить",
+	// 		"Поиск пользователя",
+	// 		null
+	// 	);
+	// }}
+
   return (
     <div>
       <Main />
       {modal && (
-        <Modal name={modal.name} btnName={modal.btnName}>
+        <Modal name={modal.name} btnName={modal.btnName}> 
           {modal.page === "FAQ" && <Faq placeHolder={modal.placeHolder} />}
           {modal.page === "AllBalance" && (
             <Balance placeHolder={modal.placeHolder} />
@@ -83,6 +95,9 @@ function App() {
           )}
           {modal.page === "PartnersTree" && (
             <PartnersTree placeHolder={modal.placeHolder} />
+          )}
+          {modal.page === "PartnerStatistic" && (
+            <PartnersStatistic partner={modal.link} />
           )}
         </Modal>
       )}

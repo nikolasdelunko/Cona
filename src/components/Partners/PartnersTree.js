@@ -48,7 +48,7 @@ export default function PartnersTree() {
   return (
     <MainBox link={"0 2rem;"}>
       {data.map((el) => (
-        <Person el={el} />
+        <Person el={el}  />
       ))}
       <div>
         {message.element === "Partners" && (

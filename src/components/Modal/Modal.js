@@ -4,6 +4,7 @@ import Cross from "../icons/Cross";
 import { useDispatch, useSelector } from "react-redux";
 import { openModal } from "../../store/helpers/helpersSlice";
 import { BtnPrimary, BtnText } from "../Style/Buttons";
+import useModal from "../../utils/CustomHooks/useModal";
 
 const ModalDiv = styled.div`
   display: block;
@@ -77,6 +78,7 @@ const FooterBtn = styled.div`
 `;
 
 export default function Modal({ name, children, btnName }) {
+  const { showModal } = useModal();
   const dispatch = useDispatch();
   const modal = useSelector((state) => state.helpers.modal);
 
@@ -102,7 +104,20 @@ export default function Modal({ name, children, btnName }) {
         {modal.btnName && (
           <Footer>
             <FooterBtn>
-              <BtnPrimary>
+              <BtnPrimary
+                onClick={() => {
+                  if (modal.page === "PartnersTree") {
+                    showModal(
+                      true,
+                      "Invite",
+                      "Пригласить",
+                      "Пригласить",
+                      "Поиск пользователя",
+                      null
+                    );
+                  }
+                }}
+              >
                 <BtnText>{btnName}</BtnText>
               </BtnPrimary>
             </FooterBtn>

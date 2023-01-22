@@ -32,8 +32,42 @@ export default function Person({ el }) {
     <MainBox>
       <PersonBorder>
         <PersonBox>
-          <LeftDiv
-            onclick={() => {
+          <LeftDiv>
+            {el.link ? (
+              <LogoImg
+                src={el.link}
+                onClick={() => {
+                  showModal(
+                    true,
+                    "PartnerStatistic",
+                    "Статистика партнёра",
+                    "Написать партнёру",
+                    null,
+                    el.name
+                  );
+                }}
+              />
+            ) : (
+              <NoPhotoUser
+                onClick={() => {
+                  showModal(
+                    true,
+                    "PartnerStatistic",
+                    "Статистика партнёра",
+                    "Написать партнёру",
+                    null,
+                    el.name
+                  );
+                }}
+              />
+            )}
+            <PersonDiv>
+              <NameP>{el.name}</NameP>
+              <AddrP>{el.addr}</AddrP>
+            </PersonDiv>
+          </LeftDiv>
+          <RightDiv
+            onClick={() => {
               showModal(
                 true,
                 "PartnerStatistic",
@@ -44,26 +78,7 @@ export default function Person({ el }) {
               );
             }}
           >
-            {el.link ? (
-              <LogoImg src={el.link} />
-            ) : (
-              <NoPhotoUser
-                onclick={() => {
-                  openUser(el.name);
-                }}
-              />
-            )}
-            <PersonDiv>
-              <NameP>{el.name}</NameP>
-              <AddrP>{el.addr}</AddrP>
-            </PersonDiv>
-          </LeftDiv>
-          <RightDiv>
-            <ArrowRight
-              onclick={() => {
-                openUser(el.name);
-              }}
-            />
+            <ArrowRight />
           </RightDiv>
         </PersonBox>
       </PersonBorder>
