@@ -58,13 +58,13 @@ export default function Faq({ placeHolder }) {
   const result = data.filter((el) => {
     return el.name.toLowerCase().includes(findName.toLowerCase());
   });
+
   return (
     <MainBox>
       <SearchBox>
         <Search
           placeholder={placeHolder}
           onChange={(e) => {
-            console.log(result);
             setFindName(e.target.value);
           }}
         />
