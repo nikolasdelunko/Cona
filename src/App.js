@@ -21,7 +21,7 @@ import PartnersReport from "../src/components/Report/PartnersReport";
 import PartnersTree from "../src/components/Partners/PartnersTree";
 import PartnersStatistic from "./components/Partners/PartnersStatistic";
 import Video from "./components/Faq/Video";
-import Settings from "./components/Setting/Settings"
+import Settings from "./components/Setting/Settings";
 import {
   MessageDiv,
   TextError,
@@ -32,6 +32,8 @@ import ChevronUp from "./components/icons/ChevronUp";
 function App() {
   const modal = useSelector((state) => state.helpers.modal);
   const message = useSelector((state) => state.helpers.message);
+
+  // const telegram = window.Telegram.WebApp;
 
   return (
     <div>
@@ -90,9 +92,7 @@ function App() {
           {modal.page === "PartnerStatistic" && (
             <PartnersStatistic partner={modal.link} />
           )}
-					{modal.page === "Настройки" && (
-						<Settings />
-					)}
+          {modal.page === "Настройки" && <Settings />}
           {modal.page === "Video" && <Video link={modal.link} />}
         </Modal>
       )}
