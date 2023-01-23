@@ -49,8 +49,8 @@ export default function Wallet() {
       </Container>
       <Container>
         <Content>
-          <ContentName>Всего инвестиций</ContentName>
-          <ContentName>Текущих инвестиций</ContentName>
+          <ContentName>Всего Облигаций</ContentName>
+          <ContentName>Текущих Облигаций</ContentName>
           <ContentName>Прибыль по партнёрской</ContentName>
           <ContentName>Прибыль за сегодня</ContentName>
           <ContentName> Открыто тарифов</ContentName>

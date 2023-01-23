@@ -4,7 +4,7 @@ import { DataDiv, DataP, DataSum } from "../Report/Style";
 
 const data = [
   {
-    name: "Сумма инвестиции",
+    name: "Сумма Облигации",
     summ: "100 USDT",
   },
   {

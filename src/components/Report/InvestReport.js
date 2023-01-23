@@ -17,11 +17,11 @@ import useModal from "../../utils/CustomHooks/useModal";
 
 const data = [
   {
-    name: "Всего инвестиций ",
+    name: "Всего Облигаций ",
     balance: "12412 USDT",
   },
   {
-    name: "Текущих инвестиций",
+    name: "Текущих Облигаций",
     balance: "5321 USDT",
   },
   {
@@ -34,7 +34,7 @@ const data = [
   },
 
   {
-    name: "Открыто тарифов",
+    name: "Открыто Облигаций",
     balance: "5",
   },
 ];
