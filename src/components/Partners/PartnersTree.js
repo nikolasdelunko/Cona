@@ -1,5 +1,4 @@
-import React, { useEffect } from "react";
-import useMessage from "../../utils/CustomHooks/useMessage";
+import React from "react";
 import { useSelector } from "react-redux";
 import Message from "../Modal/Message";
 import { MessageDiv, IconBox, TextError } from "../Style/MessageStyle";
@@ -35,16 +34,8 @@ const data = [
 ];
 
 export default function PartnersTree() {
-  const { showMessage } = useMessage();
   const message = useSelector((state) => state.helpers.message);
-  useEffect(() => {
-    showMessage(
-      true,
-      "Чтобы посмотреть статистику партнёра, нажмите на его аватар",
-      true,
-      "Partners"
-    );
-  }, [showMessage]);
+
   return (
     <MainBox link={"0 2rem;"}>
       {data.map((el) => (

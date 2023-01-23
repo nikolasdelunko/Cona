@@ -76,6 +76,12 @@ export default function Wallet() {
                   null,
                   null
                 );
+                showMessage(
+                  true,
+                  "Чтобы посмотреть статистику партнёра, нажмите на его аватар",
+                  true,
+                  "Partners"
+                );
               }}
             >
               Мои партнёры
