@@ -18,7 +18,7 @@ export default function Message({ error, children, info }) {
       dispatch(openMessage(false));
     }, 6000);
     return () => clearTimeout(timer);
-  }, [message]);
+  }, [dispatch]);
 
   useEffect(() => {
     const interval = setInterval(() => {
