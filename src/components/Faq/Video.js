@@ -1,10 +1,6 @@
 import React from "react";
 
-
 export default function Video({ link }) {
-
-	const lastNumbers = "https://www.youtube.com/watch?v=-gkEOJGYER0"
-
   return (
     <div>
       <iframe
@@ -19,4 +15,3 @@ export default function Video({ link }) {
     </div>
   );
 }
-

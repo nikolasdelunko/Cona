@@ -18,7 +18,6 @@ import {
 } from "../Withdraw/Style";
 import { Search, SearchBox } from "../Style/Search";
 import SearchIco from "../icons/Search";
-import { SearchUserSection } from "./Style";
 import Invite from "../Invite/Invite";
 
 const data = [
@@ -108,7 +107,7 @@ export default function Send({ sellCurrency, placeHolder }) {
           )}
         </CurrencyDiv>
       </SummaryDiv>
-			<Invite />
+      <Invite />
     </MainBox>
   );
 }

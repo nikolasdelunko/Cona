@@ -3,7 +3,6 @@ import { BtnOutline, BtnPrimary, BtnText } from "../Style/Buttons";
 import {
   DayBox,
   ContentBox,
-  SearchDiv,
   DataDiv,
   DataP,
   DataSum,

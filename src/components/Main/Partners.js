@@ -8,7 +8,6 @@ import {
   MainContainer,
   ContentBlock,
   ContentCont,
-  CenterBlock,
 } from "./Style";
 import { Link, BtnPrimary, BtnText, BtnIn } from "../Style/Buttons";
 import LinkIco from "../../components/icons/Link";
