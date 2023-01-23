@@ -87,14 +87,15 @@ export default function Wallet() {
           <BtnPrimary>
             <BtnIn>
               <BtnText
-                onClick={() =>
+                onClick={() => {
+                  navigator.clipboard.writeText(linkPart);
                   showMessage(
                     "true",
                     "Ссылка успешно скопирована",
                     false,
                     "SuccesCopy"
-                  )
-                }
+                  );
+                }}
               >
                 Пригласить партнёра
               </BtnText>
