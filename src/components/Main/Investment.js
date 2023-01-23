@@ -11,6 +11,7 @@ import {
   MainContainer,
   ContentBlock,
   ContentCont,
+  SummLeft,
 } from "./Style";
 import { Link, BtnPrimary, BtnText, BtnIn } from "../Style/Buttons";
 import Rocket from "../../components/icons/Rocket";
@@ -52,9 +53,10 @@ export default function Wallet() {
         <Content>
           <ContentName>Общие облигации</ContentName>
           <ContentName>Прибыль по облигациям</ContentName>
-            <SummBox>
-              открыто <SumOpen>{data.Open}</SumOpen> тарифов на
-            </SummBox>
+          <SummLeft>
+            <ContentName>открыто</ContentName> <SumOpen>{data.Open}</SumOpen>
+            <ContentName> тарифов на </ContentName>
+          </SummLeft>
         </Content>
         <Content>
           <ContentSumm>{data.General}</ContentSumm>

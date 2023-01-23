@@ -12,8 +12,6 @@ const ChevronUp = () => {
       <path
         d="M9 0.666252L4.4986 8.62146L1 3.90743"
         stroke="#FF6E00"
-        stroke-linecap="round"
-        stroke-linejoin="round"
       />
     </svg>
   );

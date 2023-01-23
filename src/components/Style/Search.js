@@ -12,6 +12,8 @@ export const Search = styled.input`
   padding: 0 12px;
   font-weight: 400;
   font-size: 12px;
+  font-family: "Poppins";
+  letter-spacing: -0.011em;
   line-height: 150%;
   font-family: auto;
   letter-spacing: -0.011em;

@@ -28,7 +28,7 @@ const LinkFaq = () => {
           gradientUnits="userSpaceOnUse"
         >
           <stop stop-color="#ff6e00" />
-          <stop offset="1" stop-color="#ff6e00" stop-opacity="0.8" />
+          <stop offset="1" stopColor="#ff6e00" stopOpacity="0.8" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_62_2295"
@@ -50,7 +50,7 @@ const LinkFaq = () => {
           gradientUnits="userSpaceOnUse"
         >
           <stop stop-color="#ff6e00" />
-          <stop offset="1" stop-color="#ff6e00" stop-opacity="0.8" />
+          <stop offset="1" stopColor="#ff6e00" stopOpacity="0.8" />
         </linearGradient>
       </defs>
     </svg>

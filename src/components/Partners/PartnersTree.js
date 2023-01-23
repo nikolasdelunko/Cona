@@ -44,7 +44,7 @@ export default function PartnersTree() {
       true,
       "Partners"
     );
-  });
+  },[data]);
   return (
     <MainBox link={"0 2rem;"}>
       {data.map((el) => (

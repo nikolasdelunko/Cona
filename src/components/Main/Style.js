@@ -17,8 +17,10 @@ export const Name = styled.h2`
   font-weight: 600;
   font-size: 16px;
   line-height: 150%;
-  font-family: "Source Sans Pro";
   font-style: normal;
+  font-family: "Poppins";
+  line-height: 150%;
+  letter-spacing: -0.022em;
 `;
 
 export const Container = styled.div`
@@ -62,19 +64,22 @@ export const ContentCont = styled.div`
 `;
 
 export const ContentName = styled.p`
+  font-family: "Poppins";
   font-style: normal;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 14px;
+  letter-spacing: -0.011em;
   line-height: 150%;
   color: #14142b;
 `;
 
 export const ContentSumm = styled.p`
-  font-family: "Source Sans Pro";
+  font-family: "Poppins";
   font-style: normal;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 14px;
   line-height: 150%;
+  letter-spacing: -0.011em;
   text-align: right;
   color: #ff6e00;
 `;
@@ -84,12 +89,19 @@ export const SummBox = styled.div`
   float: right;
 `;
 
+export const SummLeft = styled.div`
+  display: flex;
+  flex-direction: row;
+  float: left;
+`;
+
 export const SumProc = styled.p`
-  font-family: "Source Sans Pro";
+  font-family: "Poppins";
   font-style: normal;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 14px;
   line-height: 150%;
+  letter-spacing: -0.011em;
   text-align: right;
   color: #ed2e7e;
   margin: 0 0 0 3px;

@@ -32,7 +32,8 @@ export const LogoImg = styled.img`
 `;
 
 export const NameP = styled.p`
-  font-family: "Source Sans Pro";
+  font-family: "Poppins";
+  letter-spacing: -0.011em;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;

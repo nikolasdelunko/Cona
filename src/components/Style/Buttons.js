@@ -40,13 +40,15 @@ export const BtnIn = styled.div`
 `;
 
 export const Link = styled.a`
-  font-family: "Source Sans Pro";
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
-  line-height: 150%;
   color: #ff6e00;
   text-decoration-line: underline;
   cursor: pointer;
   margin: 0 0 0 3px;
+
+  font-family: "Poppins";
+  line-height: 150%;
+  letter-spacing: -0.011em;
 `;

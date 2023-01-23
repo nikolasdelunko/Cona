@@ -16,7 +16,7 @@ import useCalendar from "../../utils/CustomHooks/useCalendar";
 import Days from "./Day";
 
 export default function DataPicker() {
-  const [ setSelectedDate] = useState(false);
+  const [SelectedDate, setSelectedDate] = useState(false);
   const { getMonthData, togleDays, clearRange } = useCalendar();
   const startDate = useSelector((state) => state.calendar.startDate);
   const endDate = useSelector((state) => state.calendar.endDate);
@@ -59,12 +59,10 @@ export default function DataPicker() {
       yearSelected?.current.value,
       monthSelected?.current.value
     );
+    clearRange(SelectedDate);
     setSelectedDate(dateT);
-    clearRange();
   };
 
-
-	
   const testDt = (data) => {
     togleDays(data);
   };
