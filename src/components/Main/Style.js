@@ -57,6 +57,7 @@ export const ContentBlock = styled.div`
 export const ContentCont = styled.div`
   display: flex;
   flex-direction: row;
+  align-items: center;
   gap: 24px;
 `;
 

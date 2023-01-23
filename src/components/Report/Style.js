@@ -38,12 +38,13 @@ export const DataP = styled.p`
 export const DataSum = styled.p`
   ${"" /* font-family: "Poppins"; */}
   font-style: normal;
-  font-weight: 500;
-  font-size: 17px;
+  /* font-weight: 500; */
+  font-size: 14px;
   line-height: 150%;
   text-align: right;
-  font-weight: bold;
-  letter-spacing: -0.011em;
+  font-family: "Poppins";
+  font-weight: 700;
+  letter-spacing: 0.08em;
   color: #ff6e00;
 `;
 
