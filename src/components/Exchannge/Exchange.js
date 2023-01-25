@@ -21,6 +21,7 @@ import {
 } from "./Style";
 import ExchangeIcon from "../icons/Exchange";
 import SearchIco from "../icons/Search";
+import useSearch from "../../utils/CustomHooks/useSearch";
 
 const data = [
   {
@@ -66,7 +67,8 @@ export default function Exchange({ placeHolder, sellCurrency }) {
   const [openFor, setOpenFor] = useState(false);
   const [openWhat, setOpenWhat] = useState(false);
   const [sel, setSel] = useState(sellCurrency);
-
+  const [findName, setFindName] = useState("");
+  const { filterCurrency } = useSearch("");
   const [timeLeft, setTimeLeft] = useState(15);
 
   const fetchData = () => {
@@ -102,15 +104,21 @@ export default function Exchange({ placeHolder, sellCurrency }) {
               <Line />
             </SearchDiv>
             <SearchBox>
-              <Search placeholder={placeHolder} />
+              <Search
+                placeholder={placeHolder}
+                onChange={(e) => {
+                  setFindName(e.target.value);
+                }}
+              />
               <SearchIco />
             </SearchBox>
             <SearchCurrency>
-              {data.map((i) => (
+              {filterCurrency(data, findName).map((i) => (
                 <SearchElement
                   onClick={() => {
                     setSel(i.currency);
                     setOpenFor(!openFor);
+                    setFindName("");
                   }}
                 >
                   <SearchP>{i.currency}</SearchP>
@@ -138,15 +146,21 @@ export default function Exchange({ placeHolder, sellCurrency }) {
               <Line />
             </SearchDiv>
             <SearchBox>
-              <Search placeholder={placeHolder} />
+              <Search
+                placeholder={placeHolder}
+                onChange={(e) => {
+                  setFindName(e.target.value);
+                }}
+              />
               <SearchIco />
             </SearchBox>
             <SearchCurrency>
-              {data.map((i) => (
+              {filterCurrency(data, findName).map((i) => (
                 <SearchElement
                   onClick={() => {
                     setBuy(i.currency);
                     setOpenWhat(!openWhat);
+                    setFindName("");
                   }}
                 >
                   <SearchP>{i.currency}</SearchP>

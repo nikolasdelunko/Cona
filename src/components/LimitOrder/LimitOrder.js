@@ -18,6 +18,7 @@ import {
 } from "../Exchannge/Style";
 import { ExchangeInp, InpTextDiv } from "../Deposit/Style";
 import SearchIco from "../icons/Search";
+import useSearch from "../../utils/CustomHooks/useSearch";
 
 const data = [
   {
@@ -59,9 +60,10 @@ const data = [
 ];
 
 export default function LimitOrder({ placeHolder, sellCurrency }) {
+  const { filterCurrency } = useSearch("");
   const [openFor, setOpenFor] = useState(false);
   const [sel, setSel] = useState(sellCurrency);
-
+  const [findName, setFindName] = useState("");
   const [timeLeft, setTimeLeft] = useState(15);
 
   const fetchData = () => {
@@ -97,15 +99,21 @@ export default function LimitOrder({ placeHolder, sellCurrency }) {
               <Line />
             </SearchDiv>
             <SearchBox>
-              <Search placeholder={placeHolder} />
+              <Search
+                placeholder={placeHolder}
+                onChange={(e) => {
+                  setFindName(e.target.value);
+                }}
+              />
               <SearchIco />
             </SearchBox>
             <SearchCurrency>
-              {data.map((i) => (
+              {filterCurrency(data, findName).map((i) => (
                 <SearchElement
                   onClick={() => {
                     setSel(i.currency);
                     setOpenFor(!openFor);
+                    setFindName("");
                   }}
                 >
                   <SearchP>{i.currency}</SearchP>

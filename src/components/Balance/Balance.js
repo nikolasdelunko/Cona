@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Search, SearchBox } from "../Style/Search";
 import {
   SearchElements,
@@ -12,6 +12,7 @@ import Upload from "../icons/Deposit";
 import Exchange from "../icons/Exchange";
 import SendIco from "../icons/Send";
 import useModal from "../../utils/CustomHooks/useModal";
+import useSearch from "../../utils/CustomHooks/useSearch";
 
 const data = [
   {
@@ -54,14 +55,21 @@ const data = [
 
 export default function Balance({ placeHolder }) {
   const { showModal } = useModal();
+  const { filterCurrency } = useSearch("");
+  const [findName, setFindName] = useState("");
   return (
     <MainBox>
       <SearchBox>
-        <Search placeholder={placeHolder} />
+        <Search
+          placeholder={placeHolder}
+          onChange={(e) => {
+            setFindName(e.target.value);
+          }}
+        />
         <SearchIco />
       </SearchBox>
       <SearchElements>
-        {data.map((i) => (
+        {filterCurrency(data, findName).map((i) => (
           <SearchElement>
             <SearchP>{i.currency}</SearchP>
             <SearchDivRight>

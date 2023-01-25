@@ -22,7 +22,7 @@ const ContentDiv = styled.div`
   top: 50%;
   left: 50%;
   width: 90%;
-  height: 380px;
+  height: ${(props) => props.bottom};
   transform: translate(-50%, -50%);
   background: white;
   padding-bottom: 0;
@@ -80,7 +80,10 @@ export default function Modal({ name, children, btnName }) {
         dispatch(openModal(false));
       }}
     >
-      <ContentDiv onClick={(e) => e.stopPropagation()}>
+      <ContentDiv
+        onClick={(e) => e.stopPropagation()}
+        bottom={modal.btnName ? "380px" : "446px"}
+      >
         <HeaderDiv>
           <HeaderName>{name}</HeaderName>
           <div

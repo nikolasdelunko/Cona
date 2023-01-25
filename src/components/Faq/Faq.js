@@ -55,7 +55,7 @@ const data = [
 export default function Faq({ placeHolder }) {
   const [findName, setFindName] = useState("");
   const { showModal } = useModal();
-  const { filterData } = useSearch();
+  const { filterName } = useSearch();
 
 
   return (
@@ -70,7 +70,7 @@ export default function Faq({ placeHolder }) {
         <SearchIco />
       </SearchBox>
       <SearchElements>
-        {filterData(data, findName).map((i) => (
+        {filterName(data, findName).map((i) => (
           <SearchElement
             onClick={() => {
               showModal(true, "Video", null, null, null, i.link);

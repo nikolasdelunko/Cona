@@ -19,6 +19,7 @@ import {
 import { Search, SearchBox } from "../Style/Search";
 import SearchIco from "../icons/Search";
 import Invite from "../Invite/Invite";
+import useSearch from "../../utils/CustomHooks/useSearch";
 
 const data = [
   {
@@ -62,6 +63,8 @@ const data = [
 export default function Send({ sellCurrency, placeHolder }) {
   const [openFor, setOpenFor] = useState(false);
   const [sel, setSel] = useState(sellCurrency);
+  const [findName, setFindName] = useState("");
+  const { filterCurrency } = useSearch("");
 
   return (
     <MainBox>
@@ -87,15 +90,21 @@ export default function Send({ sellCurrency, placeHolder }) {
                 <Line />
               </SearchDiv>
               <SearchBox>
-                <Search placeholder={"поиск"} />
+                <Search
+                  placeholder={"поиск"}
+                  onChange={(e) => {
+                    setFindName(e.target.value);
+                  }}
+                />
                 <SearchIco left={"80%"} />
               </SearchBox>
               <SearchCurrency>
-                {data.map((i) => (
+                {filterCurrency(data, findName).map((i) => (
                   <SearchElement
                     onClick={() => {
                       setSel(i.currency);
                       setOpenFor(!openFor);
+                      setFindName("");
                     }}
                   >
                     <SearchP>{i.currency}</SearchP>

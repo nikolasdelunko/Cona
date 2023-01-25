@@ -17,6 +17,7 @@ import { Search, SearchBox } from "../Style/Search";
 import SearchIco from "../icons/Search";
 import WinnerCup from "../icons/WinnerCup";
 import useModal from "../../utils/CustomHooks/useModal";
+import useSearch from "../../utils/CustomHooks/useSearch";
 
 const data = [
   {
@@ -44,12 +45,38 @@ const dataHistory = [
   },
   {
     date: "06.11.2022 21:25",
-    balance: "Пополнение баланса UAH на сумму 321 UAH",
+    balance: "Вивод баланса UAH на сумму 321 USD",
+  },
+  {
+    date: "01.01.2023 21:25",
+    balance: "Вивод с баланса UAH на сумму 321 UAH",
+  },
+  {
+    date: "06.01.2023 21:25",
+    balance: "Вивод с баланса UAH на сумму 3000 UAH",
+  },
+  {
+    date: "01.11.2022 21:25",
+    balance: "Пополнение баланса UAH на сумму 321 USD",
+  },
+  {
+    date: "06.08.2022 21:25",
+    balance: "Пополнение баланса UAH на сумму 3212 UAH",
+  },
+  {
+    date: "06.05.2022 21:25",
+    balance: "Пополнение баланса UAH на сумму 32 USD",
+  },
+  {
+    date: "13.10.2022 21:25",
+    balance: "Пополнение баланса UAH на сумму 500 UAH",
   },
 ];
 
 export default function Report({ placeHolder }) {
   const [activeP, setActiveP] = useState(7);
+  const [findName, setFindName] = useState("");
+  const { filterReport } = useSearch("");
   const { showModal } = useModal();
 
   return (
@@ -92,7 +119,12 @@ export default function Report({ placeHolder }) {
       </DayBox>
       <SearchDiv>
         <SearchBox>
-          <Search placeholder={placeHolder} />
+          <Search
+            placeholder={placeHolder}
+            onChange={(e) => {
+              setFindName(e.target.value);
+            }}
+          />
           <SearchIco />
         </SearchBox>
       </SearchDiv>
@@ -102,7 +134,7 @@ export default function Report({ placeHolder }) {
           <DataSum>{el.balance}</DataSum>
         </DataDiv>
       ))}
-      {dataHistory.map((i) => (
+      {filterReport(dataHistory, findName).map((i) => (
         <DataInfoBox>
           <WinnerCup />
           <DataInfoTextBox>

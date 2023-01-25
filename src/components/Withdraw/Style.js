@@ -137,6 +137,7 @@ export const SummaryDiv = styled.div`
 export const SearchElement = styled.div`
   display: flex;
   align-items: center;
+  margin: 0 7px;
 `;
 
 export const SearchP = styled.p`

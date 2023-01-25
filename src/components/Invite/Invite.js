@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { MainBox } from "./Style";
 import { Search, SearchBox } from "../Style/Search";
 import SearchIco from "../icons/Search";
 import Person from "./Person";
+import useSearch from "../../utils/CustomHooks/useSearch";
 
 const data = [
   {
@@ -28,13 +29,21 @@ const data = [
 ];
 
 export default function Invite({ link }) {
+  const [findName, setFindName] = useState("");
+  const { filterName } = useSearch();
   return (
     <MainBox link={link === "Invite" && "0 2rem;"}>
       <SearchBox>
-        <Search primary placeholder={"поиск"} />
+        <Search
+          primary
+          placeholder={"поиск"}
+          onChange={(e) => {
+            setFindName(e.target.value);
+          }}
+        />
         <SearchIco />
       </SearchBox>
-      {data.map((el, index) => (
+      {filterName(data, findName).map((el, index) => (
         <Person el={el} key={index} />
       ))}
     </MainBox>

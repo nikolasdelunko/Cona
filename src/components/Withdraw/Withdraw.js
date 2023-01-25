@@ -21,6 +21,7 @@ import {
 } from "./Style";
 import { Search, SearchBox } from "../Style/Search";
 import SearchIco from "../icons/Search";
+import useSearch from "../../utils/CustomHooks/useSearch";
 
 const data = [
   {
@@ -65,6 +66,8 @@ const LinkExchange = "TRC-20";
 const WalletAddr = "TJt2N93GYsjZoffp3aDdjQJ6nPuVvXLtjF";
 
 export default function Withdraw({ sellCurrency, placeHolder }) {
+  const { filterCurrency } = useSearch("");
+  const [findName, setFindName] = useState("");
   const [openFor, setOpenFor] = useState(false);
   const [cc, setCc] = useState(false);
   const [sel, setSel] = useState(sellCurrency);
@@ -101,15 +104,22 @@ export default function Withdraw({ sellCurrency, placeHolder }) {
                 <Line />
               </SearchDiv>
               <SearchBox>
-                <Search primary placeholder={placeHolder} />
+                <Search
+                  primary
+                  placeholder={placeHolder}
+                  onChange={(e) => {
+                    setFindName(e.target.value);
+                  }}
+                />
                 <SearchIco left={"80%"} />
               </SearchBox>
               <SearchCurrency>
-                {data.map((i) => (
+                {filterCurrency(data, findName).map((i) => (
                   <SearchElement
                     onClick={() => {
                       setSel(i.currency);
                       setOpenFor(!openFor);
+                      setFindName("");
                     }}
                   >
                     <SearchP>{i.currency}</SearchP>

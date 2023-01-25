@@ -4,13 +4,27 @@
 const useSearch = () => {
   // const dispatch = useDispatch();
 
-  function filterData(data, find) {
+  function filterName(data, find) {
     return data.filter((el) => {
       return el.name.toLowerCase().includes(find.toLowerCase());
     });
   }
 
-  return { filterData };
+  function filterCurrency(data, find) {
+    return data.filter((el) => {
+      return el.currency.toLowerCase().includes(find.toLowerCase());
+    });
+  }
+
+  function filterReport(data, find) {
+    return data.filter((el) => {
+      return (
+        el.balance.toLowerCase().includes(find.toLowerCase())
+      );
+    });
+  }
+
+  return { filterName, filterCurrency, filterReport };
 };
 
 export default useSearch;

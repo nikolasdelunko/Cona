@@ -11,6 +11,7 @@ export const ContentBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 `;
 
 export const SearchDiv = styled.div`
