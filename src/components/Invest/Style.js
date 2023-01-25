@@ -19,7 +19,7 @@ export const Text = styled.p`
   font-size: 12px;
   line-height: 150%;
   letter-spacing: -0.011em;
-  color: #14142b;
+  color:  color: ${(props) => (props.bg ? "white" : "#14142b")};;
 `;
 
 export const BoxInvest = styled.div`
@@ -35,7 +35,7 @@ export const BoxInvest = styled.div`
 `;
 
 export const HeadText = styled.h2`
-  font-family: "Poppins";
+  font-family: auto;
   font-style: normal;
   font-weight: 600;
   font-size: 12px;

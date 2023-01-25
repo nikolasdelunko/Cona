@@ -12,7 +12,7 @@ export const ExchangeInp = styled.input`
   background: #ff6e002e;
   border-radius: 6px;
   border: none;
-  font-family: "Poppins";
+  font-family: auto;
   font-style: normal;
   font-weight: 600;
   font-size: 12px;
@@ -20,7 +20,7 @@ export const ExchangeInp = styled.input`
   letter-spacing: -0.011em;
   color: #ff6e00;
   &::placeholder {
-    font-family: "Poppins";
+    font-family: auto;
     font-style: normal;
     font-weight: 600;
     font-size: 12px;

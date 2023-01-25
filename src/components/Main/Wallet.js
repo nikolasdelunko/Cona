@@ -28,10 +28,11 @@ export default function Wallet() {
     DepositWithdrawal: "7654/543 USDT",
   };
 
+  const telegram = window.Telegram.WebApp;
   return (
     <Content>
       <Container>
-        <Name>
+        <Name bg={telegram === "light" ? true : false}>
           Ваш кошелёк
           <Link
             onClick={() => {

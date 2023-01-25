@@ -23,9 +23,9 @@ export const SearchText = styled.p`
   font-weight: 400;
   font-size: 14px;
   line-height: 150%;
-	font-family: "Poppins";
-    font-style: normal;
-    letter-spacing: -0.011em;
+  font-family: auto;
+  font-style: normal;
+  letter-spacing: -0.011em;
   color: #1e1e1e;
   &:hover {
     text-decoration-line: underline;

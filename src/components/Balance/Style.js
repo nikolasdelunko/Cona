@@ -19,8 +19,13 @@ export const SearchElement = styled.div`
 `;
 
 export const SearchP = styled.p`
-  font-weight: 400;
+  font-family: auto;
+  font-style: normal;
   font-size: 14px;
+  line-height: 150%;
+  letter-spacing: -0.011em;
+  text-align: right;
+  font-weight: bold;
   line-height: 30px;
   color: #ff6e00;
   margin-right: 5px;

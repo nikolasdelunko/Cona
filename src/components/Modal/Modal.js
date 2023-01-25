@@ -25,7 +25,7 @@ const ContentDiv = styled.div`
   max-height: 80%;
   transform: translate(-50%, -50%);
   background: white;
-  padding-bottom: ${(props) => props.bottom};
+  padding-bottom: 0;
 `;
 
 const HeaderDiv = styled.div`
@@ -40,7 +40,7 @@ const ChildrenDiv = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
-  height: 250px;
+  height: ${(props) => props.bottom};
   overflow: scroll;
   overflow-x: hidden;
   overflow-y: auto;
@@ -80,10 +80,7 @@ export default function Modal({ name, children, btnName }) {
         dispatch(openModal(false));
       }}
     >
-      <ContentDiv
-        onClick={(e) => e.stopPropagation()}
-        bottom={modal.btnName ? "0px" : "66px"}
-      >
+      <ContentDiv onClick={(e) => e.stopPropagation()}>
         <HeaderDiv>
           <HeaderName>{name}</HeaderName>
           <div
@@ -94,7 +91,9 @@ export default function Modal({ name, children, btnName }) {
             <Cross />
           </div>
         </HeaderDiv>
-        <ChildrenDiv>{children}</ChildrenDiv>
+        <ChildrenDiv bottom={modal.btnName ? "250px" : "316px"}>
+          {children}
+        </ChildrenDiv>
         {modal.btnName && (
           <Footer>
             <FooterBtn>

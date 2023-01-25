@@ -58,11 +58,13 @@ const Data = [
   },
 ];
 
+const telegram = window.Telegram.WebApp;
+
 export default function Invest() {
   const { showModal } = useModal();
   return (
     <MainBox>
-      <Text>
+      <Text bg={telegram === "light" ? true : false}>
         * Прогноз. срок рассчитывается делением суммарного дохода на мес.
         доходность.
       </Text>
@@ -78,7 +80,14 @@ export default function Invest() {
           <BtnBox>
             <BtnPrimary
               onClick={() => {
-                showModal(true, "OpenInvest", "Открытие инвестиции", "Подтвердить", null, el.name);
+                showModal(
+                  true,
+                  "OpenInvest",
+                  "Открытие инвестиции",
+                  "Подтвердить",
+                  null,
+                  el.name
+                );
               }}
             >
               <BtnIn>

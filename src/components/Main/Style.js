@@ -13,12 +13,12 @@ export const Header = styled.div`
 `;
 
 export const Name = styled.h2`
-  color: #14142b;
+  color: ${(props) => (props.bg ? "white" : "#14142b")};
   font-weight: 600;
   font-size: 16px;
   line-height: 150%;
   font-style: normal;
-  font-family: "Poppins";
+  font-family: auto;
   line-height: 150%;
   letter-spacing: -0.022em;
 `;
@@ -31,8 +31,10 @@ export const Container = styled.div`
 `;
 
 export const LinkRight = styled.div`
-  font-weight: 400;
-  font-size: 12px;
+  font-family: auto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
   line-height: 150%;
   color: #ed2e7e;
   display: flex;
@@ -64,7 +66,7 @@ export const ContentCont = styled.div`
 `;
 
 export const ContentName = styled.p`
-  font-family: "Poppins";
+  font-family: auto;
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
@@ -74,13 +76,15 @@ export const ContentName = styled.p`
 `;
 
 export const ContentSumm = styled.p`
-  font-family: "Poppins";
+  font-family: auto;
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
   line-height: 150%;
   letter-spacing: -0.011em;
+  font-size: 14px;
   text-align: right;
+  font-weight: bold;
   color: #ff6e00;
 `;
 export const SummBox = styled.div`
@@ -96,7 +100,7 @@ export const SummLeft = styled.div`
 `;
 
 export const SumProc = styled.p`
-  font-family: "Poppins";
+  font-family: auto;
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
@@ -119,9 +123,10 @@ export const SumOpen = styled.p`
 `;
 
 export const FootLink = styled.p`
+  font-family: auto;
   font-style: normal;
   font-weight: 400;
-  font-size: 10px;
+  font-size: 12px;
   line-height: 150%;
   color: rgba(255, 110, 0, 0.62);
   cursor: pointer;

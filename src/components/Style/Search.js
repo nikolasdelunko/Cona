@@ -10,17 +10,17 @@ export const Search = styled.input`
   background: rgb(255 121 20 / 6%);
   border-radius: 6px;
   padding: 0 12px;
-  font-weight: 400;
-  font-size: 12px;
-  font-family: "Poppins";
+  font-weight: 500;
+  font-size: 14px;
+  font-family: auto;
   letter-spacing: -0.011em;
   line-height: 150%;
   font-family: auto;
   letter-spacing: -0.011em;
   color: rgb(255 123 23 / 67%);
   &::placeholder {
-    font-weight: 400;
-    font-size: 12px;
+    font-weight: 500;
+    font-size: 14px;
     line-height: 150%;
     color: rgb(255 123 23 / 62%);
   }

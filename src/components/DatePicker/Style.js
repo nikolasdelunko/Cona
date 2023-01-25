@@ -7,7 +7,7 @@ export const MainDiv = styled.div`
 
 export const Select = styled.select`
   border: none;
-  font-family: "Poppins";
+  font-family: auto;
   font-style: normal;
   font-weight: 700;
   font-size: 14px;
@@ -45,7 +45,7 @@ export const Day = styled.td`
   background-color: ${(props) => props.range && "wheat"};
   //? check
   border-radius: ${(props) => (props.open ? "7.11905px" : "none")};
-  font-family: "Poppins";
+  font-family: auto;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -60,7 +60,7 @@ export const Day = styled.td`
 export const DayName = styled.th`
   width: 18px;
   height: 20px;
-  font-family: "Poppins";
+  font-family: auto;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;

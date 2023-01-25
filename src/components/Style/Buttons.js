@@ -42,13 +42,13 @@ export const BtnIn = styled.div`
 export const Link = styled.a`
   font-style: normal;
   font-weight: 400;
-  font-size: 12px;
+  font-size: 14px;
   color: #ff6e00;
   text-decoration-line: underline;
   cursor: pointer;
   margin: 0 0 0 3px;
 
-  font-family: "Poppins";
+  font-family: auto;
   line-height: 150%;
   letter-spacing: -0.011em;
 `;

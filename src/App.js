@@ -34,6 +34,8 @@ function App() {
   const message = useSelector((state) => state.helpers.message);
 
   // const telegram = window.Telegram.WebApp;
+  // console.log(telegram.colorScheme);
+  // !
 
   return (
     <div>

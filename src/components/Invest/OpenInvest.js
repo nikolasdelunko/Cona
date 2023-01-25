@@ -25,6 +25,7 @@ const data = [
     summ: "3.7-5.8 мес",
   },
 ];
+const telegram = window.Telegram.WebApp;
 
 export default function OpenInvest({ link }) {
   return (
@@ -37,7 +38,9 @@ export default function OpenInvest({ link }) {
         </DataDiv>
       ))}
       <TextBox>
-        <Text>Нажимая кнопку подтвердить, вы соглашаетесь с</Text>
+        <Text bg={telegram === "light" ? true : false}>
+          Нажимая кнопку подтвердить, вы соглашаетесь с
+        </Text>
         <FootLink>публичной офертой</FootLink>
       </TextBox>
     </MainBox>

@@ -32,7 +32,7 @@ export const LogoImg = styled.img`
 `;
 
 export const NameP = styled.p`
-  font-family: "Poppins";
+  font-family: auto;
   letter-spacing: -0.011em;
   font-style: normal;
   font-weight: 400;

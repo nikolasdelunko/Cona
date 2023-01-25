@@ -26,7 +26,7 @@ export const DataDiv = styled.div`
 `;
 
 export const DataP = styled.p`
-  font-family: "Poppins";
+  font-family: auto;
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
@@ -36,13 +36,13 @@ export const DataP = styled.p`
 `;
 
 export const DataSum = styled.p`
-  ${"" /* font-family: "Poppins"; */}
+  ${"" /*  font-family: auto;; */}
   font-style: normal;
   /* font-weight: 500; */
   font-size: 14px;
   line-height: 150%;
   text-align: right;
-  font-family: "Poppins";
+  font-family: auto;
   font-weight: 700;
   letter-spacing: 0.08em;
   color: #ff6e00;
@@ -62,7 +62,7 @@ export const DataInfoBox = styled.div`
 `;
 
 export const DataInfoDate = styled.p`
-  font-family: "Poppins";
+  font-family: auto;
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
@@ -73,7 +73,7 @@ export const DataInfoDate = styled.p`
 `;
 
 export const DataInfoText = styled.p`
-  ${"" /* font-family: "Poppins"; */}
+  ${"" /*  font-family: auto;; */}
   font-style: normal;
   font-weight: 400;
   font-size: 14px;

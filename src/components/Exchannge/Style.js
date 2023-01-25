@@ -20,7 +20,7 @@ export const SearchElements = styled.div`
 
 export const SearchElementsT = styled.p`
   color: #ff6e00;
-  font-family: "Poppins";
+  font-family: auto;
   font-style: normal;
   font-weight: 600;
   font-size: 12px;
@@ -61,7 +61,7 @@ export const ExchangeP = styled.p`
 
 export const ExchangeBox = styled.div`
   padding: 0 2rem;
-	width:100%;
+  width: 100%;
 `;
 
 export const ExchangeInp = styled.input`
@@ -79,7 +79,7 @@ export const ExchangeInp = styled.input`
   letter-spacing: -0.011em;
   color: #ff6e00;
   &::placeholder {
-    font-family: "Poppins";
+    font-family: auto;
     font-style: normal;
     font-weight: 600;
     font-size: 12px;
