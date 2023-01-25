@@ -13,7 +13,7 @@ export const Header = styled.div`
 `;
 
 export const Name = styled.h2`
-  color: ${(props) => (props.bg ? "white" : "#14142b")};
+  color: ${(props) => (props.bg ? "#ffffff" : "#14142b")};
   font-weight: 600;
   font-size: 16px;
   line-height: 150%;

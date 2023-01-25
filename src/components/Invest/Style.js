@@ -19,7 +19,7 @@ export const Text = styled.p`
   font-size: 12px;
   line-height: 150%;
   letter-spacing: -0.011em;
-  color:  color: ${(props) => (props.bg ? "white" : "#14142b")};;
+  color:  color: ${(props) => (props.bg ? "#ffffff" : "#14142b")};;
 `;
 
 export const BoxInvest = styled.div`

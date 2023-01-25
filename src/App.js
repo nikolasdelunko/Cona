@@ -33,9 +33,13 @@ function App() {
   const modal = useSelector((state) => state.helpers.modal);
   const message = useSelector((state) => state.helpers.message);
 
-  // const telegram = window.Telegram.WebApp;
-  // console.log(telegram.colorScheme);
-  // !
+  const telegram = window.Telegram.WebApp;
+
+  const fnk = () => {
+    return telegram.setBackgroundColor("#ffffff");
+  };
+
+  fnk();
 
   return (
     <div>

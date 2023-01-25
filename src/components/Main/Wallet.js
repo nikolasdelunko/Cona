@@ -29,6 +29,8 @@ export default function Wallet() {
   };
 
   const telegram = window.Telegram.WebApp;
+
+	
   return (
     <Content>
       <Container>
