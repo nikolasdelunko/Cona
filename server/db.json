@@ -1,0 +1,39 @@
+{
+  "faq": [
+    {
+      "id": 1,
+      "name": "Презентация проекта",
+      "link": "https://www.youtube.com/embed/-gkEOJGYER0"
+    },
+    {
+      "id": 2,
+      "name": "Возможности проекта",
+      "link": "https://www.youtube.com/embed/-80viy4www"
+    },
+    {
+      "id": 3,
+      "name": "Дорожная карта",
+      "link": "https://www.youtube.com/embed/-gkEOJGYER0"
+    },
+    {
+      "id": 4,
+      "name": "Возможности проекта",
+      "link": "https://www.youtube.com/embed/-gkEOJGYER0"
+    },
+    {
+      "id": 5,
+      "name": "Презентация проекта",
+      "link": "https://www.youtube.com/embed/-gkEOJGYER0"
+    },
+    {
+      "id": 6,
+      "name": "video",
+      "link": "https://www.youtube.com/embed/-gkEOJGYER0"
+    },
+    {
+      "id": 7,
+      "name": "video",
+      "link": "https://www.youtube.com/embed/-gkEOJGYER0"
+    }
+  ]
+}

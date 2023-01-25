@@ -5,7 +5,7 @@ import { FootLink } from "../Main/Style";
 
 const data = [
   {
-    name: "Сумма инвестиции",
+    name: "Сумма облигаций",
     summ: "100 USDT",
   },
   {
@@ -17,7 +17,7 @@ const data = [
     summ: "25-40%",
   },
   {
-    name: "Тело инвестиции",
+    name: "Тело облигаций",
     summ: "не возвр.",
   },
   {

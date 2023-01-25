@@ -112,7 +112,7 @@ export const SumProc = styled.p`
 `;
 
 export const SumOpen = styled.p`
-  font-family: "Source Sans Pro";
+  font-family: auto;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;

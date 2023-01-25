@@ -75,7 +75,7 @@ export default function Wallet() {
                 showModal(
                   true,
                   "UserInvest",
-                  "Ваши инвестиции",
+                  "Ваши облигации",
                   null,
                   null,
                   null
@@ -89,7 +89,7 @@ export default function Wallet() {
         <Content>
           <BtnPrimary
             onClick={() => {
-              showModal(true, "Invest", "Инвестиции", null, null, null);
+              showModal(true, "Invest", "Облигации", null, null, null);
             }}
           >
             <BtnIn>

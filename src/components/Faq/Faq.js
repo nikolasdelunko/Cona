@@ -12,6 +12,7 @@ import Play from "../icons/Play";
 import LinkFaq from "../icons/LinkFaq";
 import { BtnPrimary } from "../Style/Buttons";
 import useModal from "../../utils/CustomHooks/useModal";
+import useSearch from "../../utils/CustomHooks/useSearch";
 
 const data = [
   {
@@ -54,10 +55,8 @@ const data = [
 export default function Faq({ placeHolder }) {
   const [findName, setFindName] = useState("");
   const { showModal } = useModal();
+  const { filterData } = useSearch();
 
-  const result = data.filter((el) => {
-    return el.name.toLowerCase().includes(findName.toLowerCase());
-  });
 
   return (
     <MainBox>
@@ -71,7 +70,7 @@ export default function Faq({ placeHolder }) {
         <SearchIco />
       </SearchBox>
       <SearchElements>
-        {result.map((i) => (
+        {filterData(data, findName).map((i) => (
           <SearchElement
             onClick={() => {
               showModal(true, "Video", null, null, null, i.link);
