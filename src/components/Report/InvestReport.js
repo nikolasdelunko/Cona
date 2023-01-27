@@ -16,40 +16,6 @@ import OkLine from "../icons/OkLine";
 import useModal from "../../utils/CustomHooks/useModal";
 import { GetAllInvest } from "../../utils/API/investAPI";
 
-// const data = [
-//   {
-//     name: "Всего Облигаций ",
-//     balance: "12412 USDT",
-//   },
-//   {
-//     name: "Текущих Облигаций",
-//     balance: "5321 USDT",
-//   },
-//   {
-//     name: "Прибыль всего",
-//     balance: "4113212 USDT",
-//   },
-//   {
-//     name: "Прибыль  за сегодня",
-//     balance: "511121 USDT",
-//   },
-
-//   {
-//     name: "Открыто Облигаций",
-//     balance: "5",
-//   },
-// ];
-
-// const dataHistory = [
-//   {
-//     date: "05.11.2022 20:45",
-//     balance: "Приобретение тарифного плана #5 на сумму 2500 USDT",
-//   },
-//   {
-//     date: "06.11.2022 21:25",
-//     balance: "Приобретение тарифного плана #5 на сумму 2500 USDT",
-//   },
-// ];
 
 export default function Report({ placeHolder }) {
   const [activeP, setActiveP] = useState(7);

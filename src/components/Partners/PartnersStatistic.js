@@ -71,7 +71,7 @@ const data = [
 
 export default function PartnersStatistic() {
   const name = useSelector((state) => state.helpers.modal.link);
-  // const { filterName } = useSearch();
+  // const { filterName } = useSearch();a
 
   return (
     <MainBox link={"0 2rem;"}>

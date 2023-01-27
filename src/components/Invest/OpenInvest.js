@@ -1,37 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { MainBox, HeadText, Text, TextBox } from "./Style";
 import { DataDiv, DataP, DataSum } from "../Report/Style";
 import { FootLink } from "../Main/Style";
+import { GetAllInvest } from "../../utils/API/investAPI";
 
-const data = [
-  {
-    name: "Сумма облигаций",
-    summ: "100 USDT",
-  },
-  {
-    name: "Суммарный доход",
-    summ: "145%",
-  },
-  {
-    name: "Итоговая сумма",
-    summ: "25-40%",
-  },
-  {
-    name: "Тело облигаций",
-    summ: "не возвр.",
-  },
-  {
-    name: "Прогнозируемый* срок",
-    summ: "3.7-5.8 мес",
-  },
-];
 const telegram = window.Telegram.WebApp;
 
 export default function OpenInvest({ link }) {
+  const [data, setData] = useState([]);
+
+  const fetchData = async () => {
+    const userBalance = await GetAllInvest();
+    return setData(userBalance.data.tariff[0].info);
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
   return (
     <MainBox>
       <HeadText>{link}</HeadText>
-      {data.map((el) => (
+      {data?.map((el) => (
         <DataDiv>
           <DataP>{el.name}</DataP>
           <DataSum>{el.summ}</DataSum>

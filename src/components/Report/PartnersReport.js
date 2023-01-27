@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BtnOutline, BtnPrimary, BtnText } from "../Style/Buttons";
 import {
   DayBox,
@@ -17,44 +17,28 @@ import { Search, SearchBox } from "../Style/Search";
 import SearchIco from "../icons/Search";
 import useModal from "../../utils/CustomHooks/useModal";
 import OkLine from "../icons/OkLine";
-
-const data = [
-  {
-    name: "Партнёров всего",
-    balance: "123",
-  },
-  {
-    name: "Партнёров 1-й линии",
-    balance: "45",
-  },
-  {
-    name: "Оборот всего",
-    balance: "51213 USDT",
-  },
-  {
-    name: "Оборот первой линии",
-    balance: "4601 USDT",
-  },
-  {
-    name: "Прибыль от оборота",
-    balance: "300 USDT",
-  },
-];
-
-const dataHistory = [
-  {
-    date: "05.11.2022 20:45",
-    balance: "Приобретение тарифного плана #5 на сумму 2500 USDT",
-  },
-  {
-    date: "06.11.2022 21:25",
-    balance: "Приобретение тарифного плана #5 на сумму 2500 USDT",
-  },
-];
+import { getPartnersStatistic } from "../../utils/API/partnershipAPI";
 
 export default function Partners({ placeHolder }) {
   const [activeP, setActiveP] = useState(7);
   const { showModal } = useModal();
+  const [dataHistory, setDataHistory] = useState([]);
+  const [data, setData] = useState([]);
+
+  const fetchData = async () => {
+    const userBalance = await getPartnersStatistic();
+    return setData(userBalance.data.data);
+  };
+
+  const fetchDataHistory = async () => {
+    const userBalance = await getPartnersStatistic();
+    return setDataHistory(userBalance.data.dataHistory);
+  };
+
+  useEffect(() => {
+    fetchData();
+    fetchDataHistory();
+  }, []);
 
   return (
     <ContentBox>
@@ -100,13 +84,13 @@ export default function Partners({ placeHolder }) {
           <SearchIco />
         </SearchBox>
       </SearchDiv>
-      {data.map((el) => (
+      {data?.map((el) => (
         <DataDiv>
           <DataP>{el.name}</DataP>
           <DataSum>{el.balance}</DataSum>
         </DataDiv>
       ))}
-      {dataHistory.map((i) => (
+      {dataHistory?.map((i) => (
         <DataInfoBox>
           <OkLine />
           <DataInfoTextBox>
