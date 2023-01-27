@@ -1,11 +1,6 @@
-// http://localhost:5000/faq
 
-// http://localhost:5000/account
-// http://localhost:5000/deposits
-// http://localhost:5000/partnerships
 import axios from "axios";
+import { url } from "./url";
 
-const url = "http://localhost:5000/users";
-
-export const getUser = () => axios.get(url);
-export const updateUser = (data) => axios.patch(url, data);
+export const getUsers = () => axios.get(`${url}/users`);
+export const updateUser = (data) => axios.patch(`${url}/users`, data);

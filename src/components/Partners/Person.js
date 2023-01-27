@@ -32,7 +32,7 @@ export default function Person({ el }) {
                     "Статистика партнёра",
                     "Написать партнёру",
                     null,
-                    el.name
+                    `${el.first_name} ${el.last_name}`
                   );
                 }}
               />
@@ -45,13 +45,15 @@ export default function Person({ el }) {
                     "Статистика партнёра",
                     "Написать партнёру",
                     null,
-                    el.name
+                    `${el.first_name} ${el.last_name}`
                   );
                 }}
               />
             )}
             <PersonDiv>
-              <NameP>{el.name}</NameP>
+              <NameP>
+                {el.first_name}_{el.last_name}
+              </NameP>
               <AddrP>{el.addr}</AddrP>
             </PersonDiv>
           </LeftDiv>
@@ -63,7 +65,7 @@ export default function Person({ el }) {
                 "Статистика партнёра",
                 "Написать партнёру",
                 null,
-                el.name
+                `${el.first_name} ${el.last_name}`
               );
             }}
           >

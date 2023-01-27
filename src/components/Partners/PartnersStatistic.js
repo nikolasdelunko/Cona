@@ -10,7 +10,9 @@ import {
 } from "../Invite/Style";
 import NoPhotoUser from "../icons/NoPhoto";
 import { DataDiv, DataP, DataSum } from "../Report/Style";
+import { useSelector } from "react-redux";
 import { BoxDown } from "./Style";
+// import  useSearch  from "../../utils/CustomHooks/useSearch";
 
 const data = [
   {
@@ -68,6 +70,9 @@ const data = [
 ];
 
 export default function PartnersStatistic() {
+  const name = useSelector((state) => state.helpers.modal.link);
+  // const { filterName } = useSearch();
+
   return (
     <MainBox link={"0 2rem;"}>
       <PersonBox>
@@ -78,7 +83,7 @@ export default function PartnersStatistic() {
             <NoPhotoUser />
           )}
           <PersonDiv>
-            <NameP>{data[0].person.name}</NameP>
+            <NameP>{name}</NameP>
             <AddrP>{data[0].person.addr}</AddrP>
           </PersonDiv>
         </LeftDiv>

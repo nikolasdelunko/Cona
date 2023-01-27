@@ -1,36 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { MainBox } from "./Style";
 import { Search, SearchBox } from "../Style/Search";
 import SearchIco from "../icons/Search";
 import Person from "./Person";
 import useSearch from "../../utils/CustomHooks/useSearch";
-
-const data = [
-  {
-    name: "Олег Дружко",
-    link: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0oG9p35j2zHhUDDCq8mlA2_NYxB_yJakhng&usqp=CAU",
-  },
-  {
-    name: "Максим Петров",
-    link: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0oG9p35j2zHhUDDCq8mlA2_NYxB_yJakhng&usqp=CAU",
-  },
-  {
-    name: "Наталья Олейник",
-    link: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0oG9p35j2zHhUDDCq8mlA2_NYxB_yJakhng&usqp=CAU",
-  },
-  {
-    name: "Виктор Павлов",
-    link: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0oG9p35j2zHhUDDCq8mlA2_NYxB_yJakhng&usqp=CAU",
-  },
-  {
-    name: "Виктор Павлов",
-    link: null,
-  },
-];
+import { getUsers } from "../../utils/API/userAPI";
 
 export default function Invite({ link }) {
   const [findName, setFindName] = useState("");
+  const [users, setUsers] = useState([]);
   const { filterName } = useSearch();
+
+  const fetchUsers = async () => {
+    const userBalance = await getUsers();
+    return setUsers(userBalance.data);
+  };
+
+  useEffect(() => {
+    fetchUsers();
+  }, []);
+
   return (
     <MainBox link={link === "Invite" && "0 2rem;"}>
       <SearchBox>
@@ -43,7 +32,7 @@ export default function Invite({ link }) {
         />
         <SearchIco />
       </SearchBox>
-      {filterName(data, findName).map((el, index) => (
+      {filterName(users, findName)?.map((el, index) => (
         <Person el={el} key={index} />
       ))}
     </MainBox>

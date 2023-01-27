@@ -6,7 +6,10 @@ const useSearch = () => {
 
   function filterName(data, find) {
     return data.filter((el) => {
-      return el.name.toLowerCase().includes(find.toLowerCase());
+      return (
+        el?.first_name.toLowerCase().includes(find.toLowerCase()) ||
+        el?.last_name.toLowerCase().includes(find.toLowerCase())
+      );
     });
   }
 
@@ -18,9 +21,7 @@ const useSearch = () => {
 
   function filterReport(data, find) {
     return data.filter((el) => {
-      return (
-        el.balance.toLowerCase().includes(find.toLowerCase())
-      );
+      return el.balance.toLowerCase().includes(find.toLowerCase());
     });
   }
 

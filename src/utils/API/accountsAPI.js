@@ -1,6 +1,5 @@
 import axios from "axios";
+import { url } from "./url";
 
-const url = "http://localhost:5000/account";
-
-export const getAccount = () => axios.get(url);
-export const updateAccount = (data) => axios.patch(url, data);
+export const getAccount = () => axios.get(`${url}/account`);
+export const updateAccount = (data) => axios.patch(`${url}/account`, data);
