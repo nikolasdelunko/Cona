@@ -35,5 +35,31 @@
       "name": "video",
       "link": "https://www.youtube.com/embed/-gkEOJGYER0"
     }
-  ]
+  ],
+  "users": {
+    "first_name": "Some",
+    "last_name": "One"
+  },
+  "account": {
+    "btc": 0.0,
+    "eur": 10.0,
+    "kld": 0.0,
+    "klk": 0.0,
+    "kzt": 0.0,
+    "total_amount": 45.0,
+    "total_profit": 5.0,
+    "uah": 50.0,
+    "usd": 0.0,
+    "usdt": 0.0
+  },
+  "deposits": {
+    "total_deposit": 5.3,
+    "total_profit": 0.0
+  },
+  "partnerships": {
+    "affiliate_profit": 5.0,
+    "current_investments": 20.0,
+    "today_profit": 0.0,
+    "total_investments": 100.0
+  }
 }
