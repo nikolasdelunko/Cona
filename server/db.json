@@ -36,6 +36,12 @@
       "link": "https://www.youtube.com/embed/-gkEOJGYER0"
     }
   ],
+  "invest": {
+    "General": "12412 USDT",
+    "Profit": "4113212 USDT",
+    "Rate": "5321 USDT",
+    "Open": "5"
+  },
   "users": [
     {
       "first_name": "Some",
@@ -94,24 +100,57 @@
       "link": null
     }
   ],
-  "account": {
-    "btc": 0.0,
-    "eur": 10.0,
-    "kld": 0.0,
-    "klk": 0.0,
-    "kzt": 0.0,
-    "total_amount": 45.0,
-    "total_profit": 5.0,
-    "uah": 50.0,
-    "usd": 0.0,
-    "usdt": 0.0
-  },
+  "account": [
+    {
+      "currency": "KLK",
+      "balance": "0.00000007"
+    },
+    {
+      "currency": "KLD",
+      "balance": 0.0012
+    },
+    {
+      "currency": "USDT",
+      "balance": 0.0007
+    },
+    {
+      "currency": "USD",
+      "balance": 0.0007
+    },
+    {
+      "currency": "EUR",
+      "balance": 0.0007
+    },
+    {
+      "currency": "UAH",
+      "balance": 0.0007
+    },
+    {
+      "currency": "KZT",
+      "balance": 0.0007
+    },
+    {
+      "currency": "BTC",
+      "balance": 0.0007
+    },
+    {
+      "currency": "BTC",
+      "balance": 0.0007
+    }
+  ],
   "deposits": {
     "Balance": "98.5 USDT",
     "USDT": "32 USDT",
     "KLK": "312 KLK",
     "KLD": "1 KLD",
     "DepositWithdrawal": "7654/543 USDT"
+  },
+  "partnersReport": {
+    "All": "12412 USDT",
+    "Current": "5321 USDT",
+    "Profit": " 43212 USDT",
+    "ProfitToday": " 511121 USDT",
+    "Open": "5"
   },
   "partnerships": [
     {

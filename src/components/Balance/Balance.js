@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Search, SearchBox } from "../Style/Search";
 import {
   SearchElements,
@@ -13,50 +13,23 @@ import Exchange from "../icons/Exchange";
 import SendIco from "../icons/Send";
 import useModal from "../../utils/CustomHooks/useModal";
 import useSearch from "../../utils/CustomHooks/useSearch";
-
-const data = [
-  {
-    currency: "KLK",
-    balance: "0.00000007",
-  },
-  {
-    currency: "KLD",
-    balance: 0.0012,
-  },
-  {
-    currency: "USDT",
-    balance: 0.0007,
-  },
-  {
-    currency: "USD",
-    balance: 0.0007,
-  },
-  {
-    currency: "EUR",
-    balance: 0.0007,
-  },
-  {
-    currency: "UAH",
-    balance: 0.0007,
-  },
-  {
-    currency: "KZT",
-    balance: 0.0007,
-  },
-  {
-    currency: "BTC",
-    balance: 0.0007,
-  },
-  {
-    currency: "BTC",
-    balance: 0.0007,
-  },
-];
+import { getAccount } from "../../utils/API/accountsAPI";
 
 export default function Balance({ placeHolder }) {
   const { showModal } = useModal();
   const { filterCurrency } = useSearch("");
   const [findName, setFindName] = useState("");
+  const [data, setData] = useState([]);
+
+  const fetchUsers = async () => {
+    const userBalance = await getAccount();
+    return setData(userBalance.data);
+  };
+
+  useEffect(() => {
+    fetchUsers();
+  }, []);
+
   return (
     <MainBox>
       <SearchBox>

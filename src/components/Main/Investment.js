@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   Name,
   Container,
@@ -16,17 +16,21 @@ import {
 import { Link, BtnPrimary, BtnText, BtnIn } from "../Style/Buttons";
 import Rocket from "../../components/icons/Rocket";
 import useModal from "../../utils/CustomHooks/useModal";
+import { GetAllInvest } from "../../utils/API/investAPI";
 
 export default function Wallet() {
   const { showModal } = useModal();
-  const data = {
-    General: "12412 USDT",
-    Profit: "4113212 USDT",
-    Rate: "5321 USDT",
-    Open: "5",
+
+  const [data, setData] = useState([]);
+
+  const fetchUsers = async () => {
+    const userBalance = await GetAllInvest();
+    return setData(userBalance.data);
   };
 
-  // +1.2%
+  useEffect(() => {
+    fetchUsers();
+  }, []);
 
   return (
     <MainContainer>
@@ -54,17 +58,17 @@ export default function Wallet() {
           <ContentName>Общие облигации</ContentName>
           <ContentName>Прибыль по облигациям</ContentName>
           <SummLeft>
-            <ContentName>открыто</ContentName> <SumOpen>{data.Open}</SumOpen>
+            <ContentName>открыто</ContentName> <SumOpen>{data?.Open}</SumOpen>
             <ContentName> тарифов на </ContentName>
           </SummLeft>
         </Content>
         <Content>
-          <ContentSumm>{data.General}</ContentSumm>
+          <ContentSumm>{data?.General}</ContentSumm>
           <SummBox>
-            <ContentSumm>{data.Profit}</ContentSumm>
+            <ContentSumm>{data?.Profit}</ContentSumm>
             <SumProc>+1.2%</SumProc>
           </SummBox>
-          <ContentSumm>{data.Rate}</ContentSumm>
+          <ContentSumm>{data?.Rate}</ContentSumm>
         </Content>
       </Container>
       <Container>

@@ -12,6 +12,8 @@ export const createPartnership = (data) =>
 export const AddAffiliate = (data) =>
   axios.post(`${url}/users/1/partnerships/1/3`, data);
 
+export const getPartnersStatistic = () => axios.get(`${url}/partnersReport`);
+
 ///! example
 // {
 // 	"affiliate_profit": 5.0,

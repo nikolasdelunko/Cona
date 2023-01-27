@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   Name,
   Container,
@@ -13,18 +13,24 @@ import { Link, BtnPrimary, BtnText, BtnIn } from "../Style/Buttons";
 import LinkIco from "../../components/icons/Link";
 import useMessage from "../../utils/CustomHooks/useMessage";
 import useModal from "../../utils/CustomHooks/useModal";
+import { getPartnersStatistic } from "../../utils/API/partnershipAPI";
 
 export default function Wallet() {
   const { showMessage } = useMessage();
   const { showModal } = useModal();
-  const data = {
-    All: "12412 USDT",
-    Current: "5321 USDT",
-    Profit: " 43212 USDT",
-    ProfitToday: " 511121 USDT",
-    Open: "5",
-  };
+
   const linkPart = "t.me/kriptoliq_bot?start=211204123123";
+
+  const [data, setData] = useState([]);
+
+  const fetchUsers = async () => {
+    const userBalance = await getPartnersStatistic();
+    return setData(userBalance.data);
+  };
+
+  useEffect(() => {
+    fetchUsers();
+  }, []);
 
   return (
     <MainContainer>
@@ -56,11 +62,11 @@ export default function Wallet() {
           <ContentName> Открыто тарифов</ContentName>
         </Content>
         <Content>
-          <ContentSumm>{data.All}</ContentSumm>
-          <ContentSumm>{data.Current}</ContentSumm>
-          <ContentSumm>{data.Profit}</ContentSumm>
-          <ContentSumm>{data.ProfitToday}</ContentSumm>
-          <ContentSumm>{data.Open}</ContentSumm>
+          <ContentSumm>{data?.All}</ContentSumm>
+          <ContentSumm>{data?.Current}</ContentSumm>
+          <ContentSumm>{data?.Profit}</ContentSumm>
+          <ContentSumm>{data?.ProfitToday}</ContentSumm>
+          <ContentSumm>{data?.Open}</ContentSumm>
         </Content>
       </Container>
       <Container>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Name,
   Container,
@@ -16,21 +16,24 @@ import { Link, BtnPrimary, BtnText, BtnIn } from "../Style/Buttons";
 import ArrowBox from "../../components/icons/ArrowBox";
 import Deposit from "../../components/icons/Deposit";
 import useModal from "../../utils/CustomHooks/useModal";
+import { GetUserDeposits } from "../../utils/API/depositsAPI";
 
 export default function Wallet() {
   const { showModal } = useModal();
+  const [data, setData] = useState([]);
 
-  const data = {
-    Balance: "98.5 USDT",
-    USDT: "32 USDT",
-    KLK: "312 KLK",
-    KLD: "1 KLD",
-    DepositWithdrawal: "7654/543 USDT",
+  const fetchUsers = async () => {
+    const userDeposits = await GetUserDeposits();
+    return setData(userDeposits.data);
   };
+
+  useEffect(() => {
+    fetchUsers();
+  }, []);
+
 
   const telegram = window.Telegram.WebApp;
 
-	
   return (
     <Content>
       <Container>
@@ -110,19 +113,19 @@ export default function Wallet() {
           <ContentName>Пополнено/выведено</ContentName>
         </Content>
         <Content>
-          <ContentSumm>~{data.Balance}</ContentSumm>
-          <ContentSumm>{data.USDT}</ContentSumm>
+          <ContentSumm>~{data?.Balance}</ContentSumm>
+          <ContentSumm>{data?.USDT}</ContentSumm>
           <div>
             <SummBox>
-              <ContentSumm>{data.KLK}</ContentSumm>
+              <ContentSumm>{data?.KLK}</ContentSumm>
               <SumProc>+7%</SumProc>
             </SummBox>
           </div>
           <SummBox>
-            <ContentSumm>{data.KLD}</ContentSumm>
+            <ContentSumm>{data?.KLD}</ContentSumm>
             <SumProc>+0.2%</SumProc>
           </SummBox>
-          <ContentSumm>~{data.DepositWithdrawal}</ContentSumm>
+          <ContentSumm>~{data?.DepositWithdrawal}</ContentSumm>
         </Content>
       </Container>
       <Container>
