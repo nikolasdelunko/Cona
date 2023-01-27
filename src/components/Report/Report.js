@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BtnOutline, BtnPrimary, BtnText } from "../Style/Buttons";
 import {
   DayBox,
@@ -18,66 +18,31 @@ import SearchIco from "../icons/Search";
 import WinnerCup from "../icons/WinnerCup";
 import useModal from "../../utils/CustomHooks/useModal";
 import useSearch from "../../utils/CustomHooks/useSearch";
-
-const data = [
-  {
-    name: "Баланс USDT",
-    balance: "32 USDT",
-  },
-  {
-    name: "Общий баланс",
-    balance: "~98.5 USDT",
-  },
-  {
-    name: "Пополнено средств",
-    balance: "~7654 USDT",
-  },
-  {
-    name: "Выведено средств",
-    balance: "~543 USDT",
-  },
-];
-
-const dataHistory = [
-  {
-    date: "05.11.2022 20:45",
-    balance: "Пополнение баланса UAH на сумму 123 UAH",
-  },
-  {
-    date: "06.11.2022 21:25",
-    balance: "Вивод баланса UAH на сумму 321 USD",
-  },
-  {
-    date: "01.01.2023 21:25",
-    balance: "Вивод с баланса UAH на сумму 321 UAH",
-  },
-  {
-    date: "06.01.2023 21:25",
-    balance: "Вивод с баланса UAH на сумму 3000 UAH",
-  },
-  {
-    date: "01.11.2022 21:25",
-    balance: "Пополнение баланса UAH на сумму 321 USD",
-  },
-  {
-    date: "06.08.2022 21:25",
-    balance: "Пополнение баланса UAH на сумму 3212 UAH",
-  },
-  {
-    date: "06.05.2022 21:25",
-    balance: "Пополнение баланса UAH на сумму 32 USD",
-  },
-  {
-    date: "13.10.2022 21:25",
-    balance: "Пополнение баланса UAH на сумму 500 UAH",
-  },
-];
+import { getReport } from "../../utils/API/accountsAPI";
 
 export default function Report({ placeHolder }) {
   const [activeP, setActiveP] = useState(7);
   const [findName, setFindName] = useState("");
   const { filterReport } = useSearch("");
   const { showModal } = useModal();
+  //? heere need refactoring
+  const [data, setData] = useState();
+  const [dataHis, setDataHis] = useState();
+
+  const fetchUsers = async () => {
+    const userBalance = await getReport();
+    return setData(userBalance.data.main);
+  };
+
+  const fetchHistory = async () => {
+    const userHistory = await getReport();
+    return setDataHis(userHistory.data.history);
+  };
+
+  useEffect(() => {
+    fetchUsers();
+    fetchHistory();
+  }, []);
 
   return (
     <ContentBox>
@@ -128,13 +93,13 @@ export default function Report({ placeHolder }) {
           <SearchIco />
         </SearchBox>
       </SearchDiv>
-      {data.map((el) => (
+      {data?.map((el) => (
         <DataDiv>
           <DataP>{el.name}</DataP>
           <DataSum>{el.balance}</DataSum>
         </DataDiv>
       ))}
-      {filterReport(dataHistory, findName).map((i) => (
+      {filterReport(dataHis, findName)?.map((i) => (
         <DataInfoBox>
           <WinnerCup />
           <DataInfoTextBox>

@@ -19,45 +19,7 @@ import {
 import { ExchangeInp, InpTextDiv } from "../Deposit/Style";
 import SearchIco from "../icons/Search";
 import useSearch from "../../utils/CustomHooks/useSearch";
-
-const data = [
-  {
-    currency: "KLK",
-    balance: "0.00000007",
-  },
-  {
-    currency: "KLD",
-    balance: 0.0012,
-  },
-  {
-    currency: "USDT",
-    balance: 0.0007,
-  },
-  {
-    currency: "USD",
-    balance: 0.0007,
-  },
-  {
-    currency: "EUR",
-    balance: 0.0007,
-  },
-  {
-    currency: "UAH",
-    balance: 0.0007,
-  },
-  {
-    currency: "KZT",
-    balance: 0.0007,
-  },
-  {
-    currency: "BTC",
-    balance: 0.0007,
-  },
-  {
-    currency: "BTC",
-    balance: 0.0007,
-  },
-];
+import { getAccount } from "../../utils/API/accountsAPI";
 
 export default function LimitOrder({ placeHolder, sellCurrency }) {
   const { filterCurrency } = useSearch("");
@@ -65,9 +27,19 @@ export default function LimitOrder({ placeHolder, sellCurrency }) {
   const [sel, setSel] = useState(sellCurrency);
   const [findName, setFindName] = useState("");
   const [timeLeft, setTimeLeft] = useState(15);
+  const [data, setData] = useState([]);
+
+  const fetchUsers = async () => {
+    const userBalance = await getAccount();
+    return setData(userBalance.data);
+  };
+
+  useEffect(() => {
+    fetchUsers();
+  }, []);
 
   const fetchData = () => {
-    console.log("Fetching data...");
+    fetchUsers();
     setTimeLeft(15);
   };
 

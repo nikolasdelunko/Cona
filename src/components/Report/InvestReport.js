@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BtnOutline, BtnPrimary, BtnText } from "../Style/Buttons";
 import {
   DayBox,
@@ -14,45 +14,63 @@ import {
 import DateIco from "../icons/Date";
 import OkLine from "../icons/OkLine";
 import useModal from "../../utils/CustomHooks/useModal";
+import { GetAllInvest } from "../../utils/API/investAPI";
 
-const data = [
-  {
-    name: "Всего Облигаций ",
-    balance: "12412 USDT",
-  },
-  {
-    name: "Текущих Облигаций",
-    balance: "5321 USDT",
-  },
-  {
-    name: "Прибыль всего",
-    balance: "4113212 USDT",
-  },
-  {
-    name: "Прибыль  за сегодня",
-    balance: "511121 USDT",
-  },
+// const data = [
+//   {
+//     name: "Всего Облигаций ",
+//     balance: "12412 USDT",
+//   },
+//   {
+//     name: "Текущих Облигаций",
+//     balance: "5321 USDT",
+//   },
+//   {
+//     name: "Прибыль всего",
+//     balance: "4113212 USDT",
+//   },
+//   {
+//     name: "Прибыль  за сегодня",
+//     balance: "511121 USDT",
+//   },
 
-  {
-    name: "Открыто Облигаций",
-    balance: "5",
-  },
-];
+//   {
+//     name: "Открыто Облигаций",
+//     balance: "5",
+//   },
+// ];
 
-const dataHistory = [
-  {
-    date: "05.11.2022 20:45",
-    balance: "Приобретение тарифного плана #5 на сумму 2500 USDT",
-  },
-  {
-    date: "06.11.2022 21:25",
-    balance: "Приобретение тарифного плана #5 на сумму 2500 USDT",
-  },
-];
+// const dataHistory = [
+//   {
+//     date: "05.11.2022 20:45",
+//     balance: "Приобретение тарифного плана #5 на сумму 2500 USDT",
+//   },
+//   {
+//     date: "06.11.2022 21:25",
+//     balance: "Приобретение тарифного плана #5 на сумму 2500 USDT",
+//   },
+// ];
 
 export default function Report({ placeHolder }) {
   const [activeP, setActiveP] = useState(7);
   const { showModal } = useModal();
+  const [data, setData] = useState([]);
+  const [dataHistory, setDataHistory] = useState([]);
+
+  const fetchUsers = async () => {
+    const userBalance = await GetAllInvest();
+    return setData(userBalance.data.data);
+  };
+
+  const fetchDataHistory = async () => {
+    const userBalance = await GetAllInvest();
+    return setDataHistory(userBalance.data.dataHistory);
+  };
+
+  useEffect(() => {
+    fetchUsers();
+    fetchDataHistory();
+  }, []);
 
   return (
     <ContentBox>
@@ -92,13 +110,13 @@ export default function Report({ placeHolder }) {
           Выбрать дату <DateIco />
         </BtnOutline>
       </DayBox>
-      {data.map((el) => (
+      {data?.map((el) => (
         <DataDiv>
           <DataP>{el.name}</DataP>
           <DataSum>{el.balance}</DataSum>
         </DataDiv>
       ))}
-      {dataHistory.map((i) => (
+      {dataHistory?.map((i) => (
         <DataInfoBox>
           <OkLine />
           <DataInfoTextBox>

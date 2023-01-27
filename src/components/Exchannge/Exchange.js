@@ -22,45 +22,8 @@ import {
 import ExchangeIcon from "../icons/Exchange";
 import SearchIco from "../icons/Search";
 import useSearch from "../../utils/CustomHooks/useSearch";
+import { getAccount } from "../../utils/API/accountsAPI";
 
-const data = [
-  {
-    currency: "KLK",
-    balance: "0.00000007",
-  },
-  {
-    currency: "KLD",
-    balance: 0.0012,
-  },
-  {
-    currency: "USDT",
-    balance: 0.0007,
-  },
-  {
-    currency: "USD",
-    balance: 0.0007,
-  },
-  {
-    currency: "EUR",
-    balance: 0.0007,
-  },
-  {
-    currency: "UAH",
-    balance: 0.0007,
-  },
-  {
-    currency: "KZT",
-    balance: 0.0007,
-  },
-  {
-    currency: "BTC",
-    balance: 0.0007,
-  },
-  {
-    currency: "BTC",
-    balance: 0.0007,
-  },
-];
 
 export default function Exchange({ placeHolder, sellCurrency }) {
   const [buy, setBuy] = useState("USDT");
@@ -71,8 +34,19 @@ export default function Exchange({ placeHolder, sellCurrency }) {
   const { filterCurrency } = useSearch("");
   const [timeLeft, setTimeLeft] = useState(15);
 
+  const [data, setData] = useState([]);
+
+  const fetchUsers = async () => {
+    const userBalance = await getAccount();
+    return setData(userBalance.data);
+  };
+
+  useEffect(() => {
+    fetchUsers();
+  }, []);
+
   const fetchData = () => {
-    console.log("Fetching data...");
+    fetchUsers();
     setTimeLeft(15);
   };
 

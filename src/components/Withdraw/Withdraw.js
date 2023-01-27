@@ -22,45 +22,7 @@ import {
 import { Search, SearchBox } from "../Style/Search";
 import SearchIco from "../icons/Search";
 import useSearch from "../../utils/CustomHooks/useSearch";
-
-const data = [
-  {
-    currency: "KLK",
-    balance: "0.00000007",
-  },
-  {
-    currency: "KLD",
-    balance: 0.0012,
-  },
-  {
-    currency: "USDT",
-    balance: 0.0007,
-  },
-  {
-    currency: "USD",
-    balance: 0.0007,
-  },
-  {
-    currency: "EUR",
-    balance: 0.0007,
-  },
-  {
-    currency: "UAH",
-    balance: 0.0007,
-  },
-  {
-    currency: "KZT",
-    balance: 0.0007,
-  },
-  {
-    currency: "BTC",
-    balance: 0.0007,
-  },
-  {
-    currency: "BTC",
-    balance: 0.0007,
-  },
-];
+import { getAccount } from "../../utils/API/accountsAPI";
 
 const LinkExchange = "TRC-20";
 const WalletAddr = "TJt2N93GYsjZoffp3aDdjQJ6nPuVvXLtjF";
@@ -71,6 +33,17 @@ export default function Withdraw({ sellCurrency, placeHolder }) {
   const [openFor, setOpenFor] = useState(false);
   const [cc, setCc] = useState(false);
   const [sel, setSel] = useState(sellCurrency);
+
+  const [data, setData] = useState([]);
+
+  const fetchUsers = async () => {
+    const userBalance = await getAccount();
+    return setData(userBalance.data);
+  };
+
+  useEffect(() => {
+    fetchUsers();
+  }, []);
 
   useEffect(() => {
     if (sel === "UAH" || sel === "KZT" || sel === "EUR" || sel === "USD") {
