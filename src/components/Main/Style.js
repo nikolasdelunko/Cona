@@ -3,6 +3,10 @@ import styled from "styled-components";
 export const LinkBox = styled.div`
   display: flex;
   gap: 12px;
+  align-items: center;
+  justify-content: center;
+  width: 20%;
+  justify-content: space-between;
 `;
 
 export const Header = styled.div`

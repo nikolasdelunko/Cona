@@ -3,6 +3,11 @@
 
 const useSearch = () => {
   // const dispatch = useDispatch();
+  function filterNameVideo(data, find) {
+    return data.filter((el) => {
+      return el?.name.toLowerCase().includes(find.toLowerCase());
+    });
+  }
 
   function filterName(data, find) {
     return data.filter((el) => {
@@ -25,7 +30,7 @@ const useSearch = () => {
     });
   }
 
-  return { filterName, filterCurrency, filterReport };
+  return { filterName, filterCurrency, filterReport, filterNameVideo };
 };
 
 export default useSearch;
