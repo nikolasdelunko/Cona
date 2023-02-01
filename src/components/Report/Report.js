@@ -19,9 +19,12 @@ import WinnerCup from "../icons/WinnerCup";
 import useModal from "../../utils/CustomHooks/useModal";
 import useSearch from "../../utils/CustomHooks/useSearch";
 import { getReport } from "../../utils/API/accountsAPI";
+import { useDispatch } from "react-redux";
+import { setFetchArr } from "../../store/search/searchSlice";
 
 export default function Report({ placeHolder }) {
-  const [activeP, setActiveP] = useState(7);
+  const dispatch = useDispatch();
+  const [activeP, setActiveP] = useState(null);
   const [findName, setFindName] = useState("");
   const { filterReport } = useSearch("");
   const { showModal } = useModal();
@@ -36,8 +39,11 @@ export default function Report({ placeHolder }) {
 
   const fetchHistory = async () => {
     const userHistory = await getReport();
+    dispatch(setFetchArr(userHistory.data.history));
     return setDataHis(userHistory.data.history);
   };
+
+  // dispatch(fetchTransfers());
 
   useEffect(() => {
     fetchUsers();

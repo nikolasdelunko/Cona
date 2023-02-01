@@ -1,18 +1,19 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import moment from "moment";
+import { getReport } from "../../utils/API/accountsAPI";
 
 const start = moment().startOf("month").format("YYYY-MM-DD");
 const end = moment().endOf("month").format("YYYY-MM-DD");
 
 // export const fetchTransfers = createAsyncThunk(
 //   "search/fetchTransfers",
-//   async function (params = { start, end }, { rejectWithValue }) {
+//   async function ({ rejectWithValue }) {
 //     try {
-//       const res = await transactions(params.start, params.end);
+//       const res = await getReport();
 //       if (!res.status === 200) {
 //         console.log("Error from server");
 //       }
-//       return res.data.transactions;
+//       return res.data.history;
 //     } catch (error) {
 //       return rejectWithValue(error.message);
 //     }
@@ -75,6 +76,10 @@ const userSlice = createSlice({
     setSearch(state, action) {
       state.search = action.payload;
     },
+
+    setFetchArr(state, action) {
+      state.fetchArr = action.payload;
+    },
   },
   // extraReducers: {
   //   [fetchTransfers.pending]: (state) => {
@@ -88,21 +93,27 @@ const userSlice = createSlice({
   //   [fetchTransfers.reject]: (state, action) => {
   //     state.status = "rejected";
   //   },
-  //   [fetchDataTransfers.pending]: (state) => {
-  //     state.status = "loading";
-  //     state.error = null;
-  //   },
-  //   [fetchDataTransfers.fulfilled]: (state, action) => {
-  //     state.status = "resolved";
-  //     state.fetchArr = [...state.fetchArr, ...action.payload];
-  //   },
-  //   [fetchDataTransfers.reject]: (state, action) => {
-  //     state.status = "rejected";
-  //   },
+  // [fetchDataTransfers.pending]: (state) => {
+  //   state.status = "loading";
+  //   state.error = null;
+  // },
+  // [fetchDataTransfers.fulfilled]: (state, action) => {
+  //   state.status = "resolved";
+  //   state.fetchArr = [...state.fetchArr, ...action.payload];
+  // },
+  // [fetchDataTransfers.reject]: (state, action) => {
+  //   state.status = "rejected";
+  // },
   // },
 });
 
-export const { setSearchArr, setloading, setSearch, setFilters, clearFilter } =
-  userSlice.actions;
+export const {
+  setSearchArr,
+  setloading,
+  setSearch,
+  setFilters,
+  clearFilter,
+  setFetchArr,
+} = userSlice.actions;
 
 export default userSlice.reducer;
