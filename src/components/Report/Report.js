@@ -34,6 +34,7 @@ export default function Report({ placeHolder }) {
   const searcArr = useSelector((state) => state.search.sarchArr);
   const filters = useSelector((state) => state.search.filters);
   const fetchArr = useSelector((state) => state.search.fetchArr);
+  const calendar = useSelector((state) => state.calendar);
   const [data, setData] = useState();
   const inputRef = useRef("");
   /// !
@@ -74,8 +75,22 @@ export default function Report({ placeHolder }) {
         );
       }
     }
+    if (calendar) {
+      if (calendar.startDate) {
+        data = data.filter(
+          (transaction) =>
+            transaction.date >= moment(calendar.startDate).format("YYYY-MM-DD")
+        );
+      }
+      if (calendar.endDate) {
+        data = data.filter(
+          (transaction) =>
+            transaction.date <= moment(calendar.endDate).format("YYYY-MM-DD")
+        );
+      }
+    }
     dispatch(setSearchArr(data));
-  }, [fetchArr, filters]);
+  }, [fetchArr, filters, calendar.endDate]);
 
   const searchFilters = (num) => {
     const start = moment().subtract(num, "days").format("YYYY-MM-DD");
