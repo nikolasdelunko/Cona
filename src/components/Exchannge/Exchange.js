@@ -24,7 +24,6 @@ import SearchIco from "../icons/Search";
 import useSearch from "../../utils/CustomHooks/useSearch";
 import { getAccount } from "../../utils/API/accountsAPI";
 
-
 export default function Exchange({ placeHolder, sellCurrency }) {
   const [buy, setBuy] = useState("USDT");
   const [openFor, setOpenFor] = useState(false);

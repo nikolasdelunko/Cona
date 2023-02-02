@@ -2,14 +2,26 @@ import styled from "styled-components";
 
 export const SearchCurrencyDiv = styled.div`
   width: 100%;
-  background: #ff6e002e;
+  background: #linear-gradient(
+      271.68deg,
+      #1f215d 0.42%,
+      #5f4da1 26.24%,
+      #ff6e00 94.87%
+    )
+    2e;
   border-radius: 0 0 6px 6px;
 `;
 
 export const SearchElements = styled.div`
   width: 100%;
   height: 34px;
-  background: #ff6e002e;
+  background: #linear-gradient(
+      271.68deg,
+      #1f215d 0.42%,
+      #5f4da1 26.24%,
+      #ff6e00 94.87%
+    )
+    2e;
   border-radius: ${(props) => props.open};
   border: none;
   display: flex;
@@ -30,7 +42,8 @@ export const SearchElementsT = styled.p`
 `;
 
 export const ArrowD = styled.i`
-  border: solid #ff6e00;
+  border: solid
+    #linear-gradient(271.68deg, #1f215d 0.42%, #5f4da1 26.24%, #ff6e00 94.87%);
   border-width: 0 3px 3px 0;
   display: inline-block;
   padding: 3px;
@@ -69,7 +82,13 @@ export const ExchangeInp = styled.input`
   padding-left: 12px;
   width: 120px;
   height: 34px;
-  background: #ff6e002e;
+  background: #linear-gradient(
+      271.68deg,
+      #1f215d 0.42%,
+      #5f4da1 26.24%,
+      #ff6e00 94.87%
+    )
+    2e;
   border-radius: 6px;
   border: none;
   font-family: auto;
@@ -86,7 +105,12 @@ export const ExchangeInp = styled.input`
     font-size: 12px;
     line-height: 150%;
     letter-spacing: -0.011em;
-    color: #ff6e00;
+    color: #linear-gradient(
+      271.68deg,
+      #1f215d 0.42%,
+      #5f4da1 26.24%,
+      #ff6e00 94.87%
+    );
   }
 `;
 
@@ -94,7 +118,13 @@ export const Input = styled.input`
   padding-left: 12px;
   width: 100%;
   height: 34px;
-  background: #ff6e002e;
+  background: #linear-gradient(
+      271.68deg,
+      #1f215d 0.42%,
+      #5f4da1 26.24%,
+      #ff6e00 94.87%
+    )
+    2e;
   border-radius: 6px;
   border: none;
   font-family: auto;

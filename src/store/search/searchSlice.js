@@ -1,44 +1,12 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import moment from "moment";
-import { getReport } from "../../utils/API/accountsAPI";
+import { createSlice } from "@reduxjs/toolkit";
 
-const start = moment().startOf("month").format("YYYY-MM-DD");
-const end = moment().endOf("month").format("YYYY-MM-DD");
 
-// export const fetchTransfers = createAsyncThunk(
-//   "search/fetchTransfers",
-//   async function ({ rejectWithValue }) {
-//     try {
-//       const res = await getReport();
-//       if (!res.status === 200) {
-//         console.log("Error from server");
-//       }
-//       return res.data.history;
-//     } catch (error) {
-//       return rejectWithValue(error.message);
-//     }
-//   }
-// );
 
-// export const fetchDataTransfers = createAsyncThunk(
-//   "search/fetchDataTransfers",
-//   async function (params = { start, end }, { rejectWithValue }) {
-//     try {
-//       const res = await transactions(params.start, params.end);
-//       if (!res.status === 200) {
-//         console.log("Error from server");
-//       }
-//       return res.data.transactions;
-//     } catch (error) {
-//       return rejectWithValue(error.message);
-//     }
-//   }
-// );
 
 const initialFilters = {
   search: "",
   amount: { from: "", to: "" },
-  date: { start: start, end: end },
+  date: { start: '', end: '' },
 };
 
 const initialState = {
@@ -81,30 +49,6 @@ const userSlice = createSlice({
       state.fetchArr = action.payload;
     },
   },
-  // extraReducers: {
-  //   [fetchTransfers.pending]: (state) => {
-  //     state.status = "loading";
-  //     state.error = null;
-  //   },
-  //   [fetchTransfers.fulfilled]: (state, action) => {
-  //     state.status = "resolved";
-  //     state.fetchArr = action.payload;
-  //   },
-  //   [fetchTransfers.reject]: (state, action) => {
-  //     state.status = "rejected";
-  //   },
-  // [fetchDataTransfers.pending]: (state) => {
-  //   state.status = "loading";
-  //   state.error = null;
-  // },
-  // [fetchDataTransfers.fulfilled]: (state, action) => {
-  //   state.status = "resolved";
-  //   state.fetchArr = [...state.fetchArr, ...action.payload];
-  // },
-  // [fetchDataTransfers.reject]: (state, action) => {
-  //   state.status = "rejected";
-  // },
-  // },
 });
 
 export const {

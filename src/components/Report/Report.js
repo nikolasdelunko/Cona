@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { BtnOutline, BtnPrimary, BtnText } from "../Style/Buttons";
 import {
   DayBox,
@@ -17,38 +17,80 @@ import { Search, SearchBox } from "../Style/Search";
 import SearchIco from "../icons/Search";
 import WinnerCup from "../icons/WinnerCup";
 import useModal from "../../utils/CustomHooks/useModal";
-import useSearch from "../../utils/CustomHooks/useSearch";
 import { getReport } from "../../utils/API/accountsAPI";
-import { useDispatch } from "react-redux";
-import { setFetchArr } from "../../store/search/searchSlice";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  setFetchArr,
+  setFilters,
+  setSearchArr,
+} from "../../store/search/searchSlice";
+import moment from "moment";
 
 export default function Report({ placeHolder }) {
   const dispatch = useDispatch();
-  const [activeP, setActiveP] = useState(null);
-  const [findName, setFindName] = useState("");
-  const { filterReport } = useSearch("");
+  const [activeP, setActiveP] = useState();
   const { showModal } = useModal();
   //? heere need refactoring
+  const searcArr = useSelector((state) => state.search.sarchArr);
+  const filters = useSelector((state) => state.search.filters);
+  const fetchArr = useSelector((state) => state.search.fetchArr);
   const [data, setData] = useState();
-  const [dataHis, setDataHis] = useState();
+  const inputRef = useRef("");
+  /// !
 
   const fetchUsers = async () => {
     const userBalance = await getReport();
+    const data = userBalance.data.history.map((el) => {
+      return {
+        date: moment(el.date).format("YYYY-MM-DD"),
+        balance: el.balance,
+      };
+    });
+
+    dispatch(setFetchArr(data));
     return setData(userBalance.data.main);
   };
 
-  const fetchHistory = async () => {
-    const userHistory = await getReport();
-    dispatch(setFetchArr(userHistory.data.history));
-    return setDataHis(userHistory.data.history);
-  };
-
-  // dispatch(fetchTransfers());
-
   useEffect(() => {
     fetchUsers();
-    fetchHistory();
   }, []);
+
+  useEffect(() => {
+    let data = [...fetchArr];
+    if (filters.search) {
+      data = data.filter((el) =>
+        el?.balance.toLowerCase().includes(filters.search.toLowerCase())
+      );
+    }
+    if (filters.date) {
+      if (filters.date.start) {
+        data = data.filter(
+          (transaction) => transaction.date >= filters.date.start
+        );
+      }
+      if (filters.date.end) {
+        data = data.filter(
+          (transaction) => transaction.date <= filters.date.end
+        );
+      }
+    }
+    dispatch(setSearchArr(data));
+  }, [fetchArr, filters]);
+
+  const searchFilters = (num) => {
+    const start = moment().subtract(num, "days").format("YYYY-MM-DD");
+    const end = moment().startOf("month").format("YYYY-MM-DD");
+    dispatch(setFilters({ key: "date", value: { start: start, end: end } }));
+  };
+
+  const filterTrans = () => {
+    dispatch(
+      setFilters({
+        key: "search",
+        value: inputRef.current.value,
+      })
+    );
+  };
 
   return (
     <ContentBox>
@@ -58,7 +100,13 @@ export default function Report({ placeHolder }) {
             <BtnText>7д</BtnText>
           </BtnPrimary>
         ) : (
-          <BtnOutline primary onClick={() => setActiveP(7)}>
+          <BtnOutline
+            primary
+            onClick={() => {
+              setActiveP(7);
+              searchFilters(7);
+            }}
+          >
             7д
           </BtnOutline>
         )}
@@ -67,7 +115,13 @@ export default function Report({ placeHolder }) {
             <BtnText>30д</BtnText>
           </BtnPrimary>
         ) : (
-          <BtnOutline primary onClick={() => setActiveP(30)}>
+          <BtnOutline
+            primary
+            onClick={() => {
+              setActiveP(30);
+              searchFilters(30);
+            }}
+          >
             30д
           </BtnOutline>
         )}
@@ -76,7 +130,13 @@ export default function Report({ placeHolder }) {
             <BtnText>90д</BtnText>
           </BtnPrimary>
         ) : (
-          <BtnOutline primary onClick={() => setActiveP(90)}>
+          <BtnOutline
+            primary
+            onClick={() => {
+              setActiveP(90);
+              searchFilters(90);
+            }}
+          >
             90д
           </BtnOutline>
         )}
@@ -92,9 +152,8 @@ export default function Report({ placeHolder }) {
         <SearchBox>
           <Search
             placeholder={placeHolder}
-            onChange={(e) => {
-              setFindName(e.target.value);
-            }}
+            onChange={filterTrans}
+            ref={inputRef}
           />
           <SearchIco />
         </SearchBox>
@@ -105,7 +164,7 @@ export default function Report({ placeHolder }) {
           <DataSum>{el.balance}</DataSum>
         </DataDiv>
       ))}
-      {filterReport(dataHis, findName)?.map((i) => (
+      {searcArr.map((i) => (
         <DataInfoBox>
           <WinnerCup />
           <DataInfoTextBox>

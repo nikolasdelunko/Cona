@@ -28,7 +28,13 @@ export const BoxInvest = styled.div`
   min-height: 240px;
   left: 26px;
   top: 245px;
-  background: #ff6e002e;
+  background: #linear-gradient(
+      271.68deg,
+      #1f215d 0.42%,
+      #5f4da1 26.24%,
+      #ff6e00 94.87%
+    )
+    2e;
   box-shadow: 0px 4px 8px rgba(88, 88, 88, 0.12);
   border-radius: 10px;
   padding: 15px;

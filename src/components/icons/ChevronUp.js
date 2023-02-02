@@ -9,10 +9,7 @@ const ChevronUp = () => {
       viewBox="0 0 10 10"
       fill="none"
     >
-      <path
-        d="M9 0.666252L4.4986 8.62146L1 3.90743"
-        stroke="#FF6E00"
-      />
+      <path d="M9 0.666252L4.4986 8.62146L1 3.90743" stroke="#ff6e00" />
     </svg>
   );
 };
