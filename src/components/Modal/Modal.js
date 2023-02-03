@@ -1,77 +1,25 @@
 import React from "react";
-import styled from "styled-components";
 import Cross from "../icons/Cross";
 import { useDispatch, useSelector } from "react-redux";
 import { openModal } from "../../store/helpers/helpersSlice";
 import { BtnPrimary, BtnText } from "../Style/Buttons";
 import useModal from "../../utils/CustomHooks/useModal";
-
-const ModalDiv = styled.div`
-  display: block;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.62);
-`;
-
-const ContentDiv = styled.div`
-  border-radius: 11px;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  width: 90%;
-  height: ${(props) => props.bottom};
-  transform: translate(-50%, -50%);
-  background: white;
-  padding-bottom: 0;
-`;
-
-const HeaderDiv = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-bottom: 24px;
-  padding: 2rem;
-`;
-
-const ChildrenDiv = styled.div`
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  height: ${(props) => props.bottom};
-  overflow: scroll;
-  overflow-x: hidden;
-  overflow-y: auto;
-`;
-
-const HeaderName = styled.p`
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 150%;
-  letter-spacing: -0.022em;
-  color: #1e1e1e;
-`;
-
-const Footer = styled.div`
-  width: 100%;
-  height: 66px;
-  background: #ffffff;
-  box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 0px 0px 16px 16px;
-`;
-
-const FooterBtn = styled.div`
-  padding: 16px;
-  justify-content: center;
-  display: flex;
-`;
+import { clearFilter } from "../../store/search/searchSlice";
+import {
+  ModalDiv,
+  ContentDiv,
+  HeaderDiv,
+  ChildrenDiv,
+  HeaderName,
+  Footer,
+  FooterBtn,
+} from "./Style";
 
 export default function Modal({ name, children, btnName }) {
   const { showModal } = useModal();
   const dispatch = useDispatch();
   const modal = useSelector((state) => state.helpers.modal);
+  const calendar = useSelector((state) => state.calendar);
 
   return (
     <ModalDiv
@@ -111,6 +59,28 @@ export default function Modal({ name, children, btnName }) {
                       "Поиск пользователя",
                       null
                     );
+                  }
+                  if (modal.page === "DataPicker" && modal.placeHolder === 1) {
+                    if (calendar.toggle === 2) {
+                      dispatch(clearFilter("date"));
+                      showModal(
+                        true,
+                        "Report",
+                        "Выписка по балансу",
+                        "Скачать PDF",
+                        "Фильтровать по названию актива",
+                        null
+                      );
+                    } else {
+                      showModal(
+                        true,
+                        "Report",
+                        "Выписка по балансу",
+                        "Скачать PDF",
+                        "Фильтровать по названию актива",
+                        null
+                      );
+                    }
                   }
                 }}
               >

@@ -23,6 +23,7 @@ import {
   setFetchArr,
   setFilters,
   setSearchArr,
+  clearFilter,
 } from "../../store/search/searchSlice";
 import moment from "moment";
 
@@ -157,7 +158,7 @@ export default function Report({ placeHolder }) {
         )}
         <BtnOutline
           onClick={() => {
-            showModal(true, "DataPicker", null, "Применить", null, null);
+            showModal(true, "DataPicker", null, "Применить", 1, null);
           }}
         >
           Выбрать дату <DateIco />
