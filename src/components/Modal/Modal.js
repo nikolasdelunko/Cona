@@ -105,6 +105,9 @@ export default function Modal({ name, children, btnName }) {
                       null
                     );
                   }
+                  if (modal.page === "Investment") {
+                    showModal(true, "Invest", "Облигации", null, null, null);
+                  }
                 }}
               >
                 <BtnText>{btnName}</BtnText>

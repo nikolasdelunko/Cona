@@ -25,7 +25,7 @@ import {
 import moment from "moment";
 
 export default function Report({ placeHolder }) {
-  const [activeP, setActiveP] = useState(7);
+  const [activeP, setActiveP] = useState();
   const { showModal } = useModal();
   /// !
   const dispatch = useDispatch();
