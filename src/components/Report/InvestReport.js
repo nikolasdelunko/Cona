@@ -15,28 +15,79 @@ import DateIco from "../icons/Date";
 import OkLine from "../icons/OkLine";
 import useModal from "../../utils/CustomHooks/useModal";
 import { GetAllInvest } from "../../utils/API/investAPI";
-
+import { clearToggle } from "../../store/calendar/calendarSlice";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  setFetchArr,
+  setFilters,
+  setSearchArr,
+} from "../../store/search/searchSlice";
+import moment from "moment";
 
 export default function Report({ placeHolder }) {
   const [activeP, setActiveP] = useState(7);
   const { showModal } = useModal();
-  const [data, setData] = useState([]);
-  const [dataHistory, setDataHistory] = useState([]);
+  /// !
+  const dispatch = useDispatch();
+  const searcArr = useSelector((state) => state.search.sarchArr);
+  const filters = useSelector((state) => state.search.filters);
+  const fetchArr = useSelector((state) => state.search.fetchArr);
+  const calendar = useSelector((state) => state.calendar);
+  const [data, setData] = useState();
 
   const fetchUsers = async () => {
     const userBalance = await GetAllInvest();
-    return setData(userBalance.data.data);
-  };
+    const data = userBalance.data.dataHistory.map((el) => {
+      return {
+        date: moment(el.date).format("YYYY-MM-DD"),
+        balance: el.balance,
+      };
+    });
 
-  const fetchDataHistory = async () => {
-    const userBalance = await GetAllInvest();
-    return setDataHistory(userBalance.data.dataHistory);
+    dispatch(setFetchArr(data));
+    return setData(userBalance.data.data);
   };
 
   useEffect(() => {
     fetchUsers();
-    fetchDataHistory();
   }, []);
+
+  useEffect(() => {
+    let data = [...fetchArr];
+    if (filters.date) {
+      if (filters.date.start) {
+        data = data.filter(
+          (transaction) => transaction.date >= filters.date.start
+        );
+      }
+      if (filters.date.end) {
+        data = data.filter(
+          (transaction) => transaction.date <= filters.date.end
+        );
+      }
+    }
+    if (calendar) {
+      if (calendar.startDate) {
+        data = data.filter(
+          (transaction) =>
+            transaction.date >= moment(calendar.startDate).format("YYYY-MM-DD")
+        );
+      }
+      if (calendar.endDate) {
+        data = data.filter(
+          (transaction) =>
+            transaction.date <= moment(calendar.endDate).format("YYYY-MM-DD")
+        );
+      }
+    }
+    dispatch(setSearchArr(data));
+  }, [fetchArr, filters, calendar.endDate]);
+
+  const searchFilters = (num) => {
+    const start = moment().subtract(num, "days").format("YYYY-MM-DD");
+    const end = moment().startOf("month").format("YYYY-MM-DD");
+    dispatch(setFilters({ key: "date", value: { start: start, end: end } }));
+  };
 
   return (
     <ContentBox>
@@ -46,7 +97,14 @@ export default function Report({ placeHolder }) {
             <BtnText>7д</BtnText>
           </BtnPrimary>
         ) : (
-          <BtnOutline primary onClick={() => setActiveP(7)}>
+          <BtnOutline
+            primary
+            onClick={() => {
+							dispatch(clearToggle())
+              setActiveP(7);
+              searchFilters(7);
+            }}
+          >
             7д
           </BtnOutline>
         )}
@@ -55,7 +113,14 @@ export default function Report({ placeHolder }) {
             <BtnText>30д</BtnText>
           </BtnPrimary>
         ) : (
-          <BtnOutline primary onClick={() => setActiveP(30)}>
+          <BtnOutline
+            primary
+            onClick={() => {
+							dispatch(clearToggle())
+              setActiveP(30);
+              searchFilters(30);
+            }}
+          >
             30д
           </BtnOutline>
         )}
@@ -64,13 +129,20 @@ export default function Report({ placeHolder }) {
             <BtnText>90д</BtnText>
           </BtnPrimary>
         ) : (
-          <BtnOutline primary onClick={() => setActiveP(90)}>
+          <BtnOutline
+            primary
+            onClick={() => {
+							dispatch(clearToggle())
+              setActiveP(90);
+              searchFilters(90);
+            }}
+          >
             90д
           </BtnOutline>
         )}
         <BtnOutline
           onClick={() => {
-            showModal(true, "DataPicker", null, "Применить", null, null);
+            showModal(true, "DataPicker", null, "Применить", 2, null);
           }}
         >
           Выбрать дату <DateIco />
@@ -82,7 +154,7 @@ export default function Report({ placeHolder }) {
           <DataSum>{el.balance}</DataSum>
         </DataDiv>
       ))}
-      {dataHistory?.map((i) => (
+      {searcArr?.map((i) => (
         <DataInfoBox>
           <OkLine />
           <DataInfoTextBox>

@@ -10,12 +10,11 @@ export const ExchangeInp = styled.input`
   width: 100%;
   height: 34px;
   background: #linear-gradient(
-      271.68deg,
-      #1f215d 0.42%,
-      #5f4da1 26.24%,
-      #ff6e00 94.87%
-    )
-    2e;
+    271.68deg,
+    #1f215d 0.42%,
+    #5f4da1 26.24%,
+    #ff6e00 94.87%
+  );
   border-radius: 6px;
   border: none;
   font-family: auto;

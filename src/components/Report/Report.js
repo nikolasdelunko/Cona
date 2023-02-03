@@ -18,12 +18,12 @@ import SearchIco from "../icons/Search";
 import WinnerCup from "../icons/WinnerCup";
 import useModal from "../../utils/CustomHooks/useModal";
 import { getReport } from "../../utils/API/accountsAPI";
+import { clearToggle } from "../../store/calendar/calendarSlice";
 import { useDispatch, useSelector } from "react-redux";
 import {
   setFetchArr,
   setFilters,
   setSearchArr,
-  clearFilter,
 } from "../../store/search/searchSlice";
 import moment from "moment";
 
@@ -107,7 +107,7 @@ export default function Report({ placeHolder }) {
       })
     );
   };
-
+  // ?? need in all components or hook
   return (
     <ContentBox>
       <DayBox>
@@ -119,6 +119,7 @@ export default function Report({ placeHolder }) {
           <BtnOutline
             primary
             onClick={() => {
+              dispatch(clearToggle());
               setActiveP(7);
               searchFilters(7);
             }}
@@ -134,6 +135,7 @@ export default function Report({ placeHolder }) {
           <BtnOutline
             primary
             onClick={() => {
+              dispatch(clearToggle());
               setActiveP(30);
               searchFilters(30);
             }}
@@ -149,6 +151,7 @@ export default function Report({ placeHolder }) {
           <BtnOutline
             primary
             onClick={() => {
+              dispatch(clearToggle());
               setActiveP(90);
               searchFilters(90);
             }}

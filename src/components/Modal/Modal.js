@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { openModal } from "../../store/helpers/helpersSlice";
 import { BtnPrimary, BtnText } from "../Style/Buttons";
 import useModal from "../../utils/CustomHooks/useModal";
+import { clearToggle } from "../../store/calendar/calendarSlice";
 import { clearFilter } from "../../store/search/searchSlice";
 import {
   ModalDiv,
@@ -26,6 +27,10 @@ export default function Modal({ name, children, btnName }) {
       onClick={(e) => {
         e.stopPropagation();
         dispatch(openModal(false));
+        dispatch(clearFilter("date"));
+        dispatch(clearFilter("search"));
+        dispatch(clearFilter("amount"));
+        dispatch(clearToggle());
       }}
     >
       <ContentDiv
@@ -37,6 +42,10 @@ export default function Modal({ name, children, btnName }) {
           <div
             onClick={() => {
               dispatch(openModal(false));
+              dispatch(clearFilter("date"));
+              dispatch(clearFilter("search"));
+              dispatch(clearFilter("amount"));
+              dispatch(clearToggle());
             }}
           >
             <Cross />
@@ -50,7 +59,10 @@ export default function Modal({ name, children, btnName }) {
             <FooterBtn>
               <BtnPrimary
                 onClick={() => {
-                  if (modal.page === "PartnersTree") {
+                  if (
+                    modal.page === "PartnersTree" ||
+                    modal.page === "ReportPartners"
+                  ) {
                     showModal(
                       true,
                       "Invite",
@@ -60,27 +72,38 @@ export default function Modal({ name, children, btnName }) {
                       null
                     );
                   }
+                  if (calendar.toggle === 2 && modal.page === "DataPicker") {
+                    dispatch(clearFilter("date"));
+                  }
                   if (modal.page === "DataPicker" && modal.placeHolder === 1) {
-                    if (calendar.toggle === 2) {
-                      dispatch(clearFilter("date"));
-                      showModal(
-                        true,
-                        "Report",
-                        "Выписка по балансу",
-                        "Скачать PDF",
-                        "Фильтровать по названию актива",
-                        null
-                      );
-                    } else {
-                      showModal(
-                        true,
-                        "Report",
-                        "Выписка по балансу",
-                        "Скачать PDF",
-                        "Фильтровать по названию актива",
-                        null
-                      );
-                    }
+                    showModal(
+                      true,
+                      "Report",
+                      "Выписка по балансу",
+                      "Скачать PDF",
+                      "Фильтровать по названию актива",
+                      null
+                    );
+                  }
+                  if (modal.page === "DataPicker" && modal.placeHolder === 2) {
+                    showModal(
+                      true,
+                      "Investment",
+                      "Отчет по инвестициям",
+                      "Инвестировать",
+                      null,
+                      null
+                    );
+                  }
+                  if (modal.page === "DataPicker" && modal.placeHolder === 3) {
+                    showModal(
+                      true,
+                      "ReportPartners",
+                      "Отчет по партнёрской програм...",
+                      "Пригласить партнёра",
+                      "HERE LINK FOR ADD PARTNER",
+                      null
+                    );
                   }
                 }}
               >
