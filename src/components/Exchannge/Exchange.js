@@ -23,6 +23,7 @@ import ExchangeIcon from "../icons/Exchange";
 import SearchIco from "../icons/Search";
 import useSearch from "../../utils/CustomHooks/useSearch";
 import { getAccount } from "../../utils/API/accountsAPI";
+import { blackSec, BgInput, ArrowColor, searchBgChange } from "../Style/Colors";
 
 export default function Exchange({ placeHolder, sellCurrency }) {
   const [buy, setBuy] = useState("USDT");
@@ -63,21 +64,26 @@ export default function Exchange({ placeHolder, sellCurrency }) {
       <CurrencyDiv>
         <ExchangeP>Актив обмена</ExchangeP>
         <SearchElements
+          color={BgInput}
           onClick={() => {
             setOpenFor(!openFor);
           }}
           open={openFor ? "6px 6px 0 0" : "6px"}
         >
-          <SearchElementsT>{sel}</SearchElementsT>
-          <ArrowD open={openFor ? "rotate(225deg)" : "rotate(45deg)"} />
+          <SearchElementsT color={blackSec}>{sel}</SearchElementsT>
+          <ArrowD
+            color={ArrowColor}
+            open={openFor ? "rotate(225deg)" : "rotate(45deg)"}
+          />
         </SearchElements>
         {openFor && (
-          <SearchCurrencyDiv>
+          <SearchCurrencyDiv background={BgInput}>
             <SearchDiv>
               <Line />
             </SearchDiv>
             <SearchBox>
               <Search
+                background={searchBgChange}
                 placeholder={placeHolder}
                 onChange={(e) => {
                   setFindName(e.target.value);
@@ -88,14 +94,15 @@ export default function Exchange({ placeHolder, sellCurrency }) {
             <SearchCurrency>
               {filterCurrency(data, findName).map((i) => (
                 <SearchElement
+                  color={BgInput}
                   onClick={() => {
                     setSel(i.currency);
                     setOpenFor(!openFor);
                     setFindName("");
                   }}
                 >
-                  <SearchP>{i.currency}</SearchP>
-                  <SearchP>{i.balance}</SearchP>
+                  <SearchP color={blackSec}>{i.currency}</SearchP>
+                  <SearchP color={blackSec}>{i.balance}</SearchP>
                 </SearchElement>
               ))}
             </SearchCurrency>
@@ -105,21 +112,26 @@ export default function Exchange({ placeHolder, sellCurrency }) {
       <CurrencyDiv>
         <ExchangeP>Обменять на</ExchangeP>
         <SearchElements
+          color={BgInput}
           onClick={() => {
             setOpenWhat(!openWhat);
           }}
           open={openWhat ? "6px 6px 0 0" : "6px"}
         >
-          <SearchElementsT>{buy}</SearchElementsT>
-          <ArrowD open={openWhat ? "rotate(225deg)" : "rotate(45deg)"} />
+          <SearchElementsT color={blackSec}>{buy}</SearchElementsT>
+          <ArrowD
+            color={ArrowColor}
+            open={openWhat ? "rotate(225deg)" : "rotate(45deg)"}
+          />
         </SearchElements>
         {openWhat && (
-          <SearchCurrencyDiv>
+          <SearchCurrencyDiv background={BgInput}>
             <SearchDiv>
               <Line />
             </SearchDiv>
             <SearchBox>
               <Search
+                background={searchBgChange}
                 placeholder={placeHolder}
                 onChange={(e) => {
                   setFindName(e.target.value);
@@ -136,8 +148,8 @@ export default function Exchange({ placeHolder, sellCurrency }) {
                     setFindName("");
                   }}
                 >
-                  <SearchP>{i.currency}</SearchP>
-                  <SearchP>{i.balance}</SearchP>
+                  <SearchP color={blackSec}>{i.currency}</SearchP>
+                  <SearchP color={blackSec}>{i.balance}</SearchP>
                 </SearchElement>
               ))}
             </SearchCurrency>
@@ -147,8 +159,8 @@ export default function Exchange({ placeHolder, sellCurrency }) {
       <ExchangeP>Сумма</ExchangeP>
       <SummaryDiv>
         <InpTextDiv>
-          <ExchangeInpText>{sel}</ExchangeInpText>
-          <ExchangeInp placeholder="0" />
+          <ExchangeInpText color={blackSec}>{sel}</ExchangeInpText>
+          <ExchangeInp background={BgInput} color={blackSec} placeholder="0" />
         </InpTextDiv>
         <div
           onClick={() => {
@@ -157,14 +169,16 @@ export default function Exchange({ placeHolder, sellCurrency }) {
             setSel(ex);
           }}
         >
-          <ExchangeIcon color={"#ff6e00"} />
+          <ExchangeIcon color={blackSec} />
         </div>
         <InpTextDiv>
           <ExchangeInpText>{buy}</ExchangeInpText>
-          <ExchangeInp placeholder="0" />
+          <ExchangeInp background={BgInput} placeholder="0" />
         </InpTextDiv>
       </SummaryDiv>
-      <ExchangeTimeText>До обновления осталось {timeLeft} сек</ExchangeTimeText>
+      <ExchangeTimeText color={ArrowColor}>
+        До обновления осталось {timeLeft} сек
+      </ExchangeTimeText>
     </ExchangeBox>
   );
 }
