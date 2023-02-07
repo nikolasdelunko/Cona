@@ -7,7 +7,7 @@ export const Search = styled.input`
   left: 26px;
   top: 191px;
   border: none;
-  background: rgb(255 121 20 / 6%);
+  background: ${(props) => props.background};
   border-radius: 6px;
   padding: 0 12px;
   font-weight: 500;
@@ -17,12 +17,12 @@ export const Search = styled.input`
   line-height: 150%;
   font-family: auto;
   letter-spacing: -0.011em;
-  color: rgb(255 123 23 / 67%);
+  color: ${(props) => props.color};
   &::placeholder {
     font-weight: 500;
     font-size: 14px;
     line-height: 150%;
-    color: rgb(255 123 23 / 62%);
+    color: ${(props) => props.color};
   }
 `;
 

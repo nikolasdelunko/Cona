@@ -15,6 +15,7 @@ import {
   Footer,
   FooterBtn,
 } from "./Style";
+import {blackSec} from "../Style/Colors"
 
 export default function Modal({ name, children, btnName }) {
   const { showModal } = useModal();
@@ -48,7 +49,7 @@ export default function Modal({ name, children, btnName }) {
               dispatch(clearToggle());
             }}
           >
-            <Cross />
+            <Cross  color={blackSec} />
           </div>
         </HeaderDiv>
         <ChildrenDiv bottom={modal.btnName ? "250px" : "316px"}>
