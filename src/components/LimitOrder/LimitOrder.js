@@ -20,6 +20,7 @@ import { ExchangeInp, InpTextDiv } from "../Deposit/Style";
 import SearchIco from "../icons/Search";
 import useSearch from "../../utils/CustomHooks/useSearch";
 import { getAccount } from "../../utils/API/accountsAPI";
+import { blackSec, BgInput, searchBgChange, ArrowColor } from "../Style/Colors";
 
 export default function LimitOrder({ placeHolder, sellCurrency }) {
   const { filterCurrency } = useSearch("");
@@ -57,21 +58,23 @@ export default function LimitOrder({ placeHolder, sellCurrency }) {
       <CurrencyDiv>
         <ExchangeP>Актив покупки</ExchangeP>
         <SearchElements
+          color={BgInput}
           onClick={() => {
             setOpenFor(!openFor);
           }}
           open={openFor ? "6px 6px 0 0" : "6px"}
         >
-          <SearchElementsT>{sel}</SearchElementsT>
+          <SearchElementsT color={blackSec}>{sel}</SearchElementsT>
           <ArrowD open={openFor ? "rotate(225deg)" : "rotate(45deg)"} />
         </SearchElements>
         {openFor && (
-          <SearchCurrencyDiv>
+          <SearchCurrencyDiv background={BgInput}>
             <SearchDiv>
               <Line />
             </SearchDiv>
             <SearchBox>
               <Search
+                background={searchBgChange}
                 placeholder={placeHolder}
                 onChange={(e) => {
                   setFindName(e.target.value);
@@ -82,14 +85,15 @@ export default function LimitOrder({ placeHolder, sellCurrency }) {
             <SearchCurrency>
               {filterCurrency(data, findName).map((i) => (
                 <SearchElement
+                  color={BgInput}
                   onClick={() => {
                     setSel(i.currency);
                     setOpenFor(!openFor);
                     setFindName("");
                   }}
                 >
-                  <SearchP>{i.currency}</SearchP>
-                  <SearchP>{i.balance}</SearchP>
+                  <SearchP color={blackSec}>{i.currency}</SearchP>
+                  <SearchP color={blackSec}>{i.balance}</SearchP>
                 </SearchElement>
               ))}
             </SearchCurrency>
@@ -99,17 +103,19 @@ export default function LimitOrder({ placeHolder, sellCurrency }) {
       <CurrencyDiv>
         <ExchangeP>Необходимая цена</ExchangeP>
         <InpTextDiv>
-          <ExchangeInp placeholder="0" />
+          <ExchangeInp background={BgInput} color={blackSec} placeholder="0" />
         </InpTextDiv>
       </CurrencyDiv>
       <CurrencyDiv>
         <ExchangeP>Сумма</ExchangeP>
         <InpTextDiv>
-          <ExchangeInpText>{sel}</ExchangeInpText>
-          <ExchangeInp placeholder="0" />
+          <ExchangeInpText color={blackSec}>{sel}</ExchangeInpText>
+          <ExchangeInp background={BgInput} color={blackSec} placeholder="0" />
         </InpTextDiv>
       </CurrencyDiv>
-      <ExchangeTimeText>До обновления осталось {timeLeft} сек</ExchangeTimeText>
+      <ExchangeTimeText color={ArrowColor}>
+        До обновления осталось {timeLeft} сек
+      </ExchangeTimeText>
     </ExchangeBox>
   );
 }

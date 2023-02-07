@@ -23,7 +23,7 @@ import { Search, SearchBox } from "../Style/Search";
 import SearchIco from "../icons/Search";
 import useSearch from "../../utils/CustomHooks/useSearch";
 import { getAccount } from "../../utils/API/accountsAPI";
-import { blackSec, BgInput, ArrowColor, searchBgChange } from "../Style/Colors";
+import { blackSec, BgInput, searchBgChange, ArrowColor } from "../Style/Colors";
 
 const LinkExchange = "TRC-20";
 const WalletAddr = "TJt2N93GYsjZoffp3aDdjQJ6nPuVvXLtjF";
@@ -73,7 +73,7 @@ export default function Withdraw({ sellCurrency, placeHolder }) {
             <SearchElementsT background={BgInput} color={blackSec}>
               {sel}
             </SearchElementsT>
-            <ArrowD open={openFor ? "rotate(225deg)" : "rotate(45deg)"} />
+            <ArrowD  color={ArrowColor} open={openFor ? "rotate(225deg)" : "rotate(45deg)"} />
           </SearchElements>
           {openFor && (
             <SearchCurrencyDiv background={BgInput}>

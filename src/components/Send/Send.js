@@ -21,7 +21,7 @@ import SearchIco from "../icons/Search";
 import Invite from "../Invite/Invite";
 import useSearch from "../../utils/CustomHooks/useSearch";
 import { getAccount } from "../../utils/API/accountsAPI";
-import { blackSec, BgInput, searchBgChange } from "../Style/Colors";
+import { blackSec, BgInput, searchBgChange, ArrowColor } from "../Style/Colors";
 
 export default function Send({ sellCurrency, placeHolder }) {
   const [openFor, setOpenFor] = useState(false);
@@ -59,7 +59,7 @@ export default function Send({ sellCurrency, placeHolder }) {
             <SearchElementsT background={BgInput} color={blackSec}>
               {sel}
             </SearchElementsT>
-            <ArrowD open={openFor ? "rotate(225deg)" : "rotate(45deg)"} />
+            <ArrowD color={ArrowColor} open={openFor ? "rotate(225deg)" : "rotate(45deg)"} />
           </SearchElements>
           {openFor && (
             <SearchCurrencyDiv background={BgInput}>

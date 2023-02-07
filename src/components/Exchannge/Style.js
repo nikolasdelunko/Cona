@@ -100,7 +100,7 @@ export const ExchangeTimeText = styled.p`
   line-height: 150%;
   text-align: center;
   letter-spacing: -0.011em;
-  color: ${(props) => props.color};
+  color: ${props=>props.color};
   padding-bottom: 12px;
 `;
 

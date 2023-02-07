@@ -9,12 +9,7 @@ export const ExchangeInp = styled.input`
   padding-left: 12px;
   width: 100%;
   height: 34px;
-  background: #linear-gradient(
-    271.68deg,
-    #1f215d 0.42%,
-    #5f4da1 26.24%,
-    #ff6e00 94.87%
-  );
+  background: ${(props) => props.background};
   border-radius: 6px;
   border: none;
   font-family: auto;
@@ -23,7 +18,7 @@ export const ExchangeInp = styled.input`
   font-size: 12px;
   line-height: 150%;
   letter-spacing: -0.011em;
-  color: #ff6e00;
+  color: ${(props) => props.color};
   &::placeholder {
     font-family: auto;
     font-style: normal;
@@ -31,12 +26,7 @@ export const ExchangeInp = styled.input`
     font-size: 12px;
     line-height: 150%;
     letter-spacing: -0.011em;
-    color: #linear-gradient(
-      271.68deg,
-      #1f215d 0.42%,
-      #5f4da1 26.24%,
-      #ff6e00 94.87%
-    );
+    color: ${(props) => props.color};
   }
 `;
 
