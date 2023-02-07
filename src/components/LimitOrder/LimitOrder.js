@@ -65,7 +65,10 @@ export default function LimitOrder({ placeHolder, sellCurrency }) {
           open={openFor ? "6px 6px 0 0" : "6px"}
         >
           <SearchElementsT color={blackSec}>{sel}</SearchElementsT>
-          <ArrowD open={openFor ? "rotate(225deg)" : "rotate(45deg)"} />
+          <ArrowD
+            color={ArrowColor}
+            open={openFor ? "rotate(225deg)" : "rotate(45deg)"}
+          />
         </SearchElements>
         {openFor && (
           <SearchCurrencyDiv background={BgInput}>

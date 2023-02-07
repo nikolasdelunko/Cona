@@ -15,6 +15,7 @@ import {
 } from "../Exchannge/Style";
 import { MainBox, ExchangeInp, InpTextDiv, SummaryDiv } from "./Style";
 import { getAccount } from "../../utils/API/accountsAPI";
+import { blackSec, BgInput, searchBgChange, ArrowColor } from "../Style/Colors";
 
 export default function Deposit({ sellCurrency }) {
   const [openFor, setOpenFor] = useState(false);
@@ -36,29 +37,34 @@ export default function Deposit({ sellCurrency }) {
       <CurrencyDiv>
         <ExchangeP>Баланс для пополнения</ExchangeP>
         <SearchElements
+          color={BgInput}
           onClick={() => {
             setOpenFor(!openFor);
           }}
           open={openFor ? "6px 6px 0 0" : "6px"}
         >
-          <SearchElementsT>{sel}</SearchElementsT>
-          <ArrowD open={openFor ? "rotate(225deg)" : "rotate(45deg)"} />
+          <SearchElementsT color={blackSec}>{sel}</SearchElementsT>
+          <ArrowD
+            color={ArrowColor}
+            open={openFor ? "rotate(225deg)" : "rotate(45deg)"}
+          />
         </SearchElements>
         {openFor && (
-          <SearchCurrencyDiv>
+          <SearchCurrencyDiv background={BgInput}>
             <SearchDiv>
               <Line />
             </SearchDiv>
             <SearchCurrency>
               {data.map((i) => (
                 <SearchElement
+                  color={BgInput}
                   onClick={() => {
                     setSel(i.currency);
                     setOpenFor(!openFor);
                   }}
                 >
-                  <SearchP>{i.currency}</SearchP>
-                  <SearchP>{i.balance}</SearchP>
+                  <SearchP color={blackSec}>{i.currency}</SearchP>
+                  <SearchP color={blackSec}>{i.balance}</SearchP>
                 </SearchElement>
               ))}
             </SearchCurrency>
@@ -68,8 +74,8 @@ export default function Deposit({ sellCurrency }) {
       <ExchangeP>Сумма</ExchangeP>
       <SummaryDiv>
         <InpTextDiv>
-          <ExchangeInpText>{sel}</ExchangeInpText>
-          <ExchangeInp placeholder="0" />
+          <ExchangeInpText color={blackSec}>{sel}</ExchangeInpText>
+          <ExchangeInp background={BgInput} color={blackSec} placeholder="0" />
         </InpTextDiv>
       </SummaryDiv>
     </MainBox>
