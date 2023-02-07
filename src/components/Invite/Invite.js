@@ -5,6 +5,7 @@ import SearchIco from "../icons/Search";
 import Person from "./Person";
 import useSearch from "../../utils/CustomHooks/useSearch";
 import { getUsers } from "../../utils/API/userAPI";
+import { blackSec, BgInput, ArrowColor, searchBgChange } from "../Style/Colors";
 
 export default function Invite({ link }) {
   const [findName, setFindName] = useState("");
@@ -24,6 +25,7 @@ export default function Invite({ link }) {
     <MainBox link={link === "Invite" && "0 2rem;"}>
       <SearchBox>
         <Search
+          background={searchBgChange}
           primary
           placeholder={"поиск"}
           onChange={(e) => {

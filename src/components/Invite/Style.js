@@ -51,9 +51,9 @@ export const Checkbox = styled.input`
 
 export const Label = styled.label`
   content: "";
-  background: ${(props) => (props.checked ? "#ff7206" : "#f4f4f4")};
+  background: ${(props) => (props.checked ? "#14142B" : "#f4f4f4")};
   border-radius: 100%;
-  border: 1px solid #ff7206;
+  border: 1px solid #14142B;
   display: inline-block;
   width: 1em;
   height: 1em;

@@ -2,26 +2,14 @@ import styled from "styled-components";
 
 export const SearchCurrencyDiv = styled.div`
   width: 100%;
-  background: #linear-gradient(
-      271.68deg,
-      #1f215d 0.42%,
-      #5f4da1 26.24%,
-      #ff6e00 94.87%
-    )
-    2e;
+  background: ${(props) => props.background};
   border-radius: 0 0 6px 6px;
 `;
 
 export const SearchElements = styled.div`
   width: 100%;
   height: 34px;
-  background: #linear-gradient(
-      271.68deg,
-      #1f215d 0.42%,
-      #5f4da1 26.24%,
-      #ff6e00 94.87%
-    )
-    2e;
+  background: ${(props) => props.background};
   border-radius: ${(props) => props.open};
   border: none;
   display: flex;
@@ -31,7 +19,7 @@ export const SearchElements = styled.div`
 `;
 
 export const SearchElementsT = styled.p`
-  color: #ff6e00;
+  color: ${(props) => props.color};
   font-family: auto;
   font-style: normal;
   font-weight: 600;
@@ -42,8 +30,7 @@ export const SearchElementsT = styled.p`
 `;
 
 export const ArrowD = styled.i`
-  border: solid
-    #linear-gradient(271.68deg, #1f215d 0.42%, #5f4da1 26.24%, #ff6e00 94.87%);
+  border: solid ${(props) => props.color};
   border-width: 0 3px 3px 0;
   display: inline-block;
   padding: 3px;
@@ -55,7 +42,7 @@ export const Line = styled.div`
   width: 244px;
   height: 1px;
   margin-bottom: 12px;
-  background: rgb(255 110 0 / 23%);
+  background: rgb(6 6 6 / 23%);
 `;
 
 export const ExchangeP = styled.p`
@@ -82,13 +69,7 @@ export const ExchangeInp = styled.input`
   padding-left: 12px;
   width: 120px;
   height: 34px;
-  background: #linear-gradient(
-      271.68deg,
-      #1f215d 0.42%,
-      #5f4da1 26.24%,
-      #ff6e00 94.87%
-    )
-    2e;
+  background: ${(props) => props.background};
   border-radius: 6px;
   border: none;
   font-family: auto;
@@ -105,12 +86,7 @@ export const ExchangeInp = styled.input`
     font-size: 12px;
     line-height: 150%;
     letter-spacing: -0.011em;
-    color: #linear-gradient(
-      271.68deg,
-      #1f215d 0.42%,
-      #5f4da1 26.24%,
-      #ff6e00 94.87%
-    );
+    color: ${(props) => props.color};
   }
 `;
 
@@ -118,13 +94,7 @@ export const Input = styled.input`
   padding-left: 12px;
   width: 100%;
   height: 34px;
-  background: #linear-gradient(
-      271.68deg,
-      #1f215d 0.42%,
-      #5f4da1 26.24%,
-      #ff6e00 94.87%
-    )
-    2e;
+  background: ${(props) => props.background};
   border-radius: 6px;
   border: none;
   font-family: auto;
@@ -133,7 +103,7 @@ export const Input = styled.input`
   font-size: 12px;
   line-height: 150%;
   letter-spacing: -0.011em;
-  color: #ff6e00;
+  color: ${(props) => props.color};
 `;
 
 export const InputDiv = styled.div`
@@ -174,7 +144,7 @@ export const SearchP = styled.p`
   font-weight: 400;
   font-size: 14px;
   line-height: 30px;
-  color: #ff6e00;
+  color: ${(props) => props.color};
   margin-right: 5px;
 `;
 

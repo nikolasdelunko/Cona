@@ -21,6 +21,7 @@ import SearchIco from "../icons/Search";
 import Invite from "../Invite/Invite";
 import useSearch from "../../utils/CustomHooks/useSearch";
 import { getAccount } from "../../utils/API/accountsAPI";
+import { blackSec, BgInput, searchBgChange } from "../Style/Colors";
 
 export default function Send({ sellCurrency, placeHolder }) {
   const [openFor, setOpenFor] = useState(false);
@@ -44,26 +45,30 @@ export default function Send({ sellCurrency, placeHolder }) {
       <SummaryDiv>
         <InpTextDiv>
           <ExchangeP>Сумма</ExchangeP>
-          <ExchangeInp placeholder="0" />
+          <ExchangeInp background={BgInput} color={blackSec} placeholder="0" />
         </InpTextDiv>
         <CurrencyDiv>
           <ExchangeP>Баланс</ExchangeP>
           <SearchElements
+            background={BgInput}
             onClick={() => {
               setOpenFor(!openFor);
             }}
             open={openFor ? "6px 6px 0 0" : "6px"}
           >
-            <SearchElementsT>{sel}</SearchElementsT>
+            <SearchElementsT background={BgInput} color={blackSec}>
+              {sel}
+            </SearchElementsT>
             <ArrowD open={openFor ? "rotate(225deg)" : "rotate(45deg)"} />
           </SearchElements>
           {openFor && (
-            <SearchCurrencyDiv>
+            <SearchCurrencyDiv background={BgInput}>
               <SearchDiv>
                 <Line />
               </SearchDiv>
               <SearchBox>
                 <Search
+                  background={searchBgChange}
                   placeholder={"поиск"}
                   onChange={(e) => {
                     setFindName(e.target.value);
@@ -80,8 +85,8 @@ export default function Send({ sellCurrency, placeHolder }) {
                       setFindName("");
                     }}
                   >
-                    <SearchP>{i.currency}</SearchP>
-                    <SearchP>{i.balance}</SearchP>
+                    <SearchP color={blackSec}>{i.currency}</SearchP>
+                    <SearchP color={blackSec}>{i.balance}</SearchP>
                   </SearchElement>
                 ))}
               </SearchCurrency>

@@ -23,6 +23,7 @@ import { Search, SearchBox } from "../Style/Search";
 import SearchIco from "../icons/Search";
 import useSearch from "../../utils/CustomHooks/useSearch";
 import { getAccount } from "../../utils/API/accountsAPI";
+import { blackSec, BgInput, ArrowColor, searchBgChange } from "../Style/Colors";
 
 const LinkExchange = "TRC-20";
 const WalletAddr = "TJt2N93GYsjZoffp3aDdjQJ6nPuVvXLtjF";
@@ -58,26 +59,30 @@ export default function Withdraw({ sellCurrency, placeHolder }) {
       <SummaryDiv>
         <InpTextDiv>
           <ExchangeP>Сумма</ExchangeP>
-          <ExchangeInp placeholder="0" />
+          <ExchangeInp background={BgInput} color={blackSec} placeholder="0" />
         </InpTextDiv>
         <CurrencyDiv>
           <ExchangeP>Баланс</ExchangeP>
           <SearchElements
+            background={BgInput}
             onClick={() => {
               setOpenFor(!openFor);
             }}
             open={openFor ? "6px 6px 0 0" : "6px"}
           >
-            <SearchElementsT>{sel}</SearchElementsT>
+            <SearchElementsT background={BgInput} color={blackSec}>
+              {sel}
+            </SearchElementsT>
             <ArrowD open={openFor ? "rotate(225deg)" : "rotate(45deg)"} />
           </SearchElements>
           {openFor && (
-            <SearchCurrencyDiv>
+            <SearchCurrencyDiv background={BgInput}>
               <SearchDiv>
                 <Line />
               </SearchDiv>
               <SearchBox>
                 <Search
+                  background={searchBgChange}
                   primary
                   placeholder={placeHolder}
                   onChange={(e) => {
@@ -89,14 +94,15 @@ export default function Withdraw({ sellCurrency, placeHolder }) {
               <SearchCurrency>
                 {filterCurrency(data, findName).map((i) => (
                   <SearchElement
+                    color={BgInput}
                     onClick={() => {
                       setSel(i.currency);
                       setOpenFor(!openFor);
                       setFindName("");
                     }}
                   >
-                    <SearchP>{i.currency}</SearchP>
-                    <SearchP>{i.balance}</SearchP>
+                    <SearchP color={blackSec}>{i.currency}</SearchP>
+                    <SearchP color={blackSec}>{i.balance}</SearchP>
                   </SearchElement>
                 ))}
               </SearchCurrency>
@@ -108,7 +114,7 @@ export default function Withdraw({ sellCurrency, placeHolder }) {
         <ExchangeBox>
           <InputDiv>
             <ExchangeP>Номер карти</ExchangeP>
-            <Input />
+            <Input background={BgInput} />
           </InputDiv>
         </ExchangeBox>
       ) : (
@@ -116,13 +122,13 @@ export default function Withdraw({ sellCurrency, placeHolder }) {
           <ExchangeBox>
             <InputDiv>
               <ExchangeP>Адрес кошелька</ExchangeP>
-              <Input defaultValue={WalletAddr} />
+              <Input background={BgInput} defaultValue={WalletAddr} />
             </InputDiv>
           </ExchangeBox>
           <ExchangeBox>
             <InputDiv>
               <ExchangeP>Сеть</ExchangeP>
-              <Input defaultValue={LinkExchange} />
+              <Input background={BgInput} defaultValue={LinkExchange} />
             </InputDiv>
           </ExchangeBox>
         </div>

@@ -16,12 +16,8 @@ export default function Person({ el }) {
     <PersonBox>
       <LeftDiv>
         {el.link ? <LogoImg src={el.link} /> : <NoPhotoUser />}
-        <NameP>
-          {el.first_name}
-        </NameP>
-        <NameP>
-          {el.last_name}
-        </NameP>
+        <NameP>{el.first_name}</NameP>
+        <NameP>{el.last_name}</NameP>
       </LeftDiv>
       <Radio>
         <Checkbox id="radio-1" type="checkbox" />

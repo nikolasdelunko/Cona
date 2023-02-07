@@ -172,7 +172,9 @@ export default function Exchange({ placeHolder, sellCurrency }) {
           <ExchangeIcon color={blackSec} />
         </div>
         <InpTextDiv>
-          <ExchangeInpText>{buy}</ExchangeInpText>
+          <ExchangeInpText color={blackSec}>
+            {buy}
+          </ExchangeInpText>
           <ExchangeInp background={BgInput} placeholder="0" />
         </InpTextDiv>
       </SummaryDiv>
