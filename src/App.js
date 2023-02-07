@@ -28,6 +28,7 @@ import {
   IconBox,
 } from "./components/Style/MessageStyle";
 import ChevronUp from "./components/icons/ChevronUp";
+import { blackSec } from "./components/Style/Colors";
 
 function App() {
   const modal = useSelector((state) => state.helpers.modal);
@@ -106,9 +107,9 @@ function App() {
       {message.element === "SuccesCopy" && (
         <Message error={message.error}>
           <MessageDiv>
-            <TextError>{message.text}</TextError>
+            <TextError color={blackSec}>{message.text}</TextError>
             <IconBox>
-              <ChevronUp />
+              <ChevronUp color={blackSec} />
             </IconBox>
           </MessageDiv>
         </Message>

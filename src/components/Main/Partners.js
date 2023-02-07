@@ -14,6 +14,7 @@ import LinkIco from "../../components/icons/Link";
 import useMessage from "../../utils/CustomHooks/useMessage";
 import useModal from "../../utils/CustomHooks/useModal";
 import { getPartnersStatistic } from "../../utils/API/partnershipAPI";
+import { blackSec, sumColor } from "../Style/Colors";
 
 export default function Wallet() {
   const { showMessage } = useMessage();
@@ -35,38 +36,22 @@ export default function Wallet() {
   return (
     <MainContainer>
       <Container>
-        <Name>
-          Партнерская програма
-          <Link
-            onClick={() => {
-              showModal(
-                true,
-                "ReportPartners",
-                "Отчет по партнёрской програм...",
-                "Пригласить партнёра",
-                linkPart,
-                null
-              );
-            }}
-          >
-            см. отчёт
-          </Link>
-        </Name>
+        <Name>Партнерская програма</Name>
       </Container>
       <Container>
         <Content>
-          <ContentName>Всего Облигаций</ContentName>
-          <ContentName>Текущих Облигаций</ContentName>
-          <ContentName>Прибыль по партнёрской</ContentName>
-          <ContentName>Прибыль за сегодня</ContentName>
-          <ContentName> Открыто тарифов</ContentName>
+          <ContentName color={blackSec}>Всего Облигаций</ContentName>
+          <ContentName color={blackSec}>Текущих Облигаций</ContentName>
+          <ContentName color={blackSec}>Прибыль по партнёрской</ContentName>
+          <ContentName color={blackSec}>Прибыль за сегодня</ContentName>
+          <ContentName color={blackSec}> Открыто тарифов</ContentName>
         </Content>
         <Content>
-          <ContentSumm>{data?.All}</ContentSumm>
-          <ContentSumm>{data?.Current}</ContentSumm>
-          <ContentSumm>{data?.Profit}</ContentSumm>
-          <ContentSumm>{data?.ProfitToday}</ContentSumm>
-          <ContentSumm>{data?.Open}</ContentSumm>
+          <ContentSumm color={sumColor}>{data?.All}</ContentSumm>
+          <ContentSumm color={sumColor}>{data?.Current}</ContentSumm>
+          <ContentSumm color={sumColor}>{data?.Profit}</ContentSumm>
+          <ContentSumm color={sumColor}>{data?.ProfitToday}</ContentSumm>
+          <ContentSumm color={sumColor}>{data?.Open}</ContentSumm>
         </Content>
       </Container>
       <Container>
@@ -91,6 +76,23 @@ export default function Wallet() {
               }}
             >
               Мои партнёры
+            </Link>
+          </ContentBlock>
+          <ContentBlock>
+            <Link
+              color={blackSec}
+              onClick={() => {
+                showModal(
+                  true,
+                  "ReportPartners",
+                  "Отчет по партнёрской програм...",
+                  "Пригласить партнёра",
+                  linkPart,
+                  null
+                );
+              }}
+            >
+              отчёт
             </Link>
           </ContentBlock>
         </ContentCont>

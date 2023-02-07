@@ -31,7 +31,7 @@ export const Container = styled.div`
   margin-top: 18px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: start;
 `;
 
 export const LinkRight = styled.div`
@@ -40,7 +40,7 @@ export const LinkRight = styled.div`
   font-weight: 500;
   font-size: 14px;
   line-height: 150%;
-  color: #ed2e7e;
+  color: ${(props) => props.color};
   display: flex;
   cursor: pointer;
 `;
@@ -65,7 +65,7 @@ export const ContentBlock = styled.div`
 export const ContentCont = styled.div`
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: start;
   gap: 24px;
 `;
 
@@ -76,7 +76,7 @@ export const ContentName = styled.p`
   font-size: 14px;
   letter-spacing: -0.011em;
   line-height: 150%;
-  color: #14142b;
+  color: ${(props) => props.color};
 `;
 
 export const ContentSumm = styled.p`
@@ -89,7 +89,7 @@ export const ContentSumm = styled.p`
   font-size: 14px;
   text-align: right;
   font-weight: bold;
-  color: #ff6e00;
+  color: ${(props) => props.color};
 `;
 export const SummBox = styled.div`
   display: flex;
@@ -122,7 +122,7 @@ export const SumOpen = styled.p`
   font-size: 14px;
   line-height: 150%;
   text-align: right;
-  color: #ed2e7e;
+  color: ${(props) => props.color};
   margin: 0 3px;
 `;
 
@@ -132,7 +132,7 @@ export const FootLink = styled.p`
   font-weight: 400;
   font-size: 12px;
   line-height: 150%;
-  color: rgba(255, 110, 0, 0.62);
+  color: ${(props) => props.color};
   cursor: pointer;
 `;
 

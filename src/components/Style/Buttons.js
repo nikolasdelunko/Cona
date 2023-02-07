@@ -17,8 +17,9 @@ export const BtnPrimary = styled.button`
   padding: 8px 18px;
   background: linear-gradient(
     271.68deg,
-    #ff6e00 0.42%,
-    rgba(255, 110, 0, 0.62) 94.87%
+    #1f215d 0.42%,
+    #5f4da1 26.24%,
+    #9f79e5 94.87%
   );
   border-radius: 3px;
   border: none;
@@ -42,8 +43,8 @@ export const BtnIn = styled.div`
 export const Link = styled.a`
   font-style: normal;
   font-weight: 400;
-  font-size: 14px;
-  color: #ff6e00;
+  font-size: 12.5px;
+  color: {props => props.color};
   text-decoration-line: underline;
   cursor: pointer;
   margin: 0 0 0 3px;

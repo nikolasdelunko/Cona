@@ -17,6 +17,7 @@ import ArrowBox from "../../components/icons/ArrowBox";
 import Deposit from "../../components/icons/Deposit";
 import useModal from "../../utils/CustomHooks/useModal";
 import { GetUserDeposits } from "../../utils/API/depositsAPI";
+import { blackSec } from "../Style/Colors";
 
 export default function Wallet() {
   const { showModal } = useModal();
@@ -31,50 +32,33 @@ export default function Wallet() {
     fetchUsers();
   }, []);
 
-
   const telegram = window.Telegram.WebApp;
 
   return (
     <Content>
       <Container>
-        <Name bg={telegram === "light" ? true : false}>
-          Ваш кошелёк
-          <Link
-            onClick={() => {
-              showModal(
-                true,
-                "Report",
-                "Выписка по балансу",
-                "Скачать PDF",
-                "Фильтровать по названию актива",
-                null
-              );
-            }}
-          >
-            см. отчёт
-          </Link>
-        </Name>
-        <LinkRight
-          onClick={() => {
-            showModal(
-              true,
-              "AllBalance",
-              "Все балансы",
-              null,
-              "Поиск актива",
-              null
-            );
-          }}
-        >
-          Все балансы
-          <ArrowContainer>
-            <ArrowBox />
-          </ArrowContainer>
-        </LinkRight>
+        <Name bg={telegram === "light" ? true : false}>Ваш кошелёк</Name>
       </Container>
       <Container>
         <Content>
-          <ContentName>Общий баланс</ContentName>
+          <ContentName>
+            Общий баланс
+            <Link
+              color={blackSec}
+              onClick={() => {
+                showModal(
+                  true,
+                  "AllBalance",
+                  "Все балансы",
+                  null,
+                  "Поиск актива",
+                  null
+                );
+              }}
+            >
+              Все балансы
+            </Link>
+          </ContentName>
           <ContentName>Баланс USDT</ContentName>
           <ContentName>
             Баланс KLK
@@ -113,25 +97,26 @@ export default function Wallet() {
           <ContentName>Пополнено/выведено</ContentName>
         </Content>
         <Content>
-          <ContentSumm>~{data?.Balance}</ContentSumm>
-          <ContentSumm>{data?.USDT}</ContentSumm>
+          <ContentSumm color={blackSec}>~{data?.Balance}</ContentSumm>
+          <ContentSumm color={blackSec}>{data?.USDT}</ContentSumm>
           <div>
             <SummBox>
-              <ContentSumm>{data?.KLK}</ContentSumm>
-              <SumProc>+7%</SumProc>
+              <ContentSumm color={blackSec}>{data?.KLK}</ContentSumm>
+              {/* <SumProc>+7%</SumProc> */}
             </SummBox>
           </div>
           <SummBox>
-            <ContentSumm>{data?.KLD}</ContentSumm>
-            <SumProc>+0.2%</SumProc>
+            <ContentSumm color={blackSec}>{data?.KLD}</ContentSumm>
+            {/* <SumProc>+0.2%</SumProc> */}
           </SummBox>
-          <ContentSumm>~{data?.DepositWithdrawal}</ContentSumm>
+          <ContentSumm color={blackSec}>~{data?.DepositWithdrawal}</ContentSumm>
         </Content>
       </Container>
       <Container>
         <ContentCont>
           <ContentBlock>
             <Link
+              color={blackSec}
               onClick={() => {
                 showModal(
                   true,
@@ -146,6 +131,7 @@ export default function Wallet() {
               Обменять
             </Link>
             <Link
+              color={blackSec}
               onClick={() => {
                 showModal(
                   true,
@@ -157,7 +143,22 @@ export default function Wallet() {
                 );
               }}
             >
-              Ордер
+              Выставить Ордер
+            </Link>
+            <Link
+              color={blackSec}
+              onClick={() => {
+                showModal(
+                  true,
+                  "Report",
+                  "Выписка по балансу",
+                  "Скачать PDF",
+                  "Фильтровать по названию актива",
+                  null
+                );
+              }}
+            >
+              Получить отчет
             </Link>
           </ContentBlock>
           <ContentBlock>
@@ -176,6 +177,7 @@ export default function Wallet() {
               <Link>Перевести</Link>
             </div>
             <Link
+              color={blackSec}
               onClick={() => {
                 showModal(
                   true,

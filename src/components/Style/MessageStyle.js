@@ -37,7 +37,7 @@ export const ErrorLine = styled.div`
   width: ${(props) => props.line};
   left: 10px;
   height: 2px;
-  background: #ed2e7e;
+  background: ${(props) => props.color};
   border-radius: 1px;
   position: absolute;
   bottom: 0;
@@ -48,7 +48,7 @@ export const SuccessLine = styled.div`
   width: ${(props) => props.line};
   left: 10px;
   height: 2px;
-  background: #ff6e00;
+  background: ${(props) => props.color};
   border-radius: 1px;
   position: absolute;
   bottom: 0;
@@ -63,5 +63,5 @@ export const TextError = styled.p`
   font-weight: 400;
   font-size: 12px;
   line-height: 150%;
-  color: #ff6e00;
+  color: ${(props) => props.color};
 `;

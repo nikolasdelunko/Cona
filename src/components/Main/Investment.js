@@ -17,6 +17,7 @@ import { Link, BtnPrimary, BtnText, BtnIn } from "../Style/Buttons";
 import Rocket from "../../components/icons/Rocket";
 import useModal from "../../utils/CustomHooks/useModal";
 import { GetAllInvest } from "../../utils/API/investAPI";
+import { blackSec, sumColor } from "../Style/Colors";
 
 export default function Wallet() {
   const { showModal } = useModal();
@@ -35,58 +36,44 @@ export default function Wallet() {
   return (
     <MainContainer>
       <Container>
-        <Name>
-          Облигации
-          <Link
-            onClick={() => {
-              showModal(
-                true,
-                "Investment",
-                "Отчет по инвестициям",
-                "Инвестировать",
-                null,
-                null
-              );
-            }}
-          >
-            см. отчёт
-          </Link>
-        </Name>
+        <Name>Инвестиции</Name>
       </Container>
       <Container>
         <Content>
-          <ContentName>Общие облигации</ContentName>
-          <ContentName>Прибыль по облигациям</ContentName>
+          <ContentName>Общий вклад</ContentName>
+          <ContentName>Прибыль с облигаций</ContentName>
           <SummLeft>
-            <ContentName>открыто</ContentName> <SumOpen>{data?.Open}</SumOpen>
-            <ContentName> тарифов на </ContentName>
+            <ContentName>Приобретено</ContentName>{" "}
+            <SumOpen color={blackSec}>{data?.Open}</SumOpen>
+            <ContentName>облигаций на</ContentName>
           </SummLeft>
         </Content>
         <Content>
-          <ContentSumm>{data?.General}</ContentSumm>
+          <ContentSumm color={sumColor}>{data?.General}</ContentSumm>
           <SummBox>
-            <ContentSumm>{data?.Profit}</ContentSumm>
-            <SumProc>+1.2%</SumProc>
+            <ContentSumm color={sumColor}>{data?.Profit}</ContentSumm>
+            {/* <SumProc>+1.2%</SumProc> */}
           </SummBox>
-          <ContentSumm>{data?.Rate}</ContentSumm>
+          <ContentSumm color={sumColor}>{data?.Rate}</ContentSumm>
         </Content>
       </Container>
       <Container>
         <ContentCont>
           <ContentBlock>
             <Link
+              color={blackSec}
               onClick={() => {
                 showModal(
                   true,
-                  "UserInvest",
-                  "Ваши облигации",
-                  null,
+                  "Investment",
+                  "Отчет по инвестициям",
+                  "Инвестировать",
                   null,
                   null
                 );
               }}
             >
-              Смотреть тарифы
+              Получить отчет
             </Link>
           </ContentBlock>
         </ContentCont>

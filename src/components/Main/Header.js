@@ -2,10 +2,10 @@ import React from "react";
 import Youtube from "../icons/Youtube";
 import Telegram from "../icons/Telegram";
 import Instagram from "../icons/Instagram";
-import Question from "../icons/Question";
 import { LinkBox, Header } from "./Style";
-import { BtnOutline } from "../Style/Buttons";
+import { Link } from "../Style/Buttons";
 import useModal from "../../utils/CustomHooks/useModal";
+import { blackSec } from "../Style/Colors";
 
 export default function Head() {
   const { showModal } = useModal();
@@ -13,11 +13,11 @@ export default function Head() {
     <div>
       <Header>
         <LinkBox>
-          <Youtube />
-          <Telegram />
-          <Instagram />
+          <Youtube color={blackSec} />
+          <Telegram color={blackSec} />
+          <Instagram color={blackSec} />
         </LinkBox>
-        <BtnOutline
+        <Link
           onClick={() => {
             showModal(
               true,
@@ -29,8 +29,8 @@ export default function Head() {
             );
           }}
         >
-          FAQ <Question />
-        </BtnOutline>
+          FAQ
+        </Link>
       </Header>
     </div>
   );

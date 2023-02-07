@@ -7,6 +7,7 @@ import {
   ContentDiv,
   ErrorLine,
 } from "../Style/MessageStyle";
+import { massageColor } from "../Style/Colors";
 
 export default function Message({ error, children, info }) {
   const dispatch = useDispatch();
@@ -31,9 +32,9 @@ export default function Message({ error, children, info }) {
       <ContentDiv info={message.icon}>
         {children}
         {error ? (
-          <ErrorLine line={`${lineTime}%`} />
+          <ErrorLine color={massageColor} line={`${lineTime}%`} />
         ) : (
-          <SuccessLine line={`${lineTime}%`} />
+          <SuccessLine color={massageColor} line={`${lineTime}%`} />
         )}
       </ContentDiv>
     </ModalDiv>
