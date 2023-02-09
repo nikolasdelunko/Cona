@@ -6,6 +6,7 @@ export const MainBox = styled.div`
 `;
 
 export const ExchangeInp = styled.input`
+  outline: none;
   padding-left: 12px;
   width: 100%;
   height: 34px;

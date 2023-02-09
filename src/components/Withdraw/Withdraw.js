@@ -73,7 +73,10 @@ export default function Withdraw({ sellCurrency, placeHolder }) {
             <SearchElementsT background={BgInput} color={blackSec}>
               {sel}
             </SearchElementsT>
-            <ArrowD  color={ArrowColor} open={openFor ? "rotate(225deg)" : "rotate(45deg)"} />
+            <ArrowD
+              color={ArrowColor}
+              open={openFor ? "rotate(225deg)" : "rotate(45deg)"}
+            />
           </SearchElements>
           {openFor && (
             <SearchCurrencyDiv background={BgInput}>
@@ -114,7 +117,7 @@ export default function Withdraw({ sellCurrency, placeHolder }) {
         <ExchangeBox>
           <InputDiv>
             <ExchangeP>Номер карти</ExchangeP>
-            <Input background={BgInput} />
+            <Input background={BgInput} color={blackSec} />
           </InputDiv>
         </ExchangeBox>
       ) : (
@@ -122,7 +125,11 @@ export default function Withdraw({ sellCurrency, placeHolder }) {
           <ExchangeBox>
             <InputDiv>
               <ExchangeP>Адрес кошелька</ExchangeP>
-              <Input background={BgInput} defaultValue={WalletAddr} />
+              <Input
+                background={BgInput}
+                color={blackSec}
+                defaultValue={WalletAddr}
+              />
             </InputDiv>
           </ExchangeBox>
           <ExchangeBox>

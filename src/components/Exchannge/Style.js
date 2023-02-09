@@ -65,6 +65,7 @@ export const ExchangeBox = styled.div`
 `;
 
 export const ExchangeInp = styled.input`
+  outline: none;
   padding-left: 12px;
   width: 120px;
   height: 34px;
@@ -77,7 +78,7 @@ export const ExchangeInp = styled.input`
   font-size: 12px;
   line-height: 150%;
   letter-spacing: -0.011em;
-  color: #ff6e00;
+  color: ${(props) => props.color};
   &::placeholder {
     font-family: auto;
     font-style: normal;
@@ -100,7 +101,7 @@ export const ExchangeTimeText = styled.p`
   line-height: 150%;
   text-align: center;
   letter-spacing: -0.011em;
-  color: ${props=>props.color};
+  color: ${(props) => props.color};
   padding-bottom: 12px;
 `;
 

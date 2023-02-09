@@ -78,7 +78,8 @@ export const ExchangeInp = styled.input`
   font-size: 12px;
   line-height: 150%;
   letter-spacing: -0.011em;
-  color: #ff6e00;
+  color: ${(props) => props.color};
+  outline: none;
   &::placeholder {
     font-family: auto;
     font-style: normal;
@@ -91,6 +92,7 @@ export const ExchangeInp = styled.input`
 `;
 
 export const Input = styled.input`
+  outline: none;
   padding-left: 12px;
   width: 100%;
   height: 34px;

@@ -1,9 +1,11 @@
 import styled from "styled-components";
 
 export const Search = styled.input`
+  outline: none;
   display: block;
   width: ${(props) => (props.primary ? "100%" : "90%")};
   height: 34px;
+  outline: none;
   left: 26px;
   top: 191px;
   border: none;

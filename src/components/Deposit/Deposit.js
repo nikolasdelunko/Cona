@@ -75,7 +75,7 @@ export default function Deposit({ sellCurrency }) {
       <SummaryDiv>
         <InpTextDiv>
           <ExchangeInpText color={blackSec}>{sel}</ExchangeInpText>
-          <ExchangeInp background={BgInput} color={blackSec} placeholder="0" />
+          <ExchangeInp color={blackSec} background={BgInput} placeholder="0" />
         </InpTextDiv>
       </SummaryDiv>
     </MainBox>
