@@ -13,6 +13,7 @@ import {
 import NoPhotoUser from "../icons/NoPhoto";
 import ArrowRight from "../icons/ArrowRight";
 import useModal from "../../utils/CustomHooks/useModal";
+import { ArrowColor } from "../Style/Colors";
 
 export default function Person({ el }) {
   const { showModal } = useModal();
@@ -69,7 +70,7 @@ export default function Person({ el }) {
               );
             }}
           >
-            <ArrowRight />
+            <ArrowRight color={ArrowColor} />
           </RightDiv>
         </PersonBox>
       </PersonBorder>

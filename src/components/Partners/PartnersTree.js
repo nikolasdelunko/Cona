@@ -6,7 +6,7 @@ import GroupFinger from "../icons/GroupFinger";
 import Person from "./Person";
 import { MainBox } from "../Invite/Style";
 import { GetAllPartnerships } from "../../utils/API/partnershipAPI";
-
+import { blackSec } from "../Style/Colors";
 
 export default function PartnersTree() {
   const message = useSelector((state) => state.helpers.message);
@@ -32,7 +32,7 @@ export default function PartnersTree() {
             <MessageDiv>
               <TextError>{message.text}</TextError>
               <IconBox>
-                <GroupFinger />
+                <GroupFinger color={blackSec} />
               </IconBox>
             </MessageDiv>
           </Message>
