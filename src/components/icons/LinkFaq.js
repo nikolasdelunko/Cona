@@ -1,6 +1,6 @@
 import React from "react";
 
-const LinkFaq = () => {
+const LinkFaq = ({color}) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -27,8 +27,8 @@ const LinkFaq = () => {
           y2="17.6335"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#ff6e00" />
-          <stop offset="1" stopColor="#ff6e00" stopOpacity="0.8" />
+          <stop stop-color={color} />
+          <stop offset="1" stopColor={color} stopOpacity="0.8" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_62_2295"
@@ -38,8 +38,8 @@ const LinkFaq = () => {
           y2="17.6331"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#ff6e00" />
-          <stop offset="1" stop-color="#ff6e00" stop-opacity="0.8" />
+          <stop stop-color={color} />
+          <stop offset="1" stop-color={color} stop-opacity="0.8" />
         </linearGradient>
         <linearGradient
           id="paint2_linear_62_2295"
@@ -49,8 +49,8 @@ const LinkFaq = () => {
           y2="18"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#ff6e00" />
-          <stop offset="1" stopColor="#ff6e00" stopOpacity="0.8" />
+          <stop stop-color={color} />
+          <stop offset="1" stopColor={color} stopOpacity="0.8" />
         </linearGradient>
       </defs>
     </svg>

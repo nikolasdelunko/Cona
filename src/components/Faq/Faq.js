@@ -14,6 +14,7 @@ import { BtnPrimary } from "../Style/Buttons";
 import useModal from "../../utils/CustomHooks/useModal";
 import useSearch from "../../utils/CustomHooks/useSearch";
 import { getVideo } from "../../utils/API/otherApi";
+import { sumColor, searchBgChange } from "../Style/Colors";
 
 export default function Faq({ placeHolder }) {
   const [findName, setFindName] = useState("");
@@ -34,6 +35,7 @@ export default function Faq({ placeHolder }) {
     <MainBox>
       <SearchBox>
         <Search
+          background={searchBgChange}
           placeholder={placeHolder}
           onChange={(e) => {
             setFindName(e.target.value);
@@ -49,7 +51,7 @@ export default function Faq({ placeHolder }) {
             }}
           >
             <LeftBox>
-              <LinkFaq />
+              <LinkFaq color={sumColor} />
               <SearchText>{i.name}</SearchText>
             </LeftBox>
             <BtnPrimary>
