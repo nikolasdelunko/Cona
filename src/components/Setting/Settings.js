@@ -21,6 +21,7 @@ import {
   ExchangeP,
 } from "../Exchannge/Style";
 import NoPhotoUser from "../icons/NoPhoto";
+import { blackSec, BgInput, ArrowColor, searchBgChange } from "../Style/Colors";
 
 const data = {
   name: "Олег Дружко",
@@ -49,16 +50,20 @@ export default function Settings() {
       </PersonBox>
       <ExchangeP>Способ двухфакторной аутентификации</ExchangeP>
       <SearchElements
+        color={BgInput}
         onClick={() => {
           setOpenFor(!openFor);
         }}
         open={openFor ? "6px 6px 0 0" : "6px"}
       >
-        <SearchElementsT>{sel}</SearchElementsT>
-        <ArrowD open={openFor ? "rotate(225deg)" : "rotate(45deg)"} />
+        <SearchElementsT color={blackSec}>{sel}</SearchElementsT>
+        <ArrowD
+          color={ArrowColor}
+          open={openFor ? "rotate(225deg)" : "rotate(45deg)"}
+        />
       </SearchElements>
       {openFor && (
-        <SearchCurrencyDiv>
+        <SearchCurrencyDiv background={BgInput}>
           <SearchDiv>
             <Line />
           </SearchDiv>
@@ -70,7 +75,7 @@ export default function Settings() {
                   setOpenFor(!openFor);
                 }}
               >
-                <SearchP>{i}</SearchP>
+                <SearchP color={blackSec}>{i}</SearchP>
               </SearchElement>
             ))}
           </SearchCurrency>
@@ -78,28 +83,33 @@ export default function Settings() {
       )}
       <ExchangeP>Язык</ExchangeP>
       <SearchElements
+        color={BgInput}
         onClick={() => {
           setOpenLeng(!openLeng);
         }}
         open={openLeng ? "6px 6px 0 0" : "6px"}
       >
-        <SearchElementsT>{leng}</SearchElementsT>
-        <ArrowD open={openLeng ? "rotate(225deg)" : "rotate(45deg)"} />
+        <SearchElementsT color={blackSec}>{leng}</SearchElementsT>
+        <ArrowD
+          color={ArrowColor}
+          open={openLeng ? "rotate(225deg)" : "rotate(45deg)"}
+        />
       </SearchElements>
       {openLeng && (
-        <SearchCurrencyDiv>
+        <SearchCurrencyDiv background={BgInput}>
           <SearchDiv>
             <Line />
           </SearchDiv>
           <SearchCurrency>
             {dataLeng.map((i) => (
               <SearchElement
+                color={BgInput}
                 onClick={() => {
                   setLeng(i);
                   setOpenLeng(!openLeng);
                 }}
               >
-                <SearchP>{i}</SearchP>
+                <SearchP color={blackSec}>{i}</SearchP>
               </SearchElement>
             ))}
           </SearchCurrency>
