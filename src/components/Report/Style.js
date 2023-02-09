@@ -33,7 +33,7 @@ export const DataP = styled.p`
   font-size: 14px;
   line-height: 150%;
   letter-spacing: -0.011em;
-  color: #14142b;
+  color: ${(props) => props.color};
 `;
 
 export const DataSum = styled.p`
@@ -46,7 +46,7 @@ export const DataSum = styled.p`
   font-family: auto;
   font-weight: 700;
   letter-spacing: 0.08em;
-  color: #ff6e00;
+  color: ${(props) => props.color};
 `;
 
 export const DataInfoBox = styled.div`
@@ -54,7 +54,7 @@ export const DataInfoBox = styled.div`
   height: 70px;
   left: 26px;
   top: 375px;
-  background: rgb(255 247 241);
+  background: ${(props) => props.background};
   box-shadow: 0px 4px 8px rgba(88, 88, 88, 0.12);
   border-radius: 10px;
   margin: 12px 0;
@@ -70,7 +70,7 @@ export const DataInfoDate = styled.p`
   line-height: 119%;
   letter-spacing: -0.022em;
   text-transform: capitalize;
-  color: #ff6e00;
+  color: ${(props) => props.color};
 `;
 
 export const DataInfoText = styled.p`
@@ -81,7 +81,7 @@ export const DataInfoText = styled.p`
   line-height: 119%;
   font-weight: bold;
   letter-spacing: -0.022em;
-  color: #14142b;
+  color: ${(props) => props.color};
 `;
 
 export const DataInfoTextBox = styled.div`

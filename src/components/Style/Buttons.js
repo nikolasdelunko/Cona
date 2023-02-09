@@ -3,8 +3,8 @@ import styled from "styled-components";
 export const BtnOutline = styled.button`
   background: transparent;
   border-radius: 3px;
-  border: 2px solid #ff6e00;
-  color: #ff6e00;
+  border: 2px solid ${(props) => props.color};
+  color: ${(props) => props.color};
   padding: 0.25em 1em;
   cursor: pointer;
   height: ${(props) => (props.primary ? "25px" : "none")};

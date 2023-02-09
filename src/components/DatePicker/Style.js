@@ -40,9 +40,8 @@ export const Day = styled.td`
   width: 35.6px;
   height: 38.24px;
   background: ${(props) =>
-    props.open &&
-    "linear-gradient( 271.68deg, #ff6e00 0.42%, rgba(255,110,0,0.62) 94.87% )"};
-  background-color: ${(props) => props.range && "wheat"};
+    props.open && "linear-gradient(146.96deg, #9F79E5 -4.87%, #343074 92.99%)"};
+  background-color: ${(props) => props.range && "rgba(20, 20, 43, 0.06)"};
   //? check
   border-radius: ${(props) => (props.open ? "7.11905px" : "none")};
   font-family: auto;
@@ -51,7 +50,7 @@ export const Day = styled.td`
   font-size: 14px;
   line-height: 24px;
   align-items: center;
-  color: ${(props) => (props.open ? "#FFFFFF" : "#ff750d")};
+  color: ${(props) => (props.open ? "#FFFFFF" : "#1F215D")};
   border: ${(props) => (props.border ? "1px solid" : "none")};
 `;
 
@@ -65,5 +64,5 @@ export const DayName = styled.th`
   font-weight: 400;
   font-size: 14px;
   line-height: 20px;
-  color: rgb(255 111 2 / 62%);
+  color: "#1f215d";
 `;

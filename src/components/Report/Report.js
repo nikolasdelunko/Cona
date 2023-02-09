@@ -26,6 +26,7 @@ import {
   setSearchArr,
 } from "../../store/search/searchSlice";
 import moment from "moment";
+import { blackSec, BgInput, searchBgChange } from "../Style/Colors";
 
 export default function Report({ placeHolder }) {
   const dispatch = useDispatch();
@@ -117,6 +118,7 @@ export default function Report({ placeHolder }) {
           </BtnPrimary>
         ) : (
           <BtnOutline
+            color={blackSec}
             primary
             onClick={() => {
               dispatch(clearToggle());
@@ -133,6 +135,7 @@ export default function Report({ placeHolder }) {
           </BtnPrimary>
         ) : (
           <BtnOutline
+            color={blackSec}
             primary
             onClick={() => {
               dispatch(clearToggle());
@@ -149,6 +152,7 @@ export default function Report({ placeHolder }) {
           </BtnPrimary>
         ) : (
           <BtnOutline
+            color={blackSec}
             primary
             onClick={() => {
               dispatch(clearToggle());
@@ -160,16 +164,18 @@ export default function Report({ placeHolder }) {
           </BtnOutline>
         )}
         <BtnOutline
+          color={blackSec}
           onClick={() => {
             showModal(true, "DataPicker", null, "Применить", 1, null);
           }}
         >
-          Выбрать дату <DateIco />
+          Выбрать дату <DateIco color={blackSec} />
         </BtnOutline>
       </DayBox>
       <SearchDiv>
         <SearchBox>
           <Search
+            background={searchBgChange}
             placeholder={placeHolder}
             onChange={filterTrans}
             ref={inputRef}
@@ -179,16 +185,16 @@ export default function Report({ placeHolder }) {
       </SearchDiv>
       {data?.map((el) => (
         <DataDiv>
-          <DataP>{el.name}</DataP>
-          <DataSum>{el.balance}</DataSum>
+          <DataP color={blackSec}>{el.name}</DataP>
+          <DataSum color={blackSec}>{el.balance}</DataSum>
         </DataDiv>
       ))}
       {searcArr.map((i) => (
-        <DataInfoBox>
-          <WinnerCup />
+        <DataInfoBox background={BgInput}>
+          <WinnerCup color={blackSec} />
           <DataInfoTextBox>
-            <DataInfoDate>{i.date}</DataInfoDate>
-            <DataInfoText>{i.balance}</DataInfoText>
+            <DataInfoDate color={blackSec}>{i.date}</DataInfoDate>
+            <DataInfoText color={blackSec}>{i.balance}</DataInfoText>
           </DataInfoTextBox>
         </DataInfoBox>
       ))}
