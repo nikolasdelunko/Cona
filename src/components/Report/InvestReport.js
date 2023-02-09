@@ -23,6 +23,7 @@ import {
   setSearchArr,
 } from "../../store/search/searchSlice";
 import moment from "moment";
+import { blackSec, BgInput, searchBgChange } from "../Style/Colors";
 
 export default function Report({ placeHolder }) {
   const [activeP, setActiveP] = useState();
@@ -98,9 +99,10 @@ export default function Report({ placeHolder }) {
           </BtnPrimary>
         ) : (
           <BtnOutline
+            color={blackSec}
             primary
             onClick={() => {
-							dispatch(clearToggle())
+              dispatch(clearToggle());
               setActiveP(7);
               searchFilters(7);
             }}
@@ -114,9 +116,10 @@ export default function Report({ placeHolder }) {
           </BtnPrimary>
         ) : (
           <BtnOutline
+            color={blackSec}
             primary
             onClick={() => {
-							dispatch(clearToggle())
+              dispatch(clearToggle());
               setActiveP(30);
               searchFilters(30);
             }}
@@ -130,9 +133,10 @@ export default function Report({ placeHolder }) {
           </BtnPrimary>
         ) : (
           <BtnOutline
+            color={blackSec}
             primary
             onClick={() => {
-							dispatch(clearToggle())
+              dispatch(clearToggle());
               setActiveP(90);
               searchFilters(90);
             }}
@@ -141,25 +145,26 @@ export default function Report({ placeHolder }) {
           </BtnOutline>
         )}
         <BtnOutline
+          color={blackSec}
           onClick={() => {
             showModal(true, "DataPicker", null, "Применить", 2, null);
           }}
         >
-          Выбрать дату <DateIco />
+          Выбрать дату <DateIco color={blackSec} />
         </BtnOutline>
       </DayBox>
       {data?.map((el) => (
         <DataDiv>
-          <DataP>{el.name}</DataP>
-          <DataSum>{el.balance}</DataSum>
+          <DataP color={blackSec}>{el.name}</DataP>
+          <DataSum color={blackSec}>{el.balance}</DataSum>
         </DataDiv>
       ))}
       {searcArr?.map((i) => (
         <DataInfoBox>
-          <OkLine />
+          <OkLine color={blackSec} />
           <DataInfoTextBox>
-            <DataInfoDate>{i.date}</DataInfoDate>
-            <DataInfoText>{i.balance}</DataInfoText>
+            <DataInfoDate color={blackSec}>{i.date}</DataInfoDate>
+            <DataInfoText color={blackSec}>{i.balance}</DataInfoText>
           </DataInfoTextBox>
         </DataInfoBox>
       ))}

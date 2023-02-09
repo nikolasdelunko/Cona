@@ -26,6 +26,7 @@ import {
 } from "../../store/search/searchSlice";
 import moment from "moment";
 import { clearToggle } from "../../store/calendar/calendarSlice";
+import { blackSec, BgInput, searchBgChange } from "../Style/Colors";
 
 export default function Partners({ placeHolder }) {
   const [activeP, setActiveP] = useState();
@@ -115,9 +116,10 @@ export default function Partners({ placeHolder }) {
           </BtnPrimary>
         ) : (
           <BtnOutline
+            color={blackSec}
             primary
             onClick={() => {
-							dispatch(clearToggle())
+              dispatch(clearToggle());
               setActiveP(7);
               searchFilters(7);
             }}
@@ -131,9 +133,10 @@ export default function Partners({ placeHolder }) {
           </BtnPrimary>
         ) : (
           <BtnOutline
+            color={blackSec}
             primary
             onClick={() => {
-							dispatch(clearToggle())
+              dispatch(clearToggle());
               setActiveP(30);
               searchFilters(30);
             }}
@@ -147,9 +150,10 @@ export default function Partners({ placeHolder }) {
           </BtnPrimary>
         ) : (
           <BtnOutline
+            color={blackSec}
             primary
             onClick={() => {
-							dispatch(clearToggle())
+              dispatch(clearToggle());
               setActiveP(90);
               searchFilters(90);
             }}
@@ -158,16 +162,18 @@ export default function Partners({ placeHolder }) {
           </BtnOutline>
         )}
         <BtnOutline
+          color={blackSec}
           onClick={() => {
             showModal(true, "DataPicker", null, "Применить", 3, null);
           }}
         >
-          Выбрать дату <DateIco />
+          Выбрать дату <DateIco color={blackSec} />
         </BtnOutline>
       </DayBox>
       <SearchDiv>
         <SearchBox>
           <Search
+            background={searchBgChange}
             placeholder={placeHolder}
             onChange={filterTrans}
             ref={inputRef}
@@ -177,16 +183,16 @@ export default function Partners({ placeHolder }) {
       </SearchDiv>
       {data?.map((el) => (
         <DataDiv>
-          <DataP>{el.name}</DataP>
-          <DataSum>{el.balance}</DataSum>
+          <DataP color={blackSec}>{el.name}</DataP>
+          <DataSum color={blackSec}>{el.balance}</DataSum>
         </DataDiv>
       ))}
       {searcArr?.map((i) => (
         <DataInfoBox>
-          <OkLine />
+          <OkLine color={blackSec} />
           <DataInfoTextBox>
-            <DataInfoDate>{i.date}</DataInfoDate>
-            <DataInfoText>{i.balance}</DataInfoText>
+            <DataInfoDate color={blackSec}>{i.date}</DataInfoDate>
+            <DataInfoText color={blackSec}>{i.balance}</DataInfoText>
           </DataInfoTextBox>
         </DataInfoBox>
       ))}
