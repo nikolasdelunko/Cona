@@ -2,4 +2,4 @@ import axios from "axios";
 
 import { url } from "./url";
 
-export const GetAllInvest = () => axios.get(`${url}/invest`);
+export const GetAllInvest = () => axios.get(`${url}/api/invest`);

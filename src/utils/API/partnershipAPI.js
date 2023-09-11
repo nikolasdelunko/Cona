@@ -2,17 +2,18 @@ import axios from "axios";
 import { url } from "./url";
 
 export const GetAllPartnerships = () =>
-  axios.get(`${url}/users/1/partnerships`);
+  axios.get(`${url}/api/users/1/partnerships`);
 export const GetPartnership = (data) =>
-  axios.patch(`${url}/users/1/partnerships/${data}`);
+  axios.patch(`${url}/api/users/1/partnerships/${data}`);
 
 export const createPartnership = (data) =>
-  axios.post(`${url}users/1/partnerships`, data);
+  axios.post(`${url}/api/users/1/partnerships`, data);
 
 export const AddAffiliate = (data) =>
-  axios.post(`${url}/users/1/partnerships/1/3`, data);
+  axios.post(`${url}/api/users/1/partnerships/1/3`, data);
 
-export const getPartnersStatistic = () => axios.get(`${url}/partnersReport`);
+export const getPartnersStatistic = () =>
+  axios.get(`${url}/api/partnersReport`);
 
 ///! example
 // {
