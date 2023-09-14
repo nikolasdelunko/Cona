@@ -7,13 +7,13 @@ export const GetPartnership = (data) =>
   axios.patch(`${url}/api/users/1/partnerships/${data}`);
 
 export const createPartnership = (data) =>
-  axios.post(`${url}/api/users/1/partnerships`, data);
+  axios.post(`${url}/api/users/70/partnerships`, data);
 
 export const AddAffiliate = (data) =>
-  axios.post(`${url}/api/users/1/partnerships/1/3`, data);
+  axios.post(`${url}/api/users/70/partnerships/1/3`, data);
 
 export const getPartnersStatistic = () =>
-  axios.get(`${url}/api/partnersReport`);
+  axios.get(`${url}/api/users/70/partners`);
 
 ///! example
 // {
